@@ -1,38 +1,189 @@
-.App {
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+.GetStarted {
+  /* color: brown; */
+  background-image: url("./images/Rectangle 1 (2).jpeg");
+  margin-top: -15%;
+  display: flex;
+  background-repeat: no-repeat;
+  background-size:cover;
+  color: #ffffff;
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.GetStarted .card{
+  margin-top: 15%;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.RegisterPg {
+  background-image: url("./images/Rectangle 1 (5).png");
+  /* height: 100%; */
+  margin-top: -15%;
+  display: flex;
+  background-repeat: no-repeat;
+  background-size:cover;
+  color: #ffffff;
+  text-align: center;
+  /* margin-top: 0%; */
 }
+.RegisterPg{
+  background-image: url("./images/Rectangle 1 (5).png");
+  /* height: 100%; */
+  /* margin-top: -15%; */
+  display: flex;
+  background-repeat: no-repeat;
+  background-size:cover;
+  /* color: #ffffff; */
+  text-align: center;
+  /* margin-top: 0%; 
+}
+.card {
+  width: 494.89px;
+  height: 531.94px;
+  margin-left: 200px;
+  margin-top: 250px;
+  background: rgba(0, 0, 0, 0.51);
+  backdrop-filter: blur(7.5px);
+  border-radius: 37.9507px;
+}
+.card input{
+  width: 90%;
+  height: 50px;
+  margin-top: 2%;
+  border-radius: 10pc;
+  background: transparent;
+  border: 1px solid rgb(102, 102, 102);
+  color: lightgray;
+  padding: 2%;
+}
+.card .continueBtn{
+  box-sizing: border-box;
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Auto layout */
+
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 15px 40px;
+gap: 10px;
+
+/* position: absolute; */
+width: 358px;
+height: 62px;
+left: 1167.71px;
+top: 741.35px;
+border: none;
+background: #471CF1;
+border-radius: 10px;
+}
+.card-body {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+}
+.card-title {
+  font-weight: 400;
+  font-size: 36.2257px;
+  line-height: 54px;
+  color: #ffffff;
+  margin-top: 8%;
+  margin-bottom: 2%;
+}
+.GSBtn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 40px;
+  gap: 10px;
+  width: 358px;
+  height: 62px;
+  left: 758.98px;
+  top: 375.65px;
+  color: #ffffff;
+  background: #471cf1;
+  border-radius: 10px;
+  font-weight: 100;
+  border: 0;
+  margin-top: 4%;
+}
+.GSBtngoogle {
+  display: flex;
+  /* flex-direction: row; */
+  /* justify-content: center;
+  align-items: center; */
+  padding: 15px 40px;
+  width: 358px;
+  height: 62px;
+  left: 758.98px;
+  top: 446.65px;
+  color: #ffffff;
+  background: #282828;
+  border-radius: 10px;
+  font-weight: 100;
+  border: 0;
+  margin-top: 2%;
+}
+.GetStarted p {
+  font-size: 14px;
+  line-height: 21px;
+  color: #999999;
+  margin-top: 5%;
+}
+.GetStarted p a {
+  font-size: 14px;
+  /* line-height: 21px; */
   color: white;
+  font-weight: 100;
+  text-decoration: none;
+}
+.GSintro {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  text-align: center;
+  color: #ffffff;
+}
+.GSLeft {
+  padding-top: 44%;
+  padding-bottom: 5%;
+  padding-left: 5%;
+  text-align: left;
+  width: 550px;
 }
 
-.App-link {
-  color: #61dafb;
+.GSLeft span {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.6);
 }
+.PgNo {
+  left: 72.62px;
+  top: 578.65px;
+  font-weight: 400;
+  font-size: 36.2257px;
+  line-height: 54px;
+  color: #ffffff;
+}
+.dotWhite {
+  width: 60px;
+  height: 10px;
+  left: 72.62px;
+  top: 753.89px;
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  background: #ffffff;
+  border-radius: 100px;
+}
+.dotGray {
+  width: 31.1px;
+  height: 10px;
+  left: 135.98px;
+  top: 753.89px;
+
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 100px;
 }
