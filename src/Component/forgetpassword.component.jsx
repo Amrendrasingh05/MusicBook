@@ -1,15 +1,15 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-function login() {
-    function forgetpassword(){
-        window.open("/forgetpassword","_self")
+function forgetpassword() {
+    function verification(){
+        window.open("/verification","_self")
     }
     return (
 
-        <div className="login">
+        <div className="forgetpassword">
 
             <div className="left">
                 <div className="pgNo">01</div>
-                <div className="leftHeading">Welcome Back</div>
+                <div className="leftHeading">Forget Password</div>
                 <div className="left-text">Lorem ipsum dolor sit amet consectetur adipisicing elit</div>
                 <div className="dots">
                     <div className="dot-white"></div>
@@ -20,12 +20,12 @@ function login() {
 
             <div className="card">
                 <div className="card-body">
-                    <h1 className="card-title">LOGIN</h1>
-                    <p className="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing </p>
+                    <h1 className="card-title-small">FORGET PASSWORD</h1>
+                    <p className="card-text">Lorem ipsum dolor sit amet consectetur adipisicing </p>
                     <input type="email" name="" id="" placeholder="Email"/>
-                    <input type="password" name="" id="" placeholder="Password"/>
                     <p className="card-text">Remember me &nbsp;&nbsp;&nbsp;&nbsp; <a href="">Forget password?</a></p>
-                    <button className="loginWithEmail" onClick={forgetpassword}>Continue</button>
+                    <button className="loginWithEmail buttonFull" onClick={verification}>Submit</button>
+                    <button className="loginWithMobile buttonFull">Back</button>
                     <p className="card-text">I don't Have Account? <a href="">Create New</a></p>
                 </div>
             </div>
@@ -33,4 +33,4 @@ function login() {
     );
 
 }
-export default login;
+export default forgetpassword;

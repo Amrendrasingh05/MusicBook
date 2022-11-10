@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500&display=swap');
 * {
   box-sizing: border-box;
   margin: 0;
@@ -6,184 +6,192 @@
   font-family: "Poppins", sans-serif;
 }
 .GetStarted {
-  /* color: brown; */
   background-image: url("./images/Rectangle 1 (2).jpeg");
-  margin-top: -15%;
   display: flex;
   background-repeat: no-repeat;
-  background-size:cover;
-  color: #ffffff;
-  text-align: center;
+  background-size: cover;
+  /* text-align: center; */
+  height: 100vh;
 }
-.GetStarted .card{
-  margin-top: 15%;
+.register{
+  background-image: url("./images/Rectangle 1 (1).jpg");
+  display: flex;
+  /* justify-content: center; */
+  /* align-items: center; */
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* text-align: center; */
+  height: 100vh;
 }
-.RegisterPg {
-  background-image: url("./images/Rectangle 1 (5).png");
-  /* height: 100%; */
-  margin-top: -15%;
+.login{
+  background-image: url("./images/Rectangle 1 (4).jpg");
   display: flex;
   background-repeat: no-repeat;
-  background-size:cover;
-  color: #ffffff;
-  text-align: center;
-  /* margin-top: 0%; */
+  background-size: cover;
+  /* text-align: center; */
+  height: 100vh;
 }
-.RegisterPg{
-  background-image: url("./images/Rectangle 1 (5).png");
-  /* height: 100%; */
-  /* margin-top: -15%; */
+.forgetpassword{
+  background-image: url("./images/Rectangle 17.jpg");
   display: flex;
   background-repeat: no-repeat;
-  background-size:cover;
-  /* color: #ffffff; */
-  text-align: center;
-  /* margin-top: 0%; 
+  background-size: cover;
+  /* text-align: center; */
+  height: 100vh;
 }
 .card {
-  width: 494.89px;
-  height: 531.94px;
-  margin-left: 200px;
-  margin-top: 250px;
-  background: rgba(0, 0, 0, 0.51);
-  backdrop-filter: blur(7.5px);
-  border-radius: 37.9507px;
-}
-.card input{
-  width: 90%;
-  height: 50px;
-  margin-top: 2%;
-  border-radius: 10pc;
-  background: transparent;
-  border: 1px solid rgb(102, 102, 102);
-  color: lightgray;
-  padding: 2%;
-}
-.card .continueBtn{
-  box-sizing: border-box;
-
-/* Auto layout */
-
-display: flex;
-flex-direction: row;
+  display: flex;
+/* flex-direction: row; */
 justify-content: center;
 align-items: center;
-padding: 15px 40px;
-gap: 10px;
-
-/* position: absolute; */
-width: 358px;
-height: 62px;
-left: 1167.71px;
-top: 741.35px;
-border: none;
-background: #471CF1;
-border-radius: 10px;
+  width: 480px;
+  height: fit-content !important;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  left: 350px;
+  top: 80px;
+  line-height: 30px;
+  border-radius: 37.9507px !important;
+  text-align: center;
 }
-.card-body {
+.Registercard {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+/* flex-direction: row; */
+justify-content: center;
+align-items: center;
+  width: 480px;
+  height: fit-content !important;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  left: 350px;
+  top: 50px;
+  line-height: 30px;
+  border-radius: 37.9507px !important;
+  text-align: center;
+}
+.card-body{
+  /* margin-top: 20px;
+  max-width: 420px; */
+  margin: 31px;
 }
 .card-title {
+  font-weight: 600;
+  font-size: 30px;
+}
+.card-title-small {
+  font-weight: 600;
+  font-size: 30px;
+}
+.card-text {
   font-weight: 400;
-  font-size: 36.2257px;
-  line-height: 54px;
-  color: #ffffff;
-  margin-top: 8%;
-  margin-bottom: 2%;
+  font-size: 14px !important;
+  margin-bottom: 0%;
 }
-.GSBtn {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 15px 40px;
-  gap: 10px;
-  width: 358px;
-  height: 62px;
-  left: 758.98px;
-  top: 375.65px;
-  color: #ffffff;
-  background: #471cf1;
-  border-radius: 10px;
-  font-weight: 100;
-  border: 0;
-  margin-top: 4%;
+.card button{
+/* padding: 17.413px 46.4347px; */
+gap: 11.61px;
+width: 80%;
+height: 51.97px;
+border-radius: 11.6087px;
+margin-top: 10px;
+border: 0;
+text-align: center;
 }
-.GSBtngoogle {
-  display: flex;
-  /* flex-direction: row; */
-  /* justify-content: center;
-  align-items: center; */
-  padding: 15px 40px;
-  width: 358px;
-  height: 62px;
-  left: 758.98px;
-  top: 446.65px;
-  color: #ffffff;
-  background: #282828;
-  border-radius: 10px;
-  font-weight: 100;
-  border: 0;
-  margin-top: 2%;
-}
-.GetStarted p {
-  font-size: 14px;
-  line-height: 21px;
-  color: #999999;
-  margin-top: 5%;
-}
-.GetStarted p a {
-  font-size: 14px;
-  /* line-height: 21px; */
+.card .buttonFull{
+  gap: 11.61px;
+width: 80%;
+height: 51.97px;
+border-radius: 11.6087px;
+margin-top: 10px;
+border: 0;
+text-align: center;
+  }
+.loginWithEmail{
+  background: #471CF1;
   color: white;
-  font-weight: 100;
+}
+.loginWithMoile{
+  background: #d1d1d1;
+}
+.card p{
+  margin-top: 1%;
+  font-size: 16px;
+  color: #666666;
+}
+.card input{
+  width: 85%;
+height: 40.74px;
+background: #ECECFF;
+border: 1.05716px solid #2622FF;
+border-radius: 10.5716px;
+margin-top: 2%;
+padding: 10px;
+font-size: 14px;
+}
+.card a{
   text-decoration: none;
 }
-.GSintro {
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 21px;
-  text-align: center;
-  color: #ffffff;
+.left{
+  max-width: 400px;
+  margin-top: 380px;
+  margin-left: 4%;
 }
-.GSLeft {
-  padding-top: 44%;
-  padding-bottom: 5%;
-  padding-left: 5%;
-  text-align: left;
-  width: 550px;
-}
+.pgNo{
+  width: 35px;
+height: 54px;
+left: 72.62px;
+top: 792.17px;
 
-.GSLeft span {
-  font-size: 14px;
-  color: rgba(255, 255, 255, 0.6);
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 400;
+font-size: 36.2257px;
+line-height: 54px;
+
+color: rgba(255, 255, 255, 0.6);
+
 }
-.PgNo {
-  left: 72.62px;
-  top: 578.65px;
-  font-weight: 400;
-  font-size: 36.2257px;
-  line-height: 54px;
-  color: #ffffff;
+.leftHeading{
+  width: 391px;
+height: 72px;
+left: 72.62px;
+top: 846.17px;
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 600;
+font-size: 38px;
+line-height: 62px;
+/* identical to box height */
+
+
+color: #FFFFFF;
 }
-.dotWhite {
+.left-text{
+  color: rgba(206, 200, 200, 0.6);
+}
+.dots{
+  margin-top: 10px;
+  display: flex;
+}
+.dot-white{
   width: 60px;
-  height: 10px;
-  left: 72.62px;
-  top: 753.89px;
+height: 10px;
+left: 72.62px;
+top: 978.52px;
 
-  background: #ffffff;
-  border-radius: 100px;
+background: #FFFFFF;
+border-radius: 100px;
+
 }
-.dotGray {
+.dot-gray{
   width: 31.1px;
-  height: 10px;
-  left: 135.98px;
-  top: 753.89px;
+height: 10px;
+left: 135.98px;
+top: 978.52px;
 
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 100px;
+background: rgba(255, 255, 255, 0.2);
+border-radius: 100px;
 }
