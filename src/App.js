@@ -8,11 +8,13 @@ import register2 from './Component/register2.component';
 import login from './Component/login.component';
 import forgetpassword from './Component/forgetpassword.component';
 import verification from './Component/verification.component';
+import header from './Component/homePage.component';
+
 function App() {
   return (
     <Router>
       <Switch>
-      <Route exact path="/" component={getStarted} />
+      <Route exact path="/" component={header} />
       <Route exact path="/register1" component={register1} />
       <Route exact path="/register2" component={register2} />
       <Route exact path="/login" component={login} />
