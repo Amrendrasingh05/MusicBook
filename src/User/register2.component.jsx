@@ -7,12 +7,15 @@ function register() {
 
         <div className="register">
 
-            <div className="left">
-                <div className="pgNo">02</div>
-                <div className="leftHeading">Create Music</div>
-                <div className="left-text">Lorem ipsum dolor sit amet consectetur adipisicing elit</div>
-                <div className="dots">
-                    <div className="dot-white"></div>
+<div className="left">
+                {/* <div className="pgNo">01</div> */}
+                <div className="leftHeading">Teach your audiance what they want to learn</div>
+                {/* <div className="left-text">Lorem ipsum dolor sit amet consectetur adipisicing elit</div> */}
+                <br />
+                <br />
+                <br />
+                <br /><div className="dots">
+                    <div className="dot-purple"></div>
                     <div className="dot-gray"></div>
                     <div className="dot-gray"></div>
                 </div>

@@ -5,22 +5,27 @@ function register() {
     }
     return (
 
-        <div className="register">
+        <div className="professional-login">
 
-            <div className="left">
-                <div className="pgNo">02</div>
-                <div className="leftHeading">Create Music</div>
-                <div className="left-text">Lorem ipsum dolor sit amet consectetur adipisicing elit</div>
-                <div className="dots">
-                    <div className="dot-white"></div>
+<div className="left">
+                {/* <div className="pgNo">01</div> */}
+                <div className="leftHeading">Teach your audiance what they want to learn</div>
+                {/* <div className="left-text">Lorem ipsum dolor sit amet consectetur adipisicing elit</div> */}
+                <br />
+                <br />
+                <br />
+                <br /><div className="dots">
+                    <div className="dot-purple"></div>
                     <div className="dot-gray"></div>
                     <div className="dot-gray"></div>
                 </div>
             </div>
 
-            <div className="Registercard card">
+
+            <div className="Registercard card professional-card">
                 <div className="card-body">
-                    <h1 className="card-title">REGISTER</h1>
+                    <h1 className="professional-card-title">REGISTER</h1>
+                    <a href="https://stackoverflow.com/questions/11620698/how-to-trigger-a-file-download-when-clicking-an-html-button-or-javascript" download="resume.pdf">Download</a>
                     <p className="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing </p>
                     <input type="text" placeholder="Name"/>
                     <input type="email" name="" id="" placeholder="Email"/>
