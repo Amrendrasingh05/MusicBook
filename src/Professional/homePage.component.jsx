@@ -1,5 +1,5 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import Header from './header.component'
+import Header from './Professional_header.component'
 import leftImg1 from '../images/Rectangle 96.png'
 import leftImg2 from '../images/Rectangle 97.png'
 
@@ -8,18 +8,84 @@ import albumImg2 from '../images/Rectangle 71.png'
 import albumImg3 from '../images/Rectangle 73.png'
 import albumImg4 from '../images/Rectangle 74.png'
 
+// import {Modal} from reactstrap;
+import { useState } from "react";
+import {Modal , ModalBody, ModalHeader} from "reactstrap";
 
-function forgetpassword() {
-    function verification(){
-        window.open("/verification","_self")
-    }
+
+function Forgetpassword() {
+    
+    const [modal,setmodal] =useState(false)
+    const [modal2,setmodal2] =useState(false)
+    const [modal3,setmodal3] =useState(false)
+
+    
+
     return (
 
        <div>
+        <Modal
+        className="bg-dark text-white Modal"
+        // size="lg"
+        isOpen={modal}
+        toggle={()=>setmodal(!modal)}>
+            <ModalHeader
+            toggle={()=>setmodal(!modal)}
+            className="bg-black p-5"
+            >
+                <h6>Create Post</h6>
+                <p>Description</p>
+                <textarea name="" id="" cols="40" rows="5"
+                className="bg-dark"></textarea>
+                <div className="display-flex">
+                    <button className="btn btn-outline-secondary m-3">Upload</button>
+                    <button className="btn btn-outline-secondary m-3">Camera</button>
+                    <button className="btn btn-outline-secondary m-3">Live</button>
+                </div>
+                <center>
+                <button className="btn btn-primary">Upload Content</button>
+
+                </center>
+            </ModalHeader>
+            
+        </Modal>
+
+
+
+
+
+
+        <Modal
+        className="bg-dark text-white Modal"
+        // size="lg"
+        isOpen={modal2}
+        toggle={()=>setmodal2(!modal2)}>
+            <ModalHeader
+            toggle={()=>setmodal2(!modal2)}
+            className="bg-black p-5"
+            >
+                <h2>Create Class</h2>
+                <p className="text-secondary">Please fill all the requied fields</p>
+                <textarea name="" id="" cols="40" rows="3"
+                className="bg-dark"
+                placeholder="Upload Cover"></textarea>
+                <input type="text" className="bg-dark" placeholder="Create Title" />
+               <br /> <input type="text" className="bg-dark" placeholder="Tags"/>
+               <br /> <textarea name="" id="" cols="40" rows="3"
+                className="bg-dark"
+                placeholder="Course description"></textarea>
+                <center>
+                <button className="btn btn-primary">Course</button>
+
+                </center>
+            </ModalHeader>
+            
+        </Modal>
+       
        
        <Header/>
 
-       <div className="BasicStyle home">
+       <div className="BasicStyle-professional home">
         <div className="display-flex">
             
             <div className="home-left">
@@ -31,17 +97,17 @@ function forgetpassword() {
             </div>
            
             <div className="home-right">
-            <div className="home-right-top">
+            
                 <h6>Create Post</h6>
-                <p>Description</p>
-                <input type="text" />
-                <div className="display-flex">
-                    <button className="btn btn-outline-primary">Upload</button>
-                    <button className="btn btn-outline-primary">Camera</button>
-                    <button className="btn btn-outline-primary">Live</button>
-                    <button className="btn btn-outline-primary upload-content">Upload Content</button>
+                
+            
+            <div className="display-flex">
+                <button className="supportSubmitBtn" onClick={()=> setmodal(true)}>Post</button>
+                &nbsp;&nbsp;
+                <button className="supportSubmitBtn" onClick={()=> setmodal2(true)}>Class</button>
+                &nbsp;&nbsp;
+                <button className="supportSubmitBtn">Live</button>
                 </div>
-            </div>
 
             <div className="home-right-mid">
                 <br />
@@ -84,4 +150,4 @@ function forgetpassword() {
     );
 
 }
-export default forgetpassword;
+export default Forgetpassword;

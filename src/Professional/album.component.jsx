@@ -1,6 +1,6 @@
 import React,{useState} from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Header from './header.component'
+import Header from './Professional_header.component'
 import SlidingPanel from 'react-sliding-side-panel';
 // import profile from  '../images/Rectangle  83.png'
 import play from '../images/play.png'

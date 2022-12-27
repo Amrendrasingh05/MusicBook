@@ -1,5 +1,5 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import Header from './header.component'
+import Header from './Professional_header.component'
 import leftImg1 from '../images/Rectangle 80 (1).png'
 import leftImg2 from '../images/Rectangle 79.png'
 
@@ -16,7 +16,7 @@ function forgetpassword() {
 
             <Header />
 
-            <div className="BasicStyle home">
+            <div className="BasicStyle-professional home">
                 <div className="display-flex">
 
                     <div>

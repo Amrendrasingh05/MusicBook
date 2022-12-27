@@ -1,5 +1,5 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import Header from './header.component'
+import Header from './Professional_header.component'
 // import profile from  '../images/Rectangle  83.png'
 import profileImg from '../images/Rectangle 83.png'
 
