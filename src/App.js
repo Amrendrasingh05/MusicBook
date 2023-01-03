@@ -38,6 +38,7 @@ import aboutUs from './User/aboutUs.component';
 import privacy from './User/privacyPolicy.component';
 import support from './User/support.component';
 import album from './User/album.component';
+import landingPage from './User/LandingPage.component';
 
 function App() {
   return (
@@ -58,6 +59,7 @@ function App() {
       <Route exact path="/privacy" component={privacy} />
       <Route exact path="/support" component={support} />
       <Route exact path="/album" component={album} />
+      <Route exact path="/landing-page" component={landingPage} />
 
 
 

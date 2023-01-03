@@ -27,8 +27,8 @@ function forgetpassword() {
                     <p className="card-text">Lorem ipsum dolor sit amet consectetur adipisicing </p>
                     <input type="number" name="" id="" placeholder="Enter OTP"/>
                     <p className="card-text">Remember me &nbsp;&nbsp;&nbsp;&nbsp; <a href="">Forget password?</a></p>
-                    <button className="loginWithEmail buttonFull">Submit</button>
-                    <button className="loginWithMobile buttonFull" onClick={getStarted}>Back</button>
+                    <button className="loginWithEmail buttonFull" onClick={getStarted}>Submit</button>
+                    <button className="loginWithMobile buttonFull">Back</button>
                     <p className="card-text">Resend OTP in <a href="">26 sec</a></p>
                 </div>
             </div>

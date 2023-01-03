@@ -8,6 +8,21 @@
 .display-flex {
   display: flex;
 }
+button{
+  border: 0;
+}
+.landing-img-1{
+  background-image: url("./images/Landing1.png");
+  height: 100vh;
+  width: 700px;
+  background-size: cover;
+}
+.landing-img-2{
+  background-image: url("./images/Landing2.png");
+  height: 100vh;
+  width: 700px;
+  background-size: cover;
+}
 .GetStarted {
   background-image: url("./images/Rectangle 1 (2).jpeg");
   display: flex;
@@ -312,6 +327,10 @@
   max-height: 350px;
   overflow-y: scroll;
 }
+.home-right-bottom::-webkit-scrollbar{
+  border: 0;
+  background: transparent;
+}
 .home-right-bottom h5 {
   position: sticky;
   top: 10px;
@@ -320,44 +339,71 @@
   height: 165px;
   margin: 1%;
 }
-.Popup {
-  margin-left: 100%;
+.popup{
+  background: rgba(0, 0, 0, 0.6);
   position: absolute;
-  background-color: #000000;
+  backdrop-filter: blur(10px);
+  margin-top: -85%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1350px;
+  height: 100vh;
 }
-/* .modal {
-  font-size: 12px;
+.popup-box{
+  width: 700px;
+height: 400px;
+  color: white;
+display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 }
-.modal > .header {
-  width: 100%;
-  border-bottom: 1px solid gray;
-  font-size: 18px;
-  text-align: center;
-  padding: 5px;
+.popup-box-green{
+  width: 700px;
+height: 400px;
+background: #1F4926;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 }
-.modal > .content {
-  width: 100%;
-  padding: 10px 5px;
-}
-.modal > .actions {
-  width: 100%;
-  padding: 10px 5px;
-  margin: auto;
-  text-align: center;
-}
-.modal > .close {
-  cursor: pointer;
+.close-popup{
   position: absolute;
-  display: block;
-  padding: 2px 5px;
-  line-height: 20px;
-  right: -10px;
-  top: -10px;
-  font-size: 24px;
-  background: #ffffff;
-  border-radius: 18px;
-  border: 1px solid #cfcece;
-} */
+  top: 0;
+  right:0;
+}
+.ring{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: none;
+  animation: ring 1s linear infinite;
+}
+@keyframes ring{
+  0%{
+    transform: rotate(0deg);
+    box-shadow: 1px 1px 1px #ffffff;
+  }
+  50%{
+    transform: rotate(180deg);
+    box-shadow: 1px 1px 1px #ffffff;
+  }
+  100%{
+    transform: rotate(360deg);
+    box-shadow: 1px 1px 1px #ffffff;
+  }
+}
+.search{
+  width: 600px;
+height: 68px;
+padding:4%;
+border: 0;
+background: rgba(84, 84, 84, 0.63);
+border-radius: 100px;
+}
 .instructorHead {
   background-image: url("./images/Rectangle 80 (2).png");
   height: 55vh;
@@ -450,6 +496,20 @@
   max-width: 80px;
   margin-top: -0.1%;
 }
+.album-page{
+  height: 100vh;
+}
+.album-search{
+  height: 20px !important;
+  width: 20px !important;
+  margin-right: 10%;
+}
+.album-search:hover{
+  height: 25px !important;
+  width: 25px !important;
+  margin-right: 10%;
+  cursor: pointer;
+}
 .socialImages img{
   height: 20px;
   width: 20px;
@@ -519,26 +579,29 @@ border: 0;
   overflow-y: scroll;
   margin-bottom: 5%;
 }
+.album::-webkit-scrollbar {
+  border: 0;
+  background-color: transparent;
+}
 .album h5 {
   position: sticky;
   top: 10px;
 }
 .album img {
-  height: 165px;
+  height: 105px;
   margin: 1%;
 }
 .album-bottom{
-  width: 577.37px;
-height: 62px;
-left: 189.9px;
-top: 707.59px;
-/* margin-bottom: 1%; */
+  justify-content: space-between;
+  align-items: center;
+  width: 477.37px;
+height: 50px;
 background: #471CF1;
 border-radius: 100px;
 }
 .album-bottom img{
-  height: 60px;
-  width: 60px;
+  height: 40px;
+  width: 40px;
   border-radius: 50%;
 }
 .album-bottom p{
@@ -720,4 +783,57 @@ border-radius: 10px;
 }
 .three-dot-img{
   height: 30px !important;
+}
+
+
+.landing img{
+  height: 100vh;
+  width: 700px;
+}
+.landing-content{
+  color: white;
+  max-width: 400px;
+  margin-top: 50%;
+  margin-left: 7%;
+}
+.landing-content div{
+  display: flex;
+justify-content: center;
+align-items: center;
+padding: 10px;
+gap: 20px;
+width: 141px;
+height: 41px;
+left: 107px;
+top: 477px;
+
+background: #2E2E2E;
+
+}
+.landing-btn{
+  display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 20px;
+gap: 20px;
+width: 183px;
+height: 64px;
+left: 107px;
+top: 652px;
+
+background: #471CF1;
+border-radius: 10px;
+
+}
+.landing-btn:hover{
+background: #3612c9;
+cursor:pointer;
+}
+.close-popup{
+color:red !important;
+background:rgb(36, 17, 17) !important;
+height: 50px;
+width: 50px;
+border-radius: 100%;
 }

@@ -51,7 +51,17 @@ function forgetpassword() {
                             <h5 className="text-secondary">ABOUT THE ARTIST</h5>
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis facere harum vel vitae molestias illum, pariatur necessitatibus minima omnis voluptate ab reiciendis dicta. Quas tempore odit soluta in, minima cupiditate.</p>
                             <div className="display-flex">
-                                {BtnArray.map(buttons)}
+                                {/* {BtnArray.map(buttons)} */}
+                                 <button className="btn btn-outline-secondary">Digital Visiting Card</button> &nbsp;&nbsp;&nbsp;&nbsp;
+                                 <button className="btn btn-outline-secondary">My Purchase</button> &nbsp;&nbsp;&nbsp;&nbsp;
+                                 <button className="btn btn-outline-secondary" onClick={() => window.open("/support","_self")}>Support & Help</button> &nbsp;&nbsp;&nbsp;&nbsp;
+                                 <button className="btn btn-outline-secondary" onClick={() => window.open("/privacy","_self")}>Privacy Policy</button> &nbsp;&nbsp;&nbsp;&nbsp;
+                                
+                            </div>
+                            <br />
+                            <div className="display-flex">
+                            <button className="btn btn-outline-secondary">Rating</button> &nbsp;&nbsp;&nbsp;&nbsp;
+                                 <button className="btn btn-outline-secondary" onClick={() => window.open("/aboutUs","_self")}>About</button>
                                 
                             </div>
                             <br />
