@@ -44,7 +44,7 @@ function App() {
   return (
     <Router>
       <Switch>
-      <Route exact path="/" component={header} />
+      <Route exact path="/dashboard" component={header} />
       <Route exact path="/getstarted" component={getStarted} />
       <Route exact path="/register1" component={register1} />
       <Route exact path="/register2" component={register2} />
@@ -59,7 +59,7 @@ function App() {
       <Route exact path="/privacy" component={privacy} />
       <Route exact path="/support" component={support} />
       <Route exact path="/album" component={album} />
-      <Route exact path="/landing-page" component={landingPage} />
+      <Route exact path="/" component={landingPage} />
 
 
 

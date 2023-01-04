@@ -25,7 +25,7 @@ function Forgetpassword() {
                     <div className="position-sticky">
                         <div className="list-group list-group-flush mx-3 mt-4 ">
 
-                            <a className="list-group-item list-group-item-action py-2 ripple " onClick={() => window.open("/","_self")} aria-current="true">
+                            <a className="list-group-item list-group-item-action py-2 ripple " onClick={() => window.open("/dashboard","_self")} aria-current="true">
                                 <img src={sidebarImg1} alt="" />
                             </a>
                             <Popup show={show} onClose={() => setShow(false)}/>

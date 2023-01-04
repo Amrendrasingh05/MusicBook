@@ -24,7 +24,7 @@ function Popup({show, onClose}){
            <br />
            <input type="search" name="" id="" className='search' placeholder='Search'/>
            <br />
-           <div onClick={() => window.open("/","_self")}>
+           <div onClick={() => window.open("/dashboard","_self")}>
 
            <div>Back To Home</div>
            <div> ←</div>
