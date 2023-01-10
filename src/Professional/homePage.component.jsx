@@ -84,8 +84,8 @@ function Forgetpassword() {
        
        
        <Header/>
-
-       <div className="BasicStyle-professional home">
+BasicStyle-professional home
+       <div className="">
         <div className="display-flex">
             
             <div className="home-left">

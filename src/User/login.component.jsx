@@ -1,13 +1,60 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-function login() {
-    function forgetpassword(){
-        window.open("/forgetpassword","_self")
+import React, { useEffect, useState } from "react";
+
+
+function Login() {
+    function forgetpassword() {
+        window.open("/forgetpassword", "_self")
     }
+
+
+
+    const [mobile, setmobile] = useState("");
+    const [Pass, setPass] = useState("");
+    // let abx="kk";
+    async function postdata(url = '', data = {}, methods = '') {
+        // Default options are marked with *
+        const response = await fetch(url, {
+            method: methods,
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        });
+        return response.json();
+    }
+
+
+    function LoginBtn() {
+
+        let data = {
+            "email": "test1@gmail.com",
+            "password": "test"
+        }
+
+        postdata('http://musicbook.co.in/api/v1/auth/login', data, 'POST')
+            .then(data => {
+                if (data.code == 200) {
+                    console.log("successfully loged in")
+                    localStorage.setItem("auth_token",data.token)
+                    console.log(localStorage.getItem("auth_token"))
+                }
+                else {
+                    console.log("incorrect")
+
+                }
+            })
+
+        console.log("hiiiiii",data)
+
+    }
+
+
     return (
 
         <div className="login">
 
-<div className="left">
+            <div className="left">
                 {/* <div className="pgNo">01</div> */}
                 <div className="leftHeading">Teach your audiance what they want to learn</div>
                 {/* <div className="left-text">Lorem ipsum dolor sit amet consectetur adipisicing elit</div> */}
@@ -25,10 +72,10 @@ function login() {
                 <div className="card-body">
                     <h1 className="card-title">LOGIN</h1>
                     <p className="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing </p>
-                    <input type="email" name="" id="" placeholder="Email"/>
-                    <input type="password" name="" id="" placeholder="Password"/>
+                    <input type="email" name="" id="" placeholder="Email" />
+                    <input type="password" name="" id="" placeholder="Password" />
                     <p className="card-text">Remember me &nbsp;&nbsp;&nbsp;&nbsp; <a href="">Forget password?</a></p>
-                    <button className="loginWithEmail" onClick={forgetpassword}>Continue</button>
+                    <button className="loginWithEmail" onClick={LoginBtn}>Continue</button>
                     <p className="card-text">I don't Have Account? <a href="">Create New</a></p>
                 </div>
             </div>
@@ -36,4 +83,4 @@ function login() {
     );
 
 }
-export default login;
+export default Login;

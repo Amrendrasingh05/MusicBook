@@ -17,7 +17,7 @@ function forgetpassword() {
 
             <Header />
 
-            <div className="BasicStyle home">
+            <div className="BasicStyle-professional">
                 <div className="coursePurache display-flex">
 
                     <div>

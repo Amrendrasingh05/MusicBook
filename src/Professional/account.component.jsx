@@ -30,7 +30,7 @@ function forgetpassword() {
 
             <Header />
 
-            <div className="BasicStyle home">
+            <div className="BasicStyle-professional">
                 <div className="account">
 
                 </div>

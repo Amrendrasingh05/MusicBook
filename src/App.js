@@ -29,7 +29,7 @@ import register2 from './User/register2.component';
 import login from './User/login.component';
 import forgetpassword from './User/forgetpassword.component';
 import verification from './User/verification.component';
-import header from './User/homePage.component';
+import home from './User/homePage.component';
 import learning from './User/learning.component';
 import instructor from './User/instructor.component';
 import coursePurchase from './User/coursePurchase.component';
@@ -44,7 +44,7 @@ function App() {
   return (
     <Router>
       <Switch>
-      <Route exact path="/dashboard" component={header} />
+      <Route exact path="/dashboard" component={home} />
       <Route exact path="/getstarted" component={getStarted} />
       <Route exact path="/register1" component={register1} />
       <Route exact path="/register2" component={register2} />

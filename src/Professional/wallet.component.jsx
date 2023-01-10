@@ -35,7 +35,7 @@ function forgetpassword() {
 
             {/* <Header /> */}
 
-            <div className="BasicStyle black-bg">
+            <div className="BasicStyle-professional black-bg">
                 <div className="about">
                     <h5>◄ WALLET</h5>
                 </div>

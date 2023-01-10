@@ -44,7 +44,7 @@ function Forgetpassword() {
 
             <Header />
 
-            <div className="BasicStyle">
+            <div className="BasicStyle-professional">
 
             <div>
       <div>
