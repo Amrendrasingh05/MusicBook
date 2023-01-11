@@ -27,9 +27,9 @@ function login() {
                     <p className="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing </p>
                     <input type="email inpt" name="" id="" placeholder="Email"/>
                     <input type="password inpt" name="" id="" placeholder="Password"/>
-                    <p className="card-text">Remember me &nbsp;&nbsp;&nbsp;&nbsp; <a href="">Forget password?</a></p>
-                    <button className="loginWithEmail" onClick={forgetpassword}>Continue</button>
-                    <p className="card-text">I don't Have Account? <a href="">Create New</a></p>
+                    <p className="card-text">Remember me &nbsp;&nbsp;&nbsp;&nbsp; <a href="/professional-forgetPassword" onClick={() => window.open("/professional-forgetPassword","_self")}>Forget password?</a></p>
+                    <button className="loginWithEmail" onClick={() => window.open("/professional-home","_self")}>Continue</button>
+                    <p className="card-text">I don't Have Account? <a href="/professional-register1" onClick={() => window.open("/professional-register1","_self")}>Create New</a></p>
                 </div>
             </div>
         </div>

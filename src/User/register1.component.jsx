@@ -25,6 +25,7 @@ function register() {
                 <div className="card-body">
                     <h1 className="card-title">REGISTER</h1>
                     <p className="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing </p>
+                    {/* <input type="file" name="" id="" /> */}
                     <input type="text" placeholder="Name"/>
                     <input type="email" name="" id="" placeholder="Email"/>
                     <input type="password" name="" id="" placeholder="Password"/>

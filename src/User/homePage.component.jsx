@@ -46,13 +46,22 @@ function forgetpassword() {
             <div className="home-right-mid">
                 <br />
                 <h5>My Learnings</h5>
-                <div className="display-flex">
+                <div className="display-flex slider-left2right">
                     <div className="home-right-mid-blocks">
                         <h6>How to create Music Notes</h6>
                         <p>Write notes on the music staff to create a song. Notes are made of note heads, stems .....</p>
                         <span>12:30 Min Remaining</span>
                     </div>
                     <div className="home-right-mid-blocks">
+                        <h6>How to create Music Notes</h6>
+                        <p>Write notes on the music staff to create a song. Notes are made of note heads, stems .....</p>
+                        <span>12:30 Min Remaining</span>
+                    </div>
+                    <div className="home-right-mid-blocks">
+                        <h6>How to create Music Notes</h6>
+                        <p>Write notes on the music staff to create a song. Notes are made of note heads, stems .....</p>
+                        <span>12:30 Min Remaining</span>
+                    </div> <div className="home-right-mid-blocks">
                         <h6>How to create Music Notes</h6>
                         <p>Write notes on the music staff to create a song. Notes are made of note heads, stems .....</p>
                         <span>12:30 Min Remaining</span>

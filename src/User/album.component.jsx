@@ -98,7 +98,7 @@ function Forgetpassword() {
         <div className="album-bottom display-flex">
           <div className="display-flex" style={{alignItems:"center"}}>
           <img src={albumImg2} alt="" /> &nbsp;&nbsp;&nbsp;&nbsp;
-          <div style={{marginTop:"15%"}}>
+          <div style={{marginTop:"10%"}}>
             <h6>Giveaay</h6>
             <p>By Atif Aslam</p>
           </div>

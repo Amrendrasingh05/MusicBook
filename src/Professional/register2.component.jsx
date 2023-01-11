@@ -42,7 +42,7 @@ function register() {
 
                     
                     <p className="card-text">I Agree to <a href="">terms&conditions</a>and <a href="">privacy</a></p>
-                    <button className="loginWithEmail" onClick={login}>Continue</button>
+                    <button className="loginWithEmail" onClick={() => window.open("/professional-login","_self")}>Continue</button>
                     <p className="card-text">I don't Have Account? <a href="">Create New</a></p>
                 </div>
             </div>

@@ -1,6 +1,4 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import Header from './Professional_header.component'
-// import profile from  '../images/Rectangle  83.png'
 import profileImg from '../images/Rectangle 83.png'
 
 import Img1 from '../images/Rectangle 129.png'
@@ -9,6 +7,8 @@ import socialMediaImg2 from '../images/Vector (10).png'
 import socialMediaImg3 from '../images/Vector (20).png'
 import socialMediaImg4 from '../images/Vector (30).png'
 import socialMediaImg5 from '../images/Vector (40).png'
+import Header from './Professional_header.component'
+
 
 
 function forgetpassword() {
@@ -33,7 +33,7 @@ function forgetpassword() {
 
         <div className="black-bg">
 
-            {/* <Header /> */}
+            <Header />
 
             <div className="BasicStyle-professional black-bg">
                 <div className="about">

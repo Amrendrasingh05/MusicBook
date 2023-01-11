@@ -47,7 +47,7 @@ function forgetpassword() {
                 <div className="home-right-mid">
                     <br />
                     <h5>Cources</h5>
-                    <div className="display-flex">
+                    <div className="display-flex slider-left2right">
                         <div className="home-right-mid-blocks display-flex">
                             <img src={albumImg1} alt="" /> &nbsp;&nbsp;&nbsp;
                             <div>

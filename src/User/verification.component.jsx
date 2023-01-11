@@ -1,7 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 function forgetpassword() {
     function getStarted(){
-        window.open("/dashboard","_self")
+        window.open("/login","_self")
     }
     return (
 

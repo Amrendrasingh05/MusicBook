@@ -34,10 +34,13 @@ function Login() {
 
         postdata('http://musicbook.co.in/api/v1/auth/login', data, 'POST')
             .then(data => {
-                if (data.code == 200) {
+                if (data.status == true) {
                     console.log("successfully loged in")
                     localStorage.setItem("auth_token",data.token)
+                    localStorage.setItem("user_id",data.data._id)
                     console.log(localStorage.getItem("auth_token"))
+                    console.log(localStorage.getItem("user_id"))
+                    window.open("/dashboard","_self")
                 }
                 else {
                     console.log("incorrect")
@@ -61,7 +64,8 @@ function Login() {
                 <br />
                 <br />
                 <br />
-                <br /><div className="dots">
+                <br />
+                <div className="dots">
                     <div className="dot-purple"></div>
                     <div className="dot-gray"></div>
                     <div className="dot-gray"></div>
@@ -74,9 +78,9 @@ function Login() {
                     <p className="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing </p>
                     <input type="email" name="" id="" placeholder="Email" />
                     <input type="password" name="" id="" placeholder="Password" />
-                    <p className="card-text">Remember me &nbsp;&nbsp;&nbsp;&nbsp; <a href="">Forget password?</a></p>
+                    <p className="card-text">Remember me &nbsp;&nbsp;&nbsp;&nbsp; <a href="/forgetPassword">Forget password?</a></p>
                     <button className="loginWithEmail" onClick={LoginBtn}>Continue</button>
-                    <p className="card-text">I don't Have Account? <a href="">Create New</a></p>
+                    <p className="card-text">I don't Have Account? <a href="/register1">Create New</a></p>
                 </div>
             </div>
         </div>

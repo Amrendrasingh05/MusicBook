@@ -27,7 +27,7 @@ function forgetpassword() {
                     <p className="card-text">Lorem ipsum dolor sit amet consectetur adipisicing </p>
                     <input type="email" name="" id="" placeholder="Email" />
                     <p className="card-text">Remember me &nbsp;&nbsp;&nbsp;&nbsp; <a href="">Forget password?</a></p>
-                    <button className="loginWithEmail buttonFull" onClick={verification}>Submit</button>
+                    <button className="loginWithEmail buttonFull" onClick={() => window.open("/professional-verification","_self")}>Submit</button>
                     <button className="loginWithMobile buttonFull">Back</button>
                     <p className="card-text">I don't Have Account? <a href="">Create New</a></p>
                 </div>

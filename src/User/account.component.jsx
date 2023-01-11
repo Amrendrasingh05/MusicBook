@@ -7,23 +7,40 @@ import Img1 from '../images/Rectangle 108.png'
 import Img2 from '../images/Rectangle 111.png'
 
 
-function forgetpassword() {
-    function verification() {
-        window.open("/verification", "_self")
+import {useEffect} from 'react'
+
+function Account() {
+    
+
+    async function getdata(url = '', methods = '') {
+        const response = await fetch(url, {
+            method: methods,
+            headers: {
+                'Content-Type': 'application/json',
+                "auth-token": localStorage.getItem("auth_token")
+            },
+        });
+        return response.json();
     }
 
 
-    let BtnArray =["Digital Visiting Card","My Purchase","Support & Help","Privacy Policy","Rating","About"]
+    useEffect(() => {
+        getdata('http://musicbook.co.in/api/v1/auth/get-user-details?user_id='+localStorage.getItem("user_id"), 'GET')
+            .then(data => {
+                if (data.status == true) {
+                    console.log(data)
+                } 
+                else {
+                   console("incorrect")
 
-    function buttons(val) {
-        return (
-            <>
-            <button className="btn btn-outline-secondary accountBtn">{val}</button>
-                
-            </>
-        );
-    }
+                }
+            })
+    }, [])
 
+
+
+
+    
     return (
 
         <div>
@@ -90,4 +107,4 @@ function forgetpassword() {
     );
 
 }
-export default forgetpassword;
+export default Account;

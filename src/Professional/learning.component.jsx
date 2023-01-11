@@ -17,7 +17,7 @@ function forgetpassword() {
             <Header />
 
             <div className="BasicStyle-professional home">
-                <div className="display-flex">
+                <div className="display-flex justify-arrond">
 
                     <div>
                         <img src={leftImg1} alt="" />
@@ -35,7 +35,7 @@ function forgetpassword() {
                 <div className="home-right-mid">
                     <br />
                     <h5>My Learnings</h5>
-                    <div className="display-flex">
+                    <div className="display-flex slider-left2right2">
                         <div className="home-right-mid-blocks">
                             <h6>How to create Music Notes</h6>
                             <p>Write notes on the music staff to create a song. Notes are made of note heads, stems .....</p>
@@ -57,8 +57,8 @@ function forgetpassword() {
                 <div className="home-right-mid">
                     <br />
                     <h5>My Learnings</h5>
-                    <div className="display-flex">
-                        <div className="home-right-mid-blocks display-flex">
+                    <div className="display-flex slider-left2right2">
+                        <div className="home-right-mid-blocks display-flex" onClick={() => window.open("/Professional-coursePurchase","_self")}>
                             <img src={albumImg1} alt="" /> &nbsp;&nbsp;&nbsp;
                            <div>
                            <h6>How to create Music Notes</h6>

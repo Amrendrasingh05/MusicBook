@@ -84,8 +84,8 @@ function Forgetpassword() {
        
        
        <Header/>
-BasicStyle-professional home
-       <div className="">
+ 
+       <div className="BasicStyle-professional home">
         <div className="display-flex">
             
             <div className="home-left">
@@ -112,7 +112,17 @@ BasicStyle-professional home
             <div className="home-right-mid">
                 <br />
                 <h5>My Learnings</h5>
-                <div className="display-flex">
+                <div className="display-flex slider-left2right">
+                    <div className="home-right-mid-blocks">
+                        <h6>How to create Music Notes</h6>
+                        <p>Write notes on the music staff to create a song. Notes are made of note heads, stems .....</p>
+                        <span>12:30 Min Remaining</span>
+                    </div>
+                    <div className="home-right-mid-blocks">
+                        <h6>How to create Music Notes</h6>
+                        <p>Write notes on the music staff to create a song. Notes are made of note heads, stems .....</p>
+                        <span>12:30 Min Remaining</span>
+                    </div>
                     <div className="home-right-mid-blocks">
                         <h6>How to create Music Notes</h6>
                         <p>Write notes on the music staff to create a song. Notes are made of note heads, stems .....</p>
@@ -127,7 +137,7 @@ BasicStyle-professional home
             </div>
             <div className="home-right-bottom">
             <br />
-                <h5>Recent Albums</h5>
+                <h6>Recent Albums</h6>
                 <img src={albumImg1} alt="" />
                 <img src={albumImg2} alt="" />
                 <img src={albumImg2} alt="" />

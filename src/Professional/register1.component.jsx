@@ -32,7 +32,7 @@ function register() {
                     <input type="password" name="" id="" placeholder="Password"/>
                     <input type="password" name="" id="" placeholder="Confirm Password"/>
                     <p className="card-text">I Agree to <a href="">terms&conditions</a>and <a href="">privacy</a></p>
-                    <button className="loginWithEmail" onClick={Register2}>Continue</button>
+                    <button className="loginWithEmail" onClick={() => window.open("/professional-register2","_self")}>Continue</button>
                     <p className="card-text">I don't Have Account? <a href="">Create New</a></p>
                 </div>
             </div>

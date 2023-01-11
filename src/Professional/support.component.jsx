@@ -33,7 +33,7 @@ function forgetpassword() {
 
         <div className="black-bg">
 
-            {/* <Header /> */}
+            <Header />
 
             <div className="BasicStyle-professional black-bg">
                 <div className="about">

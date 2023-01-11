@@ -21,8 +21,8 @@ function getStarted() {
                 <div className="display-flex" style={{alignItems:"center"}}>
 
 
-                    <div>SIGN IN</div>
-                    <button className="btn btn-primary" style={{marginLeft:"4%"}}>CREATE ACCOUNT</button>
+                    <div onClick={() => window.open("/professional-login","_self")} style={{cursor:"pointer"}}>SIGN IN</div>
+                    <button className="btn btn-primary" style={{marginLeft:"4%"}} onClick={() => window.open("/professional-register1","_self")}>CREATE ACCOUNT</button>
                 </div>
 
             </div>
