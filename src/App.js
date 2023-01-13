@@ -27,7 +27,10 @@ import getStarted from './User/getStarted.component';
 import register1 from './User/register1.component';
 import register2 from './User/register2.component';
 import login from './User/login.component';
+import mobileLogin from './User/mobileLogin.component';
 import forgetpassword from './User/forgetpassword.component';
+import forgetpasswordOtp from './User/forgetPasswordOtp.component';
+import changePass from './User/changePassword.component';
 import verification from './User/verification.component';
 import home from './User/homePage.component';
 import learning from './User/learning.component';
@@ -49,7 +52,10 @@ function App() {
       <Route exact path="/register1" component={register1} />
       <Route exact path="/register2" component={register2} />
       <Route exact path="/login" component={login} />
+      <Route exact path="/mobile-login" component={mobileLogin} />
       <Route exact path="/forgetpassword" component={forgetpassword} />
+      <Route exact path="/forgetpassword-otp" component={forgetpasswordOtp} />
+      <Route exact path="/changePassword" component={changePass} />
       <Route exact path="/verification" component={verification} />
       <Route exact path="/learning" component={learning} />
       <Route exact path="/instructor" component={instructor} />

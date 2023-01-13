@@ -1,5 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import React, { useEffect, useState } from "react";
+import swal from 'sweetalert';
 
 
 function Login() {
@@ -9,9 +10,8 @@ function Login() {
 
 
 
-    const [email, setEmail] = useState("");
-    const [Pass, setPass] = useState("");
-    // let abx="kk";
+    const [mobile, setmobile] = useState("");
+    
     async function postdata(url = '', data = {}, methods = '') {
         // Default options are marked with *
         const response = await fetch(url, {
@@ -28,23 +28,23 @@ function Login() {
     function LoginBtn() {
 
         let data = {
-            "email": email,
-            "password": Pass
+            "mobile_number": mobile
         }
 
-        postdata('http://musicbook.co.in/api/v1/auth/login', data, 'POST')
+        postdata('http://musicbook.co.in/api/v1/auth/mobile-login', data, 'POST')
             .then(data => {
                 if (data.status == true) {
-                    console.log("successfully loged in")
-                    localStorage.setItem("auth_token",data.token)
-                    localStorage.setItem("user_id",data.data._id)
-                    console.log(localStorage.getItem("auth_token"))
-                    console.log(localStorage.getItem("user_id"))
-                    window.open("/dashboard","_self")
+                    // console.log("successfully loged in")
+                    localStorage.setItem("login_otp",data.data.login_otp)
+                    localStorage.setItem("mobile_num",mobile)
+                    // console.log(localStorage.getItem("auth_token"))
+                    // console.log(localStorage.getItem("user_id"))
+                    swal(data.message)
+                    window.open("/verification","_self")
                 }
                 else {
                     console.log("incorrect")
-
+                    swal(data.message)
                 }
             })
 
@@ -74,10 +74,9 @@ function Login() {
 
             <div className="card">
                 <div className="card-body">
-                    <h1 className="card-title">LOGIN</h1>
+                    <h1 className="card-title">LOGIN WITH MOBILE</h1>
                     <p className="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing </p>
-                    <input type="email" name="" id="" placeholder="Email" onChange={(e) => setEmail(e.target.value)}/>
-                    <input type="password" name="" id="" placeholder="Password" onChange={(e) => setPass(e.target.value)}/>
+                    <input type="number" name="" id="" placeholder="Mobile number" onChange={(e) => setmobile(e.target.value)}/>
                     <p className="card-text">Remember me &nbsp;&nbsp;&nbsp;&nbsp; <a href="/forgetPassword">Forget password?</a></p>
                     <button className="loginWithEmail" onClick={LoginBtn}>Continue</button>
                     <p className="card-text">I don't Have Account? <a href="/register1">Create New</a></p>

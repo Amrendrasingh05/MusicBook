@@ -17,27 +17,26 @@ function Verify() {
     }
 
 
-    const[otp , setOtp] = useState("")
+    const[Password , setPassword] = useState("")
 
     function LoginBtn() {
 
         let data = {
             "mobile_number": localStorage.getItem("mobile_num"),
-            "otp":otp
+            "password":Password
         }
 
-        postdata('http://musicbook.co.in/api/v1/auth/verify-login', data, 'POST')
+        postdata('http://musicbook.co.in/api/v1/auth/change-password', data, 'POST')
             .then(data => {
-                if (data.status == true) {
+                if (data.status == true && Password.length>1) {
                     
                     swal(data.message)
-                    localStorage.setItem("auth_token",data.token)
-                    localStorage.setItem("user_id",data.data._id)
-                    window.open("/dashboard","_self")
+                   
+                    window.open("/login","_self")
                 }
                 else {
                     console.log("incorrect")
-                    swal(data.message)
+                    swal("write correct password")
                 }
             })
 
@@ -64,14 +63,14 @@ function Verify() {
 
             <div className="card">
                 <div className="card-body">
-                    <h1 className="card-title">VERIFICATION</h1>
+                    <h1 className="card-title">CHANGE PASSWORD</h1>
                     <p className="card-text">Lorem ipsum dolor sit amet consectetur adipisicing </p>
-                    <p>Your OTP is: {localStorage.getItem("login_otp")}</p>
-                    <input type="number" name="" id="" placeholder="Enter OTP" onChange={(e) => setOtp(e.target.value)}/>
+                    {/* <p>Your Password is: {localStorage.getItem("forget_Password")}</p> */}
+                    <input type="text" name="" id="" placeholder="Enter New Password" onChange={(e) => setPassword(e.target.value)}/>
                     <p className="card-text">Remember me &nbsp;&nbsp;&nbsp;&nbsp; <a href="">Forget password?</a></p>
                     <button className="loginWithEmail buttonFull" onClick={LoginBtn}>Submit</button>
                     <button className="loginWithMobile buttonFull" onClick={() => window.open("/mobile-login","_self")}>Back</button>
-                    <p className="card-text">Resend OTP in <a href="">26 sec</a></p>
+                    {/* <p className="card-text">Resend Password in <a href="">26 sec</a></p> */}
                 </div>
             </div>
         </div>

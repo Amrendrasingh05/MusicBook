@@ -148,6 +148,16 @@ button {
   padding: 10px;
   font-size: 14px;
 }
+.card select {
+  width: 85%;
+  height: 40.74px;
+  background: #ececff;
+  border: 1.05716px solid #2622ff;
+  border-radius: 10.5716px;
+  margin-top: 2%;
+  padding: 10px;
+  font-size: 14px;
+}
 .card a {
   text-decoration: none;
 }
@@ -919,4 +929,10 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-around;
+}
+.round-img{
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+  border: 1px dotted gray;
 }

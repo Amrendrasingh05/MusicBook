@@ -8,6 +8,7 @@ import Img2 from '../images/Rectangle 111.png'
 
 
 import {useEffect} from 'react'
+import { useState } from "react";
 
 function Account() {
     
@@ -17,11 +18,15 @@ function Account() {
             method: methods,
             headers: {
                 'Content-Type': 'application/json',
-                "auth-token": localStorage.getItem("auth_token")
+                "authorization": localStorage.getItem("auth_token")
             },
         });
         return response.json();
     }
+
+    const[name , setName]=useState("");
+    const[email , setEmail]=useState("");
+    const[image , setImage]=useState("");
 
 
     useEffect(() => {
@@ -29,6 +34,9 @@ function Account() {
             .then(data => {
                 if (data.status == true) {
                     console.log(data)
+                    setName(data.data.full_name)
+                    setEmail(data.data.email)
+                    setImage(data.data.pic)
                 } 
                 else {
                    console("incorrect")
@@ -55,9 +63,10 @@ function Account() {
                 <div className="home-right-mid">
                     <div className="display-flex" >
                         <div style={{ maxWidth: "60%" }}>
-                            <img src={profileImg} alt="" style={{ marginTop: "-10%" }} />
-                            <h3>Miller Joeson</h3>
-                            <p>@millerjoe</p>
+                        {/* <img src={profileImg} alt="" style={{ marginTop: "-10%" }} /> */}
+                        <img src={image} alt="" style={{ marginTop: "-10%" }} className="round-img"/>
+                            <h3>{name}</h3>
+                            <p>{email}</p>
                             <div className="display-flex">
                                 <button className="TopPlayer">Top Player</button>
                                 <p className="display-flex">Profile Rattig &nbsp; <p className="text-warning"> 4.8</p></p>

@@ -26,14 +26,13 @@ function Verify() {
             "otp":otp
         }
 
-        postdata('http://musicbook.co.in/api/v1/auth/verify-login', data, 'POST')
+        postdata('http://musicbook.co.in/api/v1/auth/verify-otp', data, 'POST')
             .then(data => {
                 if (data.status == true) {
                     
                     swal(data.message)
-                    localStorage.setItem("auth_token",data.token)
-                    localStorage.setItem("user_id",data.data._id)
-                    window.open("/dashboard","_self")
+                   
+                    window.open("/changePassword","_self")
                 }
                 else {
                     console.log("incorrect")
@@ -66,7 +65,7 @@ function Verify() {
                 <div className="card-body">
                     <h1 className="card-title">VERIFICATION</h1>
                     <p className="card-text">Lorem ipsum dolor sit amet consectetur adipisicing </p>
-                    <p>Your OTP is: {localStorage.getItem("login_otp")}</p>
+                    <p>Your OTP is: {localStorage.getItem("forget_otp")}</p>
                     <input type="number" name="" id="" placeholder="Enter OTP" onChange={(e) => setOtp(e.target.value)}/>
                     <p className="card-text">Remember me &nbsp;&nbsp;&nbsp;&nbsp; <a href="">Forget password?</a></p>
                     <button className="loginWithEmail buttonFull" onClick={LoginBtn}>Submit</button>
