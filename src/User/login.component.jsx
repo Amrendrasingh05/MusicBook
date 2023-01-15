@@ -1,6 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import React, { useEffect, useState } from "react";
-
+import swal from "sweetalert";
 
 function Login() {
     function forgetpassword() {
@@ -43,7 +43,7 @@ function Login() {
                     window.open("/dashboard","_self")
                 }
                 else {
-                    console.log("incorrect")
+                   swal("incorrect credentials")
 
                 }
             })

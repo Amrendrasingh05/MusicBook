@@ -11,6 +11,9 @@
 button {
   border: 0;
 }
+.text-small{
+  font-size: 10px;
+}
 .landing-img-1 {
   background-image: url("./images/Landing1.png");
   height: 100vh;
@@ -265,12 +268,63 @@ button {
   background: black !important;
 }
 .home-left img {
-  width: 500px;
+  width: 480px;
   height: 320px;
-  left: 170px;
-  top: 208.54px;
   border-radius: 25px;
   padding-bottom: 2%;
+}
+.like-comment-bar{
+  width: 380px;
+height: 40px;
+margin-top: -15%; 
+background: #000000a8;
+border-radius: 10px;
+position: sticky;
+padding-top: 2%;
+}
+.like-comment-bar img{
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+}
+.comment-area{
+  width: 480px;
+  background: #000000a8;
+  border-radius: 10px;
+}
+.comment-box{
+  width: 400px;
+height: 40px;
+background: #333333;
+margin-top: 4%;
+border: 1px solid  #000000a8;
+padding: 2%;
+}
+.comment-btn{
+  width: 80px;
+height: 40px;
+margin-top: 4%;
+}
+.comments div{
+  margin-top: 1%;
+}
+.scroller-100vh{
+  max-height: 100vh !important;
+  overflow-y: scroll;
+}
+.scroller-100vh::-webkit-scrollbar{
+  border: 0;
+  background: transparent;
+}
+
+.home-left{
+  width: 1797px;
+  max-height: 100vh !important;
+  overflow-y: scroll;
+}
+.home-left::-webkit-scrollbar{
+  border: 0;
+  background: transparent;
 }
 .home-right {
   margin-left: 2%;
@@ -929,6 +983,10 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-around;
+}
+.align{
+  display: flex;
+  align-items: center;
 }
 .round-img{
   height: 120px;

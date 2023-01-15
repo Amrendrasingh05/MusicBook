@@ -2,95 +2,209 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Header from './header.component'
 import leftImg1 from '../images/Rectangle 36.png'
 import leftImg2 from '../images/Rectangle 37.png'
-
+import profileImg from '../images/Rectangle 83.png'
+import { useState, useEffect } from "react";
 import albumImg1 from '../images/Rectangle 70.png'
 import albumImg2 from '../images/Rectangle 71.png'
 import albumImg3 from '../images/Rectangle 73.png'
 import albumImg4 from '../images/Rectangle 74.png'
+import swal from "sweetalert";
+import Post from "./post.component";
 
+function Forgetpassword() {
 
-function forgetpassword() {
-    function verification(){
-        window.open("/verification","_self")
+    async function getdata(url = '', methods = '') {
+        const response = await fetch(url, {
+            method: methods,
+            headers: {
+                'Content-Type': 'application/json',
+                "authorization": localStorage.getItem("auth_token")
+            },
+        });
+        return response.json();
     }
+
+    const[name , setName]=useState("");
+    const[email , setEmail]=useState("");
+    const[image , setImage]=useState("");
+
+
+    useEffect(() => {
+        getdata('http://musicbook.co.in/api/v1/auth/get-user-details?user_id='+localStorage.getItem("user_id"), 'GET')
+            .then(data => {
+                if (data.status == true) {
+                    console.log(data)
+                    setName(data.data.full_name)
+                    setEmail(data.data.email)
+                    setImage(data.data.pic)
+                } 
+                else {
+                   console("incorrect")
+
+                }
+            })
+    }, [])
+
+
+    // useEffect(() => {
+    //     getdata('http://musicbook.co.in/api/v1/post/home-data','GET')
+    //         .then(data => {
+    //             if (data.status == true) {
+    //                console.log("hi",data.data[0].media[0].file)
+    //             } 
+    //             else {
+    //                console("incorrect")
+
+    //             }
+    //         })
+    // }, [])
+
+
+    // const[post, setPost]= useState([])
+
+    // function Ncards(val) {
+    //     // const imgsrc = "https://kisaanandfactory.com/static_file/" + val.images[0];
+    //     let orderId =(val.cart_id)
+    //     console.log (orderId)
+
+    //     function OpenOrder(){
+    //        window.open("/OrderRequestSpecific/" + orderId ,"_self")
+    //     }
+
+    //     return (
+
+    //         <div id="products_container">
+    //             <div class="product_Card" onClick={ OpenOrder}>
+
+    //                 <p class="prod_name">{val.cart_id}</p>
+    //                 <p class="prod_stock">{val.createdAt.slice(0, 10)}</p>
+    //                 <p class="prod_stock">{val.shippingDetails.name}</p>
+    //                 <p class="prod_type">{val.paymentDetails.paymentStatus}</p>
+    //                 <p class="prod_type">{val.orderStatus}</p>
+    //                 <p>₹ {val.totalAmount}</p>
+
+    //             </div> <br />
+    //         </div>
+    //     );
+    // }
+
+
+
+
+    
+
+
     return (
 
-       <div>
-       
-       <Header/>
+        <div>
 
-       <div className="BasicStyle home">
-        <div className="display-flex">
-            
-            <div className="home-left">
-                <span>HELLO,</span>
-                <h1>Nakul Kumar</h1>
-                <img src={leftImg1} alt="" />
-                <br />
-                <img src={leftImg2} alt="" />
-            </div>
-           
-            <div className="home-right">
-            <div className="home-right-top">
-                <h6>Create Post</h6>
-                <p>Description</p>
-                <input type="text" />
+            <Header />
+
+            <div className="BasicStyle home">
                 <div className="display-flex">
-                    <button className="btn btn-outline-primary">Upload</button>
-                    <button className="btn btn-outline-primary">Camera</button>
-                    <button className="btn btn-outline-primary">Live</button>
-                    <button className="btn btn-outline-primary upload-content">Upload Content</button>
-                </div>
-            </div>
 
-            <div className="home-right-mid">
-                <br />
-                <h5>My Learnings</h5>
-                <div className="display-flex slider-left2right">
-                    <div className="home-right-mid-blocks">
-                        <h6>How to create Music Notes</h6>
-                        <p>Write notes on the music staff to create a song. Notes are made of note heads, stems .....</p>
-                        <span>12:30 Min Remaining</span>
+                    <div className="home-left">
+                        <span>HELLO,</span>
+                        <h1>{name}</h1>
+                        <Post />
+                        {/* <Post /> */}
+
+                        
+                        {/* <div className="mt-2">
+                            <img src={leftImg1} alt=""  className="mt-4"/>
+                            <center>
+                                <div className="like-comment-bar justify-arrond">
+                                    <img src={profileImg} alt="" />
+                                    <p>Amrendra Singh</p>
+                                    <p>like</p>
+                                    <p onClick={Visible} style={{cursor: "pointer" }}>comm</p>
+                                </div>
+                            </center>
+
+                            <div className="comment-area" style={{display:visible}}>
+                                <div className="display-flex">
+                                    <input type="text" placeholder="Type your comment.." className="comment-box" />
+                                    <button className="comment-btn primary-bg">send</button>
+                                </div>
+                                <div className="comments">
+                                    <div className="align">
+                                        <img src={profileImg} alt="" style={{ height: "40px", width: "40px" }} />
+                                        <p className="text-small">Lorem ipsum  Eligendi ab nulla excepturi quidem.</p>
+                                    </div>
+                                    <div className="align">
+                                        <img src={profileImg} alt="" style={{ height: "40px", width: "40px" }} />
+                                        <p className="text-small">Lorem ipsum  Eligendi ab nulla excepturi quidem.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+ */}
+
+
+
                     </div>
-                    <div className="home-right-mid-blocks">
-                        <h6>How to create Music Notes</h6>
-                        <p>Write notes on the music staff to create a song. Notes are made of note heads, stems .....</p>
-                        <span>12:30 Min Remaining</span>
+
+                    <div className="home-right scroller-100vh">
+                        <div className="home-right-top">
+                            <h6>Create Post</h6>
+                            <p>Description</p>
+                            <input type="text" />
+                            <div className="display-flex">
+                                <button className="btn btn-outline-primary">Upload</button>
+                                <button className="btn btn-outline-primary">Camera</button>
+                                <button className="btn btn-outline-primary">Live</button>
+                                <button className="btn btn-outline-primary upload-content">Upload Content</button>
+                            </div>
+                        </div>
+
+                        <div className="home-right-mid">
+                            <br />
+                            <h5>My Learnings</h5>
+                            <div className="display-flex slider-left2right">
+                                <div className="home-right-mid-blocks">
+                                    <h6>How to create Music Notes</h6>
+                                    <p>Write notes on the music staff to create a song. Notes are made of note heads, stems .....</p>
+                                    <span>12:30 Min Remaining</span>
+                                </div>
+                                <div className="home-right-mid-blocks">
+                                    <h6>How to create Music Notes</h6>
+                                    <p>Write notes on the music staff to create a song. Notes are made of note heads, stems .....</p>
+                                    <span>12:30 Min Remaining</span>
+                                </div>
+                                <div className="home-right-mid-blocks">
+                                    <h6>How to create Music Notes</h6>
+                                    <p>Write notes on the music staff to create a song. Notes are made of note heads, stems .....</p>
+                                    <span>12:30 Min Remaining</span>
+                                </div> <div className="home-right-mid-blocks">
+                                    <h6>How to create Music Notes</h6>
+                                    <p>Write notes on the music staff to create a song. Notes are made of note heads, stems .....</p>
+                                    <span>12:30 Min Remaining</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="home-right-bottom">
+                            <br />
+                            <h5>Recent Albums</h5>
+                            <img src={albumImg1} alt="" />
+                            <img src={albumImg2} alt="" />
+                            <img src={albumImg2} alt="" />
+                            <img src={albumImg2} alt="" />
+                            <img src={albumImg1} alt="" />
+                            <img src={albumImg2} alt="" />
+                            <img src={albumImg1} alt="" />
+                            <img src={albumImg2} alt="" />
+                            <img src={albumImg2} alt="" />
+                            <img src={albumImg2} alt="" />
+                            <img src={albumImg1} alt="" />
+                            <img src={albumImg2} alt="" />
+                        </div>
                     </div>
-                    <div className="home-right-mid-blocks">
-                        <h6>How to create Music Notes</h6>
-                        <p>Write notes on the music staff to create a song. Notes are made of note heads, stems .....</p>
-                        <span>12:30 Min Remaining</span>
-                    </div> <div className="home-right-mid-blocks">
-                        <h6>How to create Music Notes</h6>
-                        <p>Write notes on the music staff to create a song. Notes are made of note heads, stems .....</p>
-                        <span>12:30 Min Remaining</span>
-                    </div>
+
                 </div>
-            </div>
-            <div className="home-right-bottom">
-            <br />
-                <h5>Recent Albums</h5>
-                <img src={albumImg1} alt="" />
-                <img src={albumImg2} alt="" />
-                <img src={albumImg2} alt="" />
-                <img src={albumImg2} alt="" />
-                <img src={albumImg1} alt="" />
-                <img src={albumImg2} alt="" />
-                <img src={albumImg1} alt="" />
-                <img src={albumImg2} alt="" />
-                <img src={albumImg2} alt="" />
-                <img src={albumImg2} alt="" />
-                <img src={albumImg1} alt="" />
-                <img src={albumImg2} alt="" />
-            </div>
             </div>
 
         </div>
-       </div>
-
-       </div>
     );
 
 }
-export default forgetpassword;
+export default Forgetpassword;
