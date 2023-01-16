@@ -10,6 +10,8 @@ import albumImg3 from '../images/Rectangle 73.png'
 import albumImg4 from '../images/Rectangle 74.png'
 import swal from "sweetalert";
 import Post from "./post.component";
+import Popup from './songsPopup.component'
+
 
 function Forgetpassword() {
 
@@ -24,79 +26,73 @@ function Forgetpassword() {
         return response.json();
     }
 
-    const[name , setName]=useState("");
-    const[email , setEmail]=useState("");
-    const[image , setImage]=useState("");
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [image, setImage] = useState("");
 
 
     useEffect(() => {
-        getdata('http://musicbook.co.in/api/v1/auth/get-user-details?user_id='+localStorage.getItem("user_id"), 'GET')
+        getdata('http://musicbook.co.in/api/v1/auth/get-user-details?user_id=' + localStorage.getItem("user_id"), 'GET')
             .then(data => {
                 if (data.status == true) {
                     console.log(data)
                     setName(data.data.full_name)
                     setEmail(data.data.email)
                     setImage(data.data.pic)
-                } 
+                }
                 else {
-                   console("incorrect")
+                    console("incorrect")
 
                 }
             })
     }, [])
 
 
-    // useEffect(() => {
-    //     getdata('http://musicbook.co.in/api/v1/post/home-data','GET')
-    //         .then(data => {
-    //             if (data.status == true) {
-    //                console.log("hi",data.data[0].media[0].file)
-    //             } 
-    //             else {
-    //                console("incorrect")
+    const [album, setAlbum] = useState([])
+    useEffect(() => {
+        getdata('http://musicbook.co.in/api/v1/album/get?offset=0&user_id=6346f880c5f4ce2d6a77bc39', 'GET')
+            .then(data => {
+                if (data.status == true) {
+                    setAlbum(data.data)
+                    console.log("album = ", data)
+                }
+                else {
+                    console("incorrect")
 
-    //             }
-    //         })
-    // }, [])
-
-
-    // const[post, setPost]= useState([])
-
-    // function Ncards(val) {
-    //     // const imgsrc = "https://kisaanandfactory.com/static_file/" + val.images[0];
-    //     let orderId =(val.cart_id)
-    //     console.log (orderId)
-
-    //     function OpenOrder(){
-    //        window.open("/OrderRequestSpecific/" + orderId ,"_self")
-    //     }
-
-    //     return (
-
-    //         <div id="products_container">
-    //             <div class="product_Card" onClick={ OpenOrder}>
-
-    //                 <p class="prod_name">{val.cart_id}</p>
-    //                 <p class="prod_stock">{val.createdAt.slice(0, 10)}</p>
-    //                 <p class="prod_stock">{val.shippingDetails.name}</p>
-    //                 <p class="prod_type">{val.paymentDetails.paymentStatus}</p>
-    //                 <p class="prod_type">{val.orderStatus}</p>
-    //                 <p>₹ {val.totalAmount}</p>
-
-    //             </div> <br />
-    //         </div>
-    //     );
-    // }
-
-
+                }
+            })
+    }, [])
 
 
     
 
 
+    const[show , setShow] = useState(false)
+    const[song, setSong] = useState("")
+    function Albums(val) {
+        function Click(){
+            setShow(true)
+            setSong(val)
+        }
+        
+        return (
+
+            <>
+                <img src={val.cover_photo} onClick={Click} style={{cursor:"pointer"}} alt="" />
+            </>
+        );
+    }
+
+
+
+
+
+
+
     return (
 
         <div>
+          <Popup show={show} val={song} onClose={() => setShow(false)}/>
 
             <Header />
 
@@ -107,44 +103,10 @@ function Forgetpassword() {
                         <span>HELLO,</span>
                         <h1>{name}</h1>
                         <Post />
-                        {/* <Post /> */}
-
-                        
-                        {/* <div className="mt-2">
-                            <img src={leftImg1} alt=""  className="mt-4"/>
-                            <center>
-                                <div className="like-comment-bar justify-arrond">
-                                    <img src={profileImg} alt="" />
-                                    <p>Amrendra Singh</p>
-                                    <p>like</p>
-                                    <p onClick={Visible} style={{cursor: "pointer" }}>comm</p>
-                                </div>
-                            </center>
-
-                            <div className="comment-area" style={{display:visible}}>
-                                <div className="display-flex">
-                                    <input type="text" placeholder="Type your comment.." className="comment-box" />
-                                    <button className="comment-btn primary-bg">send</button>
-                                </div>
-                                <div className="comments">
-                                    <div className="align">
-                                        <img src={profileImg} alt="" style={{ height: "40px", width: "40px" }} />
-                                        <p className="text-small">Lorem ipsum  Eligendi ab nulla excepturi quidem.</p>
-                                    </div>
-                                    <div className="align">
-                                        <img src={profileImg} alt="" style={{ height: "40px", width: "40px" }} />
-                                        <p className="text-small">Lorem ipsum  Eligendi ab nulla excepturi quidem.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
- */}
-
-
-
                     </div>
 
                     <div className="home-right scroller-100vh">
+
                         <div className="home-right-top">
                             <h6>Create Post</h6>
                             <p>Description</p>
@@ -185,7 +147,7 @@ function Forgetpassword() {
                         <div className="home-right-bottom">
                             <br />
                             <h5>Recent Albums</h5>
-                            <img src={albumImg1} alt="" />
+                            {/* <img src={albumImg1} alt="" />
                             <img src={albumImg2} alt="" />
                             <img src={albumImg2} alt="" />
                             <img src={albumImg2} alt="" />
@@ -196,7 +158,8 @@ function Forgetpassword() {
                             <img src={albumImg2} alt="" />
                             <img src={albumImg2} alt="" />
                             <img src={albumImg1} alt="" />
-                            <img src={albumImg2} alt="" />
+                            <img src={albumImg2} alt="" /> */}
+                            {album.map(Albums)}
                         </div>
                     </div>
 

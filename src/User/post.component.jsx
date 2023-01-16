@@ -60,21 +60,20 @@ function Post() {
     const [visible, setVisible] = useState("none")
     const [like, setLike] = useState("white")
     const [likeC, setLikeC] = useState(0)
-    
+
 
 
     function Ncards(val) {
 
         // console.log(val.media[0])
-        let imgUrl =""
+        let imgUrl = ""
 
-        if(val.media[0])
-        {
-            imgUrl= val.media[0].file
-            console.log(imgUrl)
+        if (val.media[0]) {
+            imgUrl = val.media[0].file
+            // console.log(imgUrl)
         }
 
-        
+
         function Visible() {
             if (visible == "block")
                 setVisible("none")
@@ -83,31 +82,32 @@ function Post() {
         }
 
         function Islike() {
-            // if (like == "white")
-            // {
-            //     setLike("red")
-            //     setLikeC(1)
-            // }
-            // else
-            // {
-            //     setLike("white")
-            //     setLikeC(0)
-            // }
 
-            getdata('http://musicbook.co.in/api/v1/post/like-post/'+val._id, 'POST')
-            .then(data => {
-                if (data.status == true) {
-                    if (like == "white")
-                      setLike("red")
-                      setLikeC(1)
-                }
-                else {
-                    setLike("white")
-                setLikeC(0)
+            getdata('http://musicbook.co.in/api/v1/post/like-post/' + val._id, 'POST')
+                .then(data => {
+                    if (data.status == true) {
+                        post.forEach((e,i) =>{
+                            if(e._id == val._id)
+                            {
+                                e.is_like = true
+                            }
+                            else{
+                                e.is_like = false
+                            }
+                        })
+                        // if (like == "white")
+                        //     setLike("red")
+                        // setLikeC(1)
+                        setPost(post)
+                        // window.open("/dashboard","_self")
+                    }
+                    else {
+                        setLike("white")
+                        setLikeC(0)
 
-                }
-            })
-                
+                    }
+                })
+
         }
 
 
@@ -117,15 +117,15 @@ function Post() {
                 <img src={imgUrl} alt="" className="mt-8" />
                 <center>
                     <div className="like-comment-bar justify-arrond">
-                        <img src={val.created_by.pic} alt=""/>
+                        <img src={val.created_by.pic} alt="" />
                         <p>{val.created_by.full_name}</p>
                         <div className="display-flex">
-                        <h5 onClick={Islike} style={{ cursor: "pointer", color: like }}>❤</h5>
-                        <p>{val.likes_count + likeC}</p>
+                            <h5 onClick={Islike} style={{ cursor: "pointer", color: val.is_like?"red":"white" }}>❤</h5>
+                            <p>{val.likes_count}</p>
                         </div>
                         <div className="display-flex">
-                        <h5 onClick={Visible} style={{ cursor: "pointer" }}>💬</h5>
-                        <p>{val.comment_counts}</p>
+                            <h5 onClick={Visible} style={{ cursor: "pointer" }}>💬</h5>
+                            <p>{val.comment_counts}</p>
                         </div>
                     </div>
                 </center>
