@@ -269,44 +269,59 @@ button {
 }
 .home-left img {
   width: 480px;
-  height: 320px;
-  border-radius: 25px;
+  height: 260px;
+  border-radius: 10px;
   padding-bottom: 2%;
 }
 .like-comment-bar{
-  width: 380px;
+  width: 480px;
 height: 40px;
-margin-top: -15%; 
-background: #000000a8;
-border-radius: 10px;
+margin-top: -5%;
+margin-left: -3%; 
+background: #000000;
+border-bottom: 1px solid rgba(128, 128, 128, 0.566);
 position: sticky;
 padding-top: 2%;
+padding-left: 2%;
+padding-right: 2%;
+border-bottom-right-radius: 10px;
+border-bottom-left-radius: 10px;
 }
 .like-comment-bar img{
-  height: 40px;
-  width: 40px;
+  height: 35px;
+  width: 35px;
   border-radius: 50%;
 }
 .comment-area{
   width: 480px;
-  background: #000000a8;
-  border-radius: 10px;
+  background: #000000;
 }
 .comment-box{
   width: 400px;
 height: 40px;
-background: #333333;
-margin-top: 4%;
-border: 1px solid  #000000a8;
+background:#333333;
+/* border: 1px solid black; */
 padding: 2%;
+border: 0;
 }
 .comment-btn{
   width: 80px;
 height: 40px;
-margin-top: 4%;
+/* border-bottom: 1px solid black;
+border-right: 1px solid black;
+border-top: 1px solid black; */
+/* margin-top: 4%; */
 }
 .comments div{
-  margin-top: 1%;
+  padding-top: 2%;
+}
+.comments{
+  max-height: 270px;
+  overflow-y: scroll;
+}
+.comments::-webkit-scrollbar{
+  border: 0;
+  background: transparent;
 }
 .scroller-100vh{
   max-height: 100vh !important;
@@ -496,7 +511,7 @@ margin-top: 4%;
   height: 59vh;
   overflow-y: scroll;
   color: white;
-  background-color: rgb(2, 0, 0)
+  /* background-color: rgb(2, 0, 0) */
 }
 .other-albums::-webkit-scrollbar{
   border: 0;
@@ -860,7 +875,7 @@ margin-top: 4%;
   background: #282828;
 }
 .payouts {
-  max-height: 120px;
+  max-height: 220px;
   overflow-y: scroll;
   
 }
@@ -1023,6 +1038,9 @@ margin-top: 4%;
   border: 0;
   background: transparent;
 }
+.userName{
+  width: 50%;
+}
 .justify-space {
   display: flex;
   align-items: center;
@@ -1047,4 +1065,88 @@ margin-top: 4%;
   width: 120px;
   border-radius: 50%;
   border: 1px dotted gray;
+}
+.notification-box{
+  max-height: 900px !important;
+  height: 900px !important;
+  background:#2B2B2B;
+  overflow-y: scroll;
+  margin-bottom: -12%;
+}
+.notification-box::-webkit-scrollbar{
+  border: 0;
+  background: transparent;
+}
+.notifications{
+  width: 1048px;
+height: 70px;
+border-bottom: 1px solid #767676;
+}
+
+
+
+@media only screen and (max-width: 600px) {
+  .landing-img-1 {
+    background-image: url("./images/Landing1.png");
+    height: 100vh;
+    width: 50%;
+    /* background-size: cover; */
+  }
+  .landing-img-2 {
+    background-image: url("./images/Landing2.png");
+    height: 100vh;
+    width: 50%;
+    /* background-size: cover; */
+  }
+  .landing-content {
+    color: white;
+    max-width: 400px;
+    margin-top: 400px;
+    margin-left: 7%;
+  }
+  .landing-content h3 {
+    color: white;
+    max-width: 150px;
+    margin-top: 100px;
+    margin-left: 7%;
+  }
+  .landing-btn {
+    margin-top: 25%;
+    width: 90%;
+    }
+    .GetStarted {
+      display: block;
+ max-height: 100vh;
+ overflow: scroll;
+    }
+    .login {
+      display: block;
+ max-height: 100vh;
+ overflow: scroll;
+    }
+    .register {
+      display: block;
+ max-height: 100vh;
+ overflow: scroll;
+    }
+    
+    .forgetpassword {
+      display: block;
+ max-height: 100vh;
+ overflow: scroll;
+    }
+    
+    .left {
+      max-width: 400px;
+      margin-top: 80px;
+      margin-left: 4%;
+    }
+    .card {
+      margin-left: -80%;
+      width: 90%;
+      height:50%;
+    }
+    
+  
+  
 }

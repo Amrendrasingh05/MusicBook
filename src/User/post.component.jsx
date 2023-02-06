@@ -116,34 +116,64 @@ function Post() {
             <div className="mt-5">
                 <img src={imgUrl} alt="" className="mt-8" />
                 <center>
-                    <div className="like-comment-bar justify-arrond">
-                        <img src={val.created_by.pic} alt="" />
+                    <div className="like-comment-bar justify-space">
+                        <div className="display-flex userName">
+                        <img src={val.created_by.pic} alt="" /> &nbsp;&nbsp;&nbsp;&nbsp;
                         <p>{val.created_by.full_name}</p>
+                        </div>
+                        <div className="display-flex">
                         <div className="display-flex">
                             <h5 onClick={Islike} style={{ cursor: "pointer", color: val.is_like?"red":"white" }}>❤</h5>
                             <p>{val.likes_count}</p>
-                        </div>
+                        </div> &nbsp;&nbsp;&nbsp;&nbsp;
                         <div className="display-flex">
                             <h5 onClick={Visible} style={{ cursor: "pointer" }}>💬</h5>
                             <p>{val.comment_counts}</p>
+                        </div>
                         </div>
                     </div>
                 </center>
 
                 <div className="comment-area" style={{ display: visible }}>
-                    <div className="display-flex">
-                        <input type="text" placeholder=" 😉 Type your comment.." className="comment-box" />
-                        <button className="comment-btn primary-bg">✎</button>
-                    </div>
+                   
                     <div className="comments">
                         <div className="align">
-                            <img src={profileImg} alt="" style={{ height: "40px", width: "40px" }} />
+                            <img src={profileImg} alt="" style={{ height: "40px", width: "40px", marginRight:"2%", marginLeft:"2%" }} />
                             <p className="text-small">Lorem ipsum  Eligendi ab nulla excepturi quidem.</p>
                         </div>
                         <div className="align">
-                            <img src={profileImg} alt="" style={{ height: "40px", width: "40px" }} />
+                            <img src={profileImg} alt="" style={{ height: "40px", width: "40px", marginRight:"2%", marginLeft:"2%" }} />
                             <p className="text-small">Lorem ipsum  Eligendi ab nulla excepturi quidem.</p>
                         </div>
+                        <div className="align">
+                            <img src={profileImg} alt="" style={{ height: "40px", width: "40px", marginRight:"2%", marginLeft:"2%" }} />
+                            <p className="text-small">Lorem ipsum  Eligendi ab nulla excepturi quidem.</p>
+                        </div>
+                        <div className="align">
+                            <img src={profileImg} alt="" style={{ height: "40px", width: "40px", marginRight:"2%", marginLeft:"2%" }} />
+                            <p className="text-small">Lorem ipsum  Eligendi ab nulla excepturi quidem.</p>
+                        </div>
+                        <div className="align">
+                            <img src={profileImg} alt="" style={{ height: "40px", width: "40px", marginRight:"2%", marginLeft:"2%" }} />
+                            <p className="text-small">Lorem ipsum  Eligendi ab nulla excepturi quidem.</p>
+                        </div>
+                        <div className="align">
+                            <img src={profileImg} alt="" style={{ height: "40px", width: "40px", marginRight:"2%", marginLeft:"2%" }} />
+                            <p className="text-small">Lorem ipsum  Eligendi ab nulla excepturi quidem.</p>
+                        </div>
+                        <div className="align">
+                            <img src={profileImg} alt="" style={{ height: "40px", width: "40px", marginRight:"2%", marginLeft:"2%" }} />
+                            <p className="text-small">Lorem ipsum  Eligendi ab nulla excepturi quidem.</p>
+                        </div>
+                        <div className="align">
+                            <img src={profileImg} alt="" style={{ height: "40px", width: "40px", marginRight:"2%", marginLeft:"2%" }} />
+                            <p className="text-small">Lorem ipsum  Eligendi ab nulla excepturi quidem.</p>
+                        </div>
+                    </div>
+
+                    <div className="display-flex">
+                        <input type="text" placeholder="Type your comment.." className="comment-box" />
+                        <button className="comment-btn primary-bg">✎</button>
                     </div>
                 </div>
             </div>

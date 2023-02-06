@@ -1,6 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import React,{useState} from 'react';
 import Popup from './searchBtnPopup.component'
+import Notification from './notification.component'
 import 'reactjs-popup/dist/index.css';
 
 import sidebarImg1 from '../images/Vector (1).png'
@@ -13,6 +14,7 @@ import sidebarImg6 from '../images/Vector (6).png'
 function Forgetpassword() {
 
     const[show , setShow] = useState(false)
+    const[show2 , setShow2] = useState(false)
 
     
 
@@ -35,7 +37,10 @@ function Forgetpassword() {
                                 <img src={sidebarImg2} alt=""  />
                             </a>
 
-                            <a className="list-group-item list-group-item-action py-2 ripple " aria-current="true">
+                            <Notification show={show2} onClose={() => setShow2(false)}/>
+
+
+                            <a className="list-group-item list-group-item-action py-2 ripple " onClick={() => setShow2(true)} aria-current="true">
                                 <img src={sidebarImg4} alt="" />
                             </a>
 
