@@ -24,7 +24,7 @@ function login() {
             <div className="card professional-card">
                 <div className="card-body">
                     <h1 className="professional-card-title">LOGIN</h1>
-                    <p className="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing </p>
+                    {/* <p className="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing </p> */}
                     <input type="email inpt" name="" id="" placeholder="Email"/>
                     <input type="password inpt" name="" id="" placeholder="Password"/>
                     <p className="card-text">Remember me &nbsp;&nbsp;&nbsp;&nbsp; <a href="/professional-forgetPassword" onClick={() => window.open("/professional-forgetPassword","_self")}>Forget password?</a></p>

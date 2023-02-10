@@ -25,7 +25,7 @@ function forgetpassword() {
             <div className="card professional-card">
                 <div className="card-body">
                     <h1 className="professional-card-title">VERIFICATION</h1>
-                    <p className="card-text">Lorem ipsum dolor sit amet consectetur adipisicing </p>
+                    {/* <p className="card-text">Lorem ipsum dolor sit amet consectetur adipisicing </p> */}
                     <input type="number" name="" id="" placeholder="Enter OTP"/>
                     <p className="card-text">Remember me &nbsp;&nbsp;&nbsp;&nbsp; <a href="">Forget password?</a></p>
                     <button className="loginWithEmail buttonFull" onClick={() => window.open("/professional-login","_self")}>Submit</button>

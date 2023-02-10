@@ -64,7 +64,7 @@ function Verify() {
             <div className="card">
                 <div className="card-body">
                     <h1 className="card-title">CHANGE PASSWORD</h1>
-                    <p className="card-text">Lorem ipsum dolor sit amet consectetur adipisicing </p>
+                    {/* <p className="card-text">Lorem ipsum dolor sit amet consectetur adipisicing </p> */}
                     {/* <p>Your Password is: {localStorage.getItem("forget_Password")}</p> */}
                     <input type="text" name="" id="" placeholder="Enter New Password" onChange={(e) => setPassword(e.target.value)}/>
                     <p className="card-text">Remember me &nbsp;&nbsp;&nbsp;&nbsp; <a href="">Forget password?</a></p>

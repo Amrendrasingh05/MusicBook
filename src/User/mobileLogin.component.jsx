@@ -75,7 +75,7 @@ function Login() {
             <div className="card">
                 <div className="card-body">
                     <h1 className="card-title">LOGIN WITH MOBILE</h1>
-                    <p className="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing </p>
+                    {/* <p className="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing </p> */}
                     <input type="number" name="" id="" placeholder="Mobile number" onChange={(e) => setmobile(e.target.value)}/>
                     <p className="card-text">Remember me &nbsp;&nbsp;&nbsp;&nbsp; <a href="/forgetPassword">Forget password?</a></p>
                     <button className="loginWithEmail" onClick={LoginBtn}>Continue</button>

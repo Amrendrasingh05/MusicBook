@@ -77,7 +77,7 @@ function Register() {
             <div className="Registercard card">
                 <div className="card-body">
                     <h1 className="card-title">REGISTER</h1>
-                    <p className="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing </p>
+                    {/* <p className="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing </p> */}
                     <input type="text" placeholder="Mobile no:" onChange={(e) => setMobile(e.target.value)}/>
                     <div style={{display:"flex",maxWidth:"85%", marginLeft:"30px"}}>
                     <input type="date" placeholder="Eg. 12/06/1994" onChange={(e) => setDate(e.target.value)}/>

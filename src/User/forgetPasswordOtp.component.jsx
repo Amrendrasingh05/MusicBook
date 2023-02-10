@@ -64,7 +64,7 @@ function Verify() {
             <div className="card">
                 <div className="card-body">
                     <h1 className="card-title">VERIFICATION</h1>
-                    <p className="card-text">Lorem ipsum dolor sit amet consectetur adipisicing </p>
+                    {/* <p className="card-text">Lorem ipsum dolor sit amet consectetur adipisicing </p> */}
                     <p>Your OTP is: {localStorage.getItem("forget_otp")}</p>
                     <input type="number" name="" id="" placeholder="Enter OTP" onChange={(e) => setOtp(e.target.value)}/>
                     <p className="card-text">Remember me &nbsp;&nbsp;&nbsp;&nbsp; <a href="">Forget password?</a></p>

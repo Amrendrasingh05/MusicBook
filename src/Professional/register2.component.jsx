@@ -25,7 +25,7 @@ function register() {
             <div className="Registercard card professional-card">
                 <div className="card-body">
                     <h1 className="professional-card-title">REGISTER</h1>
-                    <p className="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing </p>
+                    {/* <p className="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing </p> */}
                     <input type="text" placeholder="Mobile no:"/>
                     <div style={{display:"flex",maxWidth:"85%", marginLeft:"30px"}}>
                     <input type="date" placeholder="Eg. 12/06/1994"/>

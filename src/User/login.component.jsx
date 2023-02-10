@@ -75,7 +75,7 @@ function Login() {
             <div className="card">
                 <div className="card-body">
                     <h1 className="card-title">LOGIN</h1>
-                    <p className="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing </p>
+                    {/* <p className="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing </p> */}
                     <input type="email" name="" id="" placeholder="Email" onChange={(e) => setEmail(e.target.value)}/>
                     <input type="password" name="" id="" placeholder="Password" onChange={(e) => setPass(e.target.value)}/>
                     <p className="card-text">Remember me &nbsp;&nbsp;&nbsp;&nbsp; <a href="/forgetPassword">Forget password?</a></p>

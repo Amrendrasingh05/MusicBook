@@ -26,7 +26,7 @@ function register() {
                 <div className="card-body">
                     <h1 className="professional-card-title">REGISTER</h1>
                     <a href="https://stackoverflow.com/questions/11620698/how-to-trigger-a-file-download-when-clicking-an-html-button-or-javascript" download="resume.pdf">Download</a>
-                    <p className="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing </p>
+                    {/* <p className="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing </p> */}
                     <input type="text" placeholder="Name"/>
                     <input type="email" name="" id="" placeholder="Email"/>
                     <input type="password" name="" id="" placeholder="Password"/>

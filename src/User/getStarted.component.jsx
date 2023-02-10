@@ -21,7 +21,7 @@ function getStarted() {
             <div className="card">
                 <div className="card-body">
                     <h1 className="card-title">WELCOME</h1>
-                    <p className="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing  </p>
+                    {/* <p className="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing  </p> */}
                     <button onClick={() => window.open("/login","_self")} className="loginWithEmail">Login With Email</button> <br />
                     <button onClick={() => window.open("/mobile-login","_self")} className="loginWithMobile">Login With Mobile</button> <br />
                     <button onClick={() => window.open("/login","_self")} className="loginWithMobile">Login With Google</button>
