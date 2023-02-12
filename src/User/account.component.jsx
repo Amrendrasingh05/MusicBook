@@ -92,7 +92,7 @@ function Account() {
                             </div>
                             <br />
                             <br />
-                            <button className="btn btn-danger" style={{marginLeft:"40%"}}>Log Out</button>
+                            <button className="btn btn-danger" style={{marginLeft:"40%"}} onClick={()=> window.open("/login","_self")}>Log Out</button>
                         </div>
 
                         <div>

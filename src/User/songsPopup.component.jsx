@@ -13,6 +13,8 @@ function Popup({ show, onClose, val }) {
         });
         return response.json();
     }
+
+    console.log("val = ",val)
    
     const [album, setAlbum] = useState([])
 

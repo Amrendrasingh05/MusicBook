@@ -48,7 +48,8 @@ function Post() {
         getdata('http://musicbook.co.in/api/v1/post/home-data', 'GET')
             .then(data => {
                 if (data.status == true) {
-                    setPost(data.data)
+                    setPost(data.all_posts)
+                    console.log("post data =",data)
                 }
                 else {
                     console("incorrect")
@@ -214,7 +215,7 @@ function Post() {
         //     </div>
         // </div>
         <>
-            {post.map(Ncards)}
+            {post.slice(0).reverse().map(Ncards)}
         </>
     );
 

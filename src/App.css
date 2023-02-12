@@ -151,6 +151,16 @@ button {
   padding: 10px;
   font-size: 14px;
 }
+#image-input{
+  width: 70%;
+  height: 50.74px;
+  background: #ffffff;
+  border: 1.05716px solid #ffffff;
+  border-radius: 10.5716px;
+  margin-top: 2%;
+  padding: 10px;
+  font-size: 14px;
+}
 .card select {
   width: 85%;
   height: 40.74px;

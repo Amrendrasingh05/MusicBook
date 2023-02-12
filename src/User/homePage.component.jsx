@@ -74,6 +74,8 @@ function Forgetpassword() {
             setShow(true)
             setSong(val)
         }
+
+        console.log("val2=",val)
         
         return (
 
