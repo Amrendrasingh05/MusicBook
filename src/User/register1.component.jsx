@@ -1,6 +1,8 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useState } from "react";
 import swal from "sweetalert";
+import eye from "../images/eye-solid.svg"
+
 
 function Register() {
 
@@ -11,7 +13,7 @@ function Register() {
     const [Pass2, setPass2] = useState("");
     const [name, setName] = useState("");
 
-    
+
     const [file, setFile] = useState([])
     const onImageChange = (e) => {
         setFile(e.target.files);
@@ -22,16 +24,20 @@ function Register() {
 
     console.log("file = ", file[0])
 
-    
 
+
+    const[checkBox, setcheckBox]=useState(false)
 
     async function Register() {
-        if(Pass1 == Pass2)
-        {
+        if (Pass1 == Pass2) {
             setPass(Pass1)
         }
-        else{
+        else {
             swal("write correct Password")
+            return;
+        }
+        if (checkBox == false){
+            swal("Please Accept Terms and Conditions")
             return;
         }
         let formData = new FormData();
@@ -39,19 +45,36 @@ function Register() {
         formData.append('email', email)
         formData.append('password', Pass)
         formData.append('full_name', name)
-  
+
         let response = await fetch('http://musicbook.co.in/api/v1/auth/register', {
-          method: 'POST',
-          body: formData
+            method: 'POST',
+            body: formData
         });
         let result = await response.json();
-       swal(result.message);
+        swal(result.message);
 
-       if(result.status == true)
-       window.open("/login","_self")
+        if (result.status == true)
+            window.open("/login", "_self")
 
 
 
+    }
+
+
+
+    const[eyeV, setEyeV]=useState("password")
+    function visible(){
+        if(eyeV == "password")
+        setEyeV("text")
+        else
+        setEyeV("password")
+    }
+    const[eyeV2, setEyeV2]=useState("password")
+    function visible2(){
+        if(eyeV2 == "password")
+        setEyeV2("text")
+        else
+        setEyeV2("password")
     }
 
 
@@ -82,13 +105,21 @@ function Register() {
                     {/* <p className="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing </p> */}
                     <img src={image} alt="" className="round-img" style={{ height: "50px", width: "50px" }} />
                     <input type="file" name="" id="image-input" onChange={onImageChange} />
-                    <input type="text" placeholder="Name" onChange={(e) => setName(e.target.value)}/>
-                    <input type="email" name="" id="" placeholder="Email" onChange={(e) => setEmail(e.target.value)}/>
-                    <input type="password" name="" id="" placeholder="Password" onChange={(e) => setPass1(e.target.value)}/>
-                    <input type="password" name="" id="" placeholder="Confirm Password" onChange={(e) => setPass2(e.target.value)} />
-                    <p className="card-text">I Agree to <a href="">terms&conditions</a>and <a href="">privacy</a></p>
+                    <input type="text" placeholder="Name" onChange={(e) => setName(e.target.value)} />
+                    <input type="email" name="" id="" placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
+                    <input className="eye-pass" type={eyeV} name="" id="" placeholder="Password" onChange={(e) => setPass1(e.target.value)} />
+                    <img src={eye} className="eye-register" onClick={visible} style={{cursor:"pointer"}} alt="" />
+                    <input className="eye-pass" type={eyeV2} name="" id="" placeholder="Password" onChange={(e) => setPass2(e.target.value)} />
+                    <img src={eye} className="eye2-register" onClick={visible2} style={{cursor:"pointer"}} alt="" />                    <div className="display-flex">
+                        <div>
+                        <input type="checkbox" name="" id="" onChange={(event)=> setcheckBox(event.target.checked)} style={{ height: "15px",marginTop:"10px",marginLeft:"15px" }} />
+                        </div>
+                        <div style={{marginLeft:"15px"}}>
+                        <p className="card-text">I Agree to <a href="/privacy">terms & conditions </a>and <a href="/privacy">privacy policy</a></p>
+                        </div>
+                    </div>
                     <button className="loginWithEmail" onClick={Register}>Continue</button>
-                    <p className="card-text">I don't Have Account? <a href="">Create New</a></p>
+                    <p className="card-text">I already have an account <a href="/login">Login</a></p>
                 </div>
             </div>
         </div>

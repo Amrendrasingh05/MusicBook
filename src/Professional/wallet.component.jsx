@@ -8,31 +8,24 @@ import socialMediaImg3 from '../images/Vector (20).png'
 import socialMediaImg4 from '../images/Vector (30).png'
 import socialMediaImg5 from '../images/Vector (40).png'
 import Header from './Professional_header.component'
+import Withdraw from './withdrawal.component'
+import { useState } from "react";
 
 
 
-function forgetpassword() {
-    function verification() {
-        window.open("/verification", "_self")
+function Forgetpassword() {
+   
+
+    const[show, setShow]= useState(false)
+
+    function visible(){
+        setShow(true)
     }
-
-    let BtnArray = ["Digital Visiting Card", "My Purchase", "Support & Help", "Privacy Policy", "Rating", "About"]
-
-    function buttons(val) {
-        return (
-            <>
-                <button className="btn btn-outline-secondary accountBtn">{val}</button>
-
-            </>
-        );
-    }
-
-
 
     return (
 
         <div className="black-bg">
-
+            <Withdraw show={show} onClose={() => setShow(false)}/>
             <Header />
 
             <div className="BasicStyle-professional black-bg">
@@ -48,7 +41,7 @@ function forgetpassword() {
                         <br />
 
                         <div className="display-flex">
-                            <button className="supportSubmitBtn">Withdrawl</button>
+                            <button className="supportSubmitBtn" onClick={visible}>Withdrawl</button>
                             <button className="accountBtn">Add Account</button>
                         </div>
                     </div>
@@ -113,4 +106,4 @@ function forgetpassword() {
     );
 
 }
-export default forgetpassword;
+export default Forgetpassword;

@@ -5,6 +5,7 @@ import profileImg from '../images/Rectangle 83.png'
 
 import Img1 from '../images/Rectangle 108.png'
 import Img2 from '../images/Rectangle 111.png'
+import Post2 from "./post2.component";
 
 
 import {useEffect} from 'react'
@@ -102,8 +103,11 @@ function Account() {
                                 <div className="">Album</div>
                             </div>
                             <br />
-                            <img src={Img1} alt="" />
-                            <img src={Img2} alt="" />
+                            <div className="account-right">
+                            <Post2 />
+                            </div>
+                            {/* <img src={Img1} alt="" />
+                            <img src={Img2} alt="" /> */}
                         </div>
                     </div>
                 </div>

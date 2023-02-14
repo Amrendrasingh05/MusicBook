@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Header from './header.component'
 import searchIcon from '../images/Vector (2).png'
 // import profile from  '../images/Rectangle  83.png'
 import play from '../images/play.png'
+import Popup from './songsPopup.component'
 
 import Img1 from '../images/Rectangle 102.png'
 import socialMediaImg1 from '../images/Vector.png'
@@ -19,6 +20,18 @@ import albumImg4 from '../images/Rectangle 74.png'
 
 
 function Forgetpassword() {
+
+  async function getdata(url = '', methods = '') {
+    const response = await fetch(url, {
+        method: methods,
+        headers: {
+            'Content-Type': 'application/json',
+            "authorization": localStorage.getItem("auth_token")
+        },
+    });
+    return response.json();
+}
+
   function verification() {
     window.open("/verification", "_self")
   }
@@ -34,14 +47,46 @@ function Forgetpassword() {
     );
   }
 
-  const [openPanel, setOpenPanel] = useState(false);
+  const [album, setAlbum] = useState([])
+    useEffect(() => {
+        getdata('http://musicbook.co.in/api/v1/album/get?offset=0&user_id=6346f880c5f4ce2d6a77bc39', 'GET')
+            .then(data => {
+                if (data.status == true) {
+                    setAlbum(data.data)
+                    console.log("album = ", data)
+                }
+                else {
+                    console("incorrect")
+
+                }
+            })
+    }, [])
+
+
+  const[show , setShow] = useState(false)
+    const[song, setSong] = useState("")
+    function Albums(val) {
+        function Click(){
+            setShow(true)
+            setSong(val)
+        }
+
+        console.log("val2=",val)
+        
+        return (
+
+            <>
+                <img src={val.cover_photo} onClick={Click} style={{cursor:"pointer"}} alt="" />
+            </>
+        );
+    }
 
 
 
   return (
 
     <div>
-
+      <Popup show={show} val={song} onClose={() => setShow(false)}/>
       <Header />
 
       <div className="BasicStyle">
@@ -55,7 +100,7 @@ function Forgetpassword() {
         <div className="album">
           <br />
           <h5>Recent Albums</h5>
-          <img src={albumImg1} alt="" />
+          {/* <img src={albumImg1} alt="" />
           <img src={albumImg2} alt="" />
           <img src={albumImg2} alt="" />
           <img src={albumImg2} alt="" />
@@ -92,7 +137,12 @@ function Forgetpassword() {
           <img src={albumImg2} alt="" />
           <img src={albumImg2} alt="" />
           <img src={albumImg1} alt="" />
-          <img src={albumImg2} alt="" />
+          <img src={albumImg2} alt="" /> */}
+          {album.map(Albums)}
+          {album.map(Albums)}
+          {album.map(Albums)}
+          {album.map(Albums)}
+          {album.map(Albums)}
         </div>
 
         <div className="album-bottom display-flex">

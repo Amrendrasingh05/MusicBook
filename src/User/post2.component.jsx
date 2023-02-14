@@ -45,10 +45,10 @@ function Post() {
 
     const [post, setPost] = useState([])
     useEffect(() => {
-        getdata('http://musicbook.co.in/api/v1/post/home-data', 'GET')
+        getdata('http://musicbook.co.in/api/v1/post/get-post', 'GET')
             .then(data => {
                 if (data.status == true) {
-                    setPost(data.all_posts)
+                    setPost(data.data)
                     console.log("post data =",data)
                 }
                 else {
@@ -120,7 +120,7 @@ function Post() {
                     <div className="like-comment-bar justify-space">
                         <div className="display-flex userName">
                         <img src={val.created_by.pic} alt="" /> &nbsp;&nbsp;&nbsp;&nbsp;
-                        <p>{val.caption}</p>
+                        <p>{val.created_by.full_name}</p>
                         </div>
                         <div className="display-flex">
                         <div className="display-flex">

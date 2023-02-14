@@ -19,6 +19,10 @@ function Forgetpassword() {
     const[Mobile, setMobile] = useState("");
   
     function SubmitBtn(){
+        if( Mobile =="" ||  Mobile.length<10 ||  Mobile.length>10){
+            swal("Please Enter Correct Number")
+            return;
+        }
         let data ={
             "mobile_number": Mobile,
         }
@@ -46,7 +50,7 @@ function Forgetpassword() {
             <div className="left">
                 <div className="pgNo">01</div>
                 <div className="leftHeading">Forget Password</div>
-                <div className="left-text">Lorem ipsum dolor sit amet consectetur adipisicing elit</div>
+                {/* <div className="left-text">Lorem ipsum dolor sit amet consectetur adipisicing elit</div> */}
                 <div className="dots">
                     <div className="dot-white"></div>
                     <div className="dot-gray"></div>
@@ -62,7 +66,7 @@ function Forgetpassword() {
                     {/* <p className="card-text">Remember me &nbsp;&nbsp;&nbsp;&nbsp; <a href="">Forget password?</a></p> */}
                     <button className="loginWithEmail buttonFull" onClick={SubmitBtn}>Submit</button>
                     <button className="loginWithMobile buttonFull">Back</button>
-                    <p className="card-text">I don't Have Account? <a href="/register">Create New</a></p>
+                    <p className="card-text">I don't Have Account? <a href="/register1">Create New</a></p>
                 </div>
             </div>
         </div>

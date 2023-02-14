@@ -87,6 +87,39 @@ function Forgetpassword() {
 
 
 
+    const[caption, setCaption] = useState("")
+    const [file, setFile] = useState([])
+    const onImageChange = (e) => {
+        setFile(e.target.files);
+        // setImage(URL.createObjectURL(file[0]));
+        // console.log(file[0])
+
+    };
+    async function Upload() {
+       
+        let formData = new FormData();
+        formData.append('media', file[0]);
+        formData.append('caption', caption)
+        formData.append('tags', "post")
+        formData.append('user_id', localStorage.getItem("user_id"))
+        formData.append('type', "image")
+  
+        let response = await fetch('http://musicbook.co.in/api/v1/post/create', {
+          method: 'POST',
+          headers:{"authorization": localStorage.getItem("auth_token")},
+          body: formData
+        });
+        let result = await response.json();
+       swal(result.message);
+
+    //    if(result.status == true)
+    //    window.open("/login","_self")
+
+
+
+    }
+
+
 
 
 
@@ -112,12 +145,12 @@ function Forgetpassword() {
                         <div className="home-right-top">
                             <h6>Create Post</h6>
                             <p>Description</p>
-                            <input type="text" />
+                            <input type="text" onChange={(e) => setCaption(e.target.value)}/>
                             <div className="display-flex">
-                                <button className="btn btn-outline-primary">Upload</button>
+                                <button className="btn btn-outline-primary"><input   type="file" name="" id="" style={{opacity:"100%"}} onChange={onImageChange}/></button>
                                 <button className="btn btn-outline-primary">Camera</button>
                                 <button className="btn btn-outline-primary">Live</button>
-                                <button className="btn btn-outline-primary upload-content">Upload Content</button>
+                                <button className="btn btn-outline-primary upload-content" onClick={Upload}>Upload Content</button>
                             </div>
                         </div>
 

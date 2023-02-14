@@ -24,10 +24,10 @@ function Popup({show, onClose}){
            <br />
            <input type="search" name="" id="" className='search' placeholder='Search'/>
            <br />
-           <div onClick={() => window.open("/dashboard","_self")}>
+           <div onClick={() => window.open("/dashboard","_self")} style={{cursor:"pointer"}}>
 
            <div>Back To Home</div>
-           <div> ←</div>
+           <center style={{fontSize:"40px",marginTop:"-20%"}}> ←</center>
            </div>
             
         </div>

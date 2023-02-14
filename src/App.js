@@ -20,6 +20,8 @@ import Professionalprivacy from './Professional/privacyPolicy.component';
 import Professionalsupport from './Professional/support.component';
 import Professionalalbum from './Professional/album.component';
 import Professionalwallet from './Professional/wallet.component';
+import ProfessionalchangePassword from './Professional/changePassword.component';
+import ProfessionalclassInfo from './Professional/classInfo.component';
 
 
 
@@ -86,6 +88,8 @@ function App() {
       <Route exact path="/Professional-album" component={Professionalalbum} />
       <Route exact path="/Professional-home" component={Professionalhome} />
       <Route exact path="/Professional-wallet" component={Professionalwallet} />
+      <Route exact path="/Professional-changePassword" component={ProfessionalchangePassword} />
+      <Route exact path="/Professional-classInfo" component={ProfessionalclassInfo} />
 
 
     </Switch>

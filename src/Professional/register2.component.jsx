@@ -32,7 +32,7 @@ function register() {
                     <input type="text"style={{marginLeft:"5px"}} placeholder="Gender"/>
 
                     </div>
-                    <input type="text" placeholder="Name"/>
+                    <input type="text" placeholder="Address"/>
 
                     <div style={{display:"flex",maxWidth:"85%", marginLeft:"30px"}}>
                     <input type="text" placeholder="City"/>
@@ -40,10 +40,17 @@ function register() {
 
                     </div>
 
-                    
-                    <p className="card-text">I Agree to <a href="">terms&conditions</a>and <a href="">privacy</a></p>
+                    <div className="display-flex">
+                        <div>
+                            <input type="checkbox" name="" id="" style={{ height: "15px", marginTop: "10px", marginLeft: "15px" }} />
+                        </div>
+                        <div style={{ marginLeft: "15px" }}>
+                            <p className="card-text">I Agree to <a href="/professional-privacy">terms & conditions </a>and <a href="/professional-privacy">privacy policy</a></p>
+                        </div>
+                    </div>
+
                     <button className="loginWithEmail" onClick={() => window.open("/professional-login","_self")}>Continue</button>
-                    <p className="card-text">I don't Have Account? <a href="">Create New</a></p>
+                    <p className="card-text">I already have an account <a href="/professional-login">Login</a></p>
                 </div>
             </div>
         </div>

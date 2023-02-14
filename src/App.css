@@ -5,6 +5,64 @@
   padding: 0;
   font-family: "Poppins", sans-serif;
 }
+.left-chat-box{
+  width: 200.93px;
+height: 50px;
+margin-left: 50%;
+padding-top: 2%;
+color: black;
+background: #FFFFFF;
+border-radius: 41.2811px 41.2811px 0px 41.2811px;
+margin-top: 1%;
+}
+.right-chat-box{
+  width: 200.93px;
+height: 50px;
+margin-left: -50%;
+padding-top: 2%;
+color: rgb(255, 255, 255);
+background: #3E3AFF;;
+border-radius: 20.6406px 20.6406px  20.6406px 0px;
+/* transform: matrix(-1, 0, 0, 1, 0, 0); */
+margin-top: 1%;
+
+}
+.send-message{
+  width: 100%;
+  height: 50px;
+  border: 1px solid gray;
+  border: 10px;
+background: #292929;
+margin-top: 50%;
+}
+.eye-pass{
+  position: relative;
+}
+.eye{
+  height: 15px;
+  position: absolute;
+  top: 43%;
+  right: 20%;
+}
+.eye-register{
+  height: 15px;
+  position: absolute;
+  top: 51%;
+  right: 20%;
+}
+.eye2-register{
+  height: 15px;
+  position: absolute;
+  top: 61%;
+  right: 20%;
+}
+.withdrawl-input{
+  background: transparent;
+  border: 1px solid gray;
+  height: 40px;
+  width: 300px;
+  border-radius: 10px;
+}
 .display-flex {
   display: flex;
 }
@@ -385,12 +443,17 @@ border-top: 1px solid black; */
   border: 1px solid #525050;
   width: 100.51px;
   height: 35px;
+  max-height: 35px;
+  overflow: hidden;
   /* background: #471CF1; */
   border-radius: 67.0096px;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 12px;
+}
+.home-right-top button input{
+  margin-top: 35%;
 }
 .upload-content {
   background: #471cf1 !important;
@@ -641,6 +704,18 @@ border-top: 1px solid black; */
   margin-left: -4%;
   padding-left: 5%;
   background-size: auto;
+}
+.account-right{
+  width: 500px;
+  max-height: 100vh !important;
+  overflow-y: scroll;
+}
+.account-right img{
+  max-width: 100%;
+}
+.account-right::-webkit-scrollbar{
+  border: 0;
+  background: transparent;
 }
 .accountBtn {
   width: fit-content;
@@ -945,6 +1020,12 @@ border-top: 1px solid black; */
   background: #282828;
   border-bottom: 1px solid #2e2e2e;
   border-radius: 10px;
+  color: white;
+  font-size: 20px;
+}
+.threeDotBox div{
+  margin-top: -9px;
+  margin-left: 5px;
 }
 .threeDotsComponent {
   margin-left: -15%;

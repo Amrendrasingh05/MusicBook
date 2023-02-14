@@ -30,6 +30,7 @@ function forgetpassword() {
                             <button className="btn btn-outline-muted paid">Paid</button>
                         </div> <br />
                         <h3>How To Play Piano Profesional</h3>
+                        <div className="text-info" onClick={() => window.open("/instructor","_self")} style={{cursor:"pointer"}}>MrJames Watler</div>
                         <p>(1.8k People Following)</p>
                     </div>
 
@@ -48,7 +49,7 @@ function forgetpassword() {
                 <div className="home-right-mid">
                     <br />
                     <h5>Cources</h5>
-                    <div className="display-flex">
+                    <div className="display-flex slider-left2right">
                         <div className="home-right-mid-blocks display-flex">
                             <img src={albumImg1} alt="" /> &nbsp;&nbsp;&nbsp;
                             <div>
