@@ -45,7 +45,7 @@ function Post() {
 
     const [post, setPost] = useState([])
     useEffect(() => {
-        getdata('http://musicbook.co.in/api/v1/post/home-data', 'GET')
+        getdata('https://musicbook.co.in/api/v1/post/home-data', 'GET')
             .then(data => {
                 if (data.status == true) {
                     setPost(data.all_posts)
@@ -84,7 +84,7 @@ function Post() {
 
         function Islike() {
 
-            getdata('http://musicbook.co.in/api/v1/post/like-post/' + val._id, 'POST')
+            getdata('https://musicbook.co.in/api/v1/post/like-post/' + val._id, 'POST')
                 .then(data => {
                     if (data.status == true) {
                         post.forEach((e,i) =>{

@@ -26,7 +26,7 @@ function Verify() {
             "otp":otp
         }
 
-        postdata('http://musicbook.co.in/api/v1/auth/verify-otp', data, 'POST')
+        postdata('https://musicbook.co.in/api/v1/auth/verify-otp', data, 'POST')
             .then(data => {
                 if (data.status == true) {
                     

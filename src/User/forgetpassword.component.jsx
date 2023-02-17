@@ -26,7 +26,7 @@ function Forgetpassword() {
         let data ={
             "mobile_number": Mobile,
         }
-        postdata('http://musicbook.co.in/api/v1/auth/forgot-password', data, 'POST')
+        postdata('https://musicbook.co.in/api/v1/auth/forgot-password', data, 'POST')
             .then(data => {
                 if (data.status == true) {
 

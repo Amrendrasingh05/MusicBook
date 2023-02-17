@@ -31,7 +31,7 @@ function Login() {
             "mobile_number": mobile
         }
 
-        postdata('http://musicbook.co.in/api/v1/auth/mobile-login', data, 'POST')
+        postdata('https://musicbook.co.in/api/v1/auth/mobile-login', data, 'POST')
             .then(data => {
                 if (data.status == true) {
                     // console.log("successfully loged in")

@@ -49,7 +49,7 @@ function Forgetpassword() {
 
   const [album, setAlbum] = useState([])
     useEffect(() => {
-        getdata('http://musicbook.co.in/api/v1/album/get?offset=0&user_id=6346f880c5f4ce2d6a77bc39', 'GET')
+        getdata('https://musicbook.co.in/api/v1/album/get?offset=0&user_id=6346f880c5f4ce2d6a77bc39', 'GET')
             .then(data => {
                 if (data.status == true) {
                     setAlbum(data.data)

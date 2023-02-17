@@ -19,7 +19,7 @@ function Popup({ show, onClose, val }) {
     const [album, setAlbum] = useState([])
 
         useEffect(() => {
-            getdata('http://musicbook.co.in/api/v1/album/get-songs?offset=0&album_id='+val._id, 'GET')
+            getdata('https://musicbook.co.in/api/v1/album/get-songs?offset=0&album_id='+val._id, 'GET')
                 .then(data => {
                     if (data.status == true) {
                         setAlbum(data.data)

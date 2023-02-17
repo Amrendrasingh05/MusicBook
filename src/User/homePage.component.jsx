@@ -32,7 +32,7 @@ function Forgetpassword() {
 
 
     useEffect(() => {
-        getdata('http://musicbook.co.in/api/v1/auth/get-user-details?user_id=' + localStorage.getItem("user_id"), 'GET')
+        getdata('https://musicbook.co.in/api/v1/auth/get-user-details?user_id=' + localStorage.getItem("user_id"), 'GET')
             .then(data => {
                 if (data.status == true) {
                     console.log(data)
@@ -50,7 +50,7 @@ function Forgetpassword() {
 
     const [album, setAlbum] = useState([])
     useEffect(() => {
-        getdata('http://musicbook.co.in/api/v1/album/get?offset=0&user_id=6346f880c5f4ce2d6a77bc39', 'GET')
+        getdata('https://musicbook.co.in/api/v1/album/get?offset=0&user_id=6346f880c5f4ce2d6a77bc39', 'GET')
             .then(data => {
                 if (data.status == true) {
                     setAlbum(data.data)
@@ -104,7 +104,7 @@ function Forgetpassword() {
         formData.append('user_id', localStorage.getItem("user_id"))
         formData.append('type', "image")
   
-        let response = await fetch('http://musicbook.co.in/api/v1/post/create', {
+        let response = await fetch('https://musicbook.co.in/api/v1/post/create', {
           method: 'POST',
           headers:{"authorization": localStorage.getItem("auth_token")},
           body: formData

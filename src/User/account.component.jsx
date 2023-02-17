@@ -31,7 +31,7 @@ function Account() {
 
 
     useEffect(() => {
-        getdata('http://musicbook.co.in/api/v1/auth/get-user-details?user_id='+localStorage.getItem("user_id"), 'GET')
+        getdata('https://musicbook.co.in/api/v1/auth/get-user-details?user_id='+localStorage.getItem("user_id"), 'GET')
             .then(data => {
                 if (data.status == true) {
                     console.log(data)

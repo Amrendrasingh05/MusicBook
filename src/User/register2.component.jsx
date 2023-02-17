@@ -38,7 +38,7 @@ function Register() {
             "pincode":Pin,
             "gender": Gender
         }
-        postdata('http://musicbook.co.in/api/v1/auth/save-user-details', data, 'POST')
+        postdata('https://musicbook.co.in/api/v1/auth/save-user-details', data, 'POST')
             .then(data => {
                 if (data.status == true) {
                     // console.log("successfully loged in")

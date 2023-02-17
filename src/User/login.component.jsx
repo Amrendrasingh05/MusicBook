@@ -38,7 +38,7 @@ function Login() {
             "password": Pass
         }
 
-        postdata('http://musicbook.co.in/api/v1/auth/login', data, 'POST')
+        postdata('https://musicbook.co.in/api/v1/auth/login', data, 'POST')
             .then(data => {
                 if (data.status == true) {
                     console.log("successfully loged in")

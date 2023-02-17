@@ -46,7 +46,7 @@ function Register() {
         formData.append('password', Pass)
         formData.append('full_name', name)
 
-        let response = await fetch('http://musicbook.co.in/api/v1/auth/register', {
+        let response = await fetch('https://musicbook.co.in/api/v1/auth/register', {
             method: 'POST',
             body: formData
         });

@@ -26,7 +26,7 @@ function Verify() {
             "password":Password
         }
 
-        postdata('http://musicbook.co.in/api/v1/auth/change-password', data, 'POST')
+        postdata('https://musicbook.co.in/api/v1/auth/change-password', data, 'POST')
             .then(data => {
                 if (data.status == true && Password.length>1) {
                     
