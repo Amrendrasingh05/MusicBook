@@ -44,6 +44,7 @@ import privacy from './User/privacyPolicy.component';
 import support from './User/support.component';
 import album from './User/album.component';
 import landingPage from './User/LandingPage.component';
+import ProfileUpdate from './User/ProfileUpdate.component';
 
 function App() {
   return (
@@ -67,6 +68,7 @@ function App() {
       <Route exact path="/privacy" component={privacy} />
       <Route exact path="/support" component={support} />
       <Route exact path="/album" component={album} />
+      <Route exact path="/profile-update" component={ProfileUpdate} />
       <Route exact path="/" component={landingPage} />
 
 

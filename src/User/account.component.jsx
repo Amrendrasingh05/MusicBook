@@ -66,7 +66,12 @@ function Account() {
                         <div style={{ maxWidth: "60%" }}>
                         {/* <img src={profileImg} alt="" style={{ marginTop: "-10%" }} /> */}
                         <img src={image} alt="" style={{ marginTop: "-10%" }} className="round-img"/>
-                            <h3>{name}</h3>
+                            <div className="display-flex">
+                            <h3>{name}</h3> &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
+                            <button className="btn btn-outline-secondary"
+                            style={{height:"30px",padding:"4px"}}
+                            onClick={()=> window.open("/profile-update","_self")}>Edit ✎ </button> 
+                            </div>
                             <p>{email}</p>
                             <div className="display-flex">
                                 <button className="TopPlayer">Top Player</button>
