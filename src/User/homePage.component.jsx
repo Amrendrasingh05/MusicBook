@@ -111,6 +111,7 @@ function Forgetpassword() {
         });
         let result = await response.json();
        swal(result.message);
+       window.open("dashboard")
 
     //    if(result.status == true)
     //    window.open("/login","_self")
