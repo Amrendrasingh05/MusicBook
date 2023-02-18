@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useReducer } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Header from './header.component'
 import leftImg1 from '../images/Rectangle 36.png'
@@ -38,25 +38,28 @@ function Post() {
             },
             body: JSON.stringify(data)
         });
-        console.log(JSON.stringify(data))
+        // console.log(JSON.stringify(data))
         return await response.json();
     }
 
 
+    const [forceUpdate, setForceUpdate] = useState("")
     const [post, setPost] = useState([])
     useEffect(() => {
         getdata('https://musicbook.co.in/api/v1/post/home-data', 'GET')
             .then(data => {
                 if (data.status == true) {
                     setPost(data.all_posts)
-                    console.log("post data =",data)
+                    // console.log("post data =",data)
                 }
                 else {
                     console("incorrect")
 
                 }
             })
-    }, [])
+
+            // console.log("like called")
+    }, [forceUpdate])
 
     const [visible, setVisible] = useState("none")
     const [like, setLike] = useState("white")
@@ -83,7 +86,6 @@ function Post() {
         }
 
         function Islike() {
-
             getdata('https://musicbook.co.in/api/v1/post/like-post/' + val._id, 'POST')
                 .then(data => {
                     if (data.status == true) {
@@ -109,13 +111,18 @@ function Post() {
                     }
                 })
 
+                setForceUpdate();
+
+
         }
 
 
         return (
 
             <div className="mt-5">
+                <center className="post-img-bg">
                 <img src={imgUrl} alt="" className="mt-8" />
+                </center>
                 <center>
                     <div className="like-comment-bar justify-space">
                         <div className="display-flex userName">
@@ -124,7 +131,7 @@ function Post() {
                         </div>
                         <div className="display-flex">
                         <div className="display-flex">
-                            <h5 onClick={Islike} style={{ cursor: "pointer", color: val.is_like?"red":"white" }}>❤</h5>
+                            <h5 className="heart" onClick={Islike} style={{ cursor: "pointer", color: val.is_like?"red":"white" }}>❤</h5>
                             <p>{val.likes_count}</p>
                         </div> &nbsp;&nbsp;&nbsp;&nbsp;
                         <div className="display-flex">

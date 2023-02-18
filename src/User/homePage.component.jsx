@@ -1,9 +1,10 @@
 import "bootstrap/dist/css/bootstrap.min.css";
+import Webcam from "./webcam.component";
 import Header from './header.component'
 import leftImg1 from '../images/Rectangle 36.png'
 import leftImg2 from '../images/Rectangle 37.png'
 import profileImg from '../images/Rectangle 83.png'
-import { useState, useEffect } from "react";
+import { useState, useEffect, useReducer } from "react";
 import albumImg1 from '../images/Rectangle 70.png'
 import albumImg2 from '../images/Rectangle 71.png'
 import albumImg3 from '../images/Rectangle 73.png'
@@ -30,12 +31,13 @@ function Forgetpassword() {
     const [email, setEmail] = useState("");
     const [image, setImage] = useState("");
 
+    const [forceUpdate, setForceUpdate] = useReducer(x => x+1,0)
 
     useEffect(() => {
         getdata('https://musicbook.co.in/api/v1/auth/get-user-details?user_id=' + localStorage.getItem("user_id"), 'GET')
             .then(data => {
                 if (data.status == true) {
-                    console.log(data)
+                    // console.log(data)
                     setName(data.data.full_name)
                     setEmail(data.data.email)
                     setImage(data.data.pic)
@@ -45,7 +47,7 @@ function Forgetpassword() {
 
                 }
             })
-    }, [])
+    }, [forceUpdate])
 
 
     const [album, setAlbum] = useState([])
@@ -54,7 +56,7 @@ function Forgetpassword() {
             .then(data => {
                 if (data.status == true) {
                     setAlbum(data.data)
-                    console.log("album = ", data)
+                    // console.log("album = ", data)
                 }
                 else {
                     console("incorrect")
@@ -75,7 +77,7 @@ function Forgetpassword() {
             setSong(val)
         }
 
-        console.log("val2=",val)
+        // console.log("val2=",val)
         
         return (
 
@@ -111,7 +113,7 @@ function Forgetpassword() {
         });
         let result = await response.json();
        swal(result.message);
-       window.open("dashboard","_self")
+       setForceUpdate()
 
     //    if(result.status == true)
     //    window.open("/login","_self")
@@ -129,7 +131,7 @@ function Forgetpassword() {
 
         <div>
           <Popup show={show} val={song} onClose={() => setShow(false)}/>
-
+          <Webcam />
             <Header />
 
             <div className="BasicStyle home">
@@ -141,15 +143,18 @@ function Forgetpassword() {
                         <Post />
                     </div>
 
-                    <div className="home-right scroller-100vh">
+                    <div className="home-right2 scroller-100vh">
 
                         <div className="home-right-top">
                             <h6>Create Post</h6>
                             <p>Description</p>
                             <input type="text" onChange={(e) => setCaption(e.target.value)}/>
                             <div className="display-flex">
-                                <button className="btn btn-outline-primary"><input   type="file" name="" id="" style={{opacity:"100%"}} onChange={onImageChange}/></button>
-                                <button className="btn btn-outline-primary">Camera</button>
+                                <button className="btn btn-outline-primary ImageuploadContainer">
+                                <input  className="Imageupload" type="file" name="" id="" onChange={onImageChange}/>
+                                </button>
+                                <div className="uploadText">Upload</div>
+                                <button className="btn btn-outline-primary">Upload</button>
                                 <button className="btn btn-outline-primary">Live</button>
                                 <button className="btn btn-outline-primary upload-content" onClick={Upload}>Upload Content</button>
                             </div>

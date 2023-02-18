@@ -14,7 +14,7 @@ function Popup({ show, onClose, val }) {
         return response.json();
     }
 
-    console.log("val = ",val)
+    // console.log("val = ",val)
    
     const [album, setAlbum] = useState([])
 
@@ -23,7 +23,7 @@ function Popup({ show, onClose, val }) {
                 .then(data => {
                     if (data.status == true) {
                         setAlbum(data.data)
-                        console.log("album songs = ", data)
+                        // console.log("album songs = ", data)
                     }
                     else {
                         console("incorrect")
@@ -36,7 +36,7 @@ function Popup({ show, onClose, val }) {
 
    
     function Ncards(value){
-        console.log("songs id = ", value._id)
+        // console.log("songs id = ", value._id)
         return(
             <>
             <div>{value._id}</div>
