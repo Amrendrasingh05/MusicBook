@@ -215,7 +215,7 @@ function Post() {
         //     </div>
         // </div>
         <>
-            {post.slice(0).reverse().map(Ncards)}
+            {post.map(Ncards)}
         </>
     );
 

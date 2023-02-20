@@ -4,6 +4,7 @@ import Header from './header.component'
 import leftImg1 from '../images/Rectangle 36.png'
 import leftImg2 from '../images/Rectangle 37.png'
 import profileImg from '../images/Rectangle 83.png'
+import share from '../images/share.png'
 import albumImg1 from '../images/Rectangle 70.png'
 import albumImg2 from '../images/Rectangle 71.png'
 import albumImg3 from '../images/Rectangle 73.png'
@@ -49,8 +50,8 @@ function Post() {
         getdata('https://musicbook.co.in/api/v1/post/home-data', 'GET')
             .then(data => {
                 if (data.status == true) {
-                    setPost(data.all_posts)
-                    // console.log("post data =",data)
+                    setPost(data.data)
+                    console.log("post data =", data)
                 }
                 else {
                     console("incorrect")
@@ -58,7 +59,7 @@ function Post() {
                 }
             })
 
-            // console.log("like called")
+        // console.log("like called")
     }, [forceUpdate])
 
     const [visible, setVisible] = useState("none")
@@ -77,6 +78,13 @@ function Post() {
             // console.log(imgUrl)
         }
 
+        let postType = ""
+
+        if (val.media[0]) {
+            postType = val.media[0].type
+            // console.log(imgUrl)
+        }
+
 
         function Visible() {
             if (visible == "block")
@@ -89,12 +97,11 @@ function Post() {
             getdata('https://musicbook.co.in/api/v1/post/like-post/' + val._id, 'POST')
                 .then(data => {
                     if (data.status == true) {
-                        post.forEach((e,i) =>{
-                            if(e._id == val._id)
-                            {
+                        post.forEach((e, i) => {
+                            if (e._id == val._id) {
                                 e.is_like = true
                             }
-                            else{
+                            else {
                                 e.is_like = false
                             }
                         })
@@ -111,81 +118,256 @@ function Post() {
                     }
                 })
 
-                setForceUpdate();
+            setForceUpdate();
 
 
         }
 
 
-        return (
+        if (val.media[0]) {
 
-            <div className="mt-5">
-                <center className="post-img-bg">
-                <img src={imgUrl} alt="" className="mt-8" />
-                </center>
-                <center>
-                    <div className="like-comment-bar justify-space">
-                        <div className="display-flex userName">
-                        <img src={val.created_by.pic} alt="" /> &nbsp;&nbsp;&nbsp;&nbsp;
-                        <p>{val.caption}</p>
-                        </div>
-                        <div className="display-flex">
-                        <div className="display-flex">
-                            <h5 className="heart" onClick={Islike} style={{ cursor: "pointer", color: val.is_like?"red":"white" }}>❤</h5>
-                            <p>{val.likes_count}</p>
-                        </div> &nbsp;&nbsp;&nbsp;&nbsp;
-                        <div className="display-flex">
-                            <h5 onClick={Visible} style={{ cursor: "pointer" }}>💬</h5>
-                            <p>{val.comment_counts}</p>
-                        </div>
+            if (postType == "image") {
+                return (
+
+                    <div className="mt-5">
+                        <center className="post-img-bg">
+                            <img src={imgUrl} alt="" className="mt-8" />
+                        </center>
+                        <center>
+                            <div className="like-comment-bar">
+                                <p className="like-comment-bar-caption">{val.captions}</p>
+                                <p className="like-comment-bar-tag">{val.tags + ""}</p>
+                                <div className="justify-space">
+                                    <div className="display-flex userName">
+                                        <img src={val.created_by.pic} alt="" /> &nbsp;&nbsp;&nbsp;&nbsp;
+                                        <p>
+                                            <p className="like-comment-bar-name">{val.created_by.full_name}</p>
+                                            <p className="like-comment-bar-email">{val.created_by.email}</p>
+                                        </p>
+                                    </div>
+                                    <div className="display-flex">
+                                        <div className="display-flex">
+                                            <h5 className="heart" onClick={Islike} style={{ cursor: "pointer", color: val.is_like ? "red" : "white" }}>❤</h5>
+                                            <p>{val.likes_count}</p>
+                                        </div> &nbsp;&nbsp;&nbsp;&nbsp;
+                                        <div className="display-flex">
+                                            <h5 onClick={Visible} style={{ cursor: "pointer" }}>💬</h5>
+                                            <p>{val.comment_counts}</p>
+                                        </div>&nbsp;
+                                        <div style={{ cursor: "pointer" }}>{localStorage.getItem("user_id") == val.created_by._id ? <>&nbsp;&nbsp;&nbsp;⋮</> : <><img src={share} alt="" className="share-img" /></>}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </center>
+
+                        <div className="comment-area" style={{ display: visible }}>
+
+                            <div className="comments">
+                                <div className="align">
+                                    <img src={profileImg} alt="" style={{ height: "40px", width: "40px", marginRight: "2%", marginLeft: "2%" }} />
+                                    <p className="text-small">Lorem ipsum  Eligendi ab nulla excepturi quidem.</p>
+                                </div>
+                                <div className="align">
+                                    <img src={profileImg} alt="" style={{ height: "40px", width: "40px", marginRight: "2%", marginLeft: "2%" }} />
+                                    <p className="text-small">Lorem ipsum  Eligendi ab nulla excepturi quidem.</p>
+                                </div>
+                                <div className="align">
+                                    <img src={profileImg} alt="" style={{ height: "40px", width: "40px", marginRight: "2%", marginLeft: "2%" }} />
+                                    <p className="text-small">Lorem ipsum  Eligendi ab nulla excepturi quidem.</p>
+                                </div>
+                                <div className="align">
+                                    <img src={profileImg} alt="" style={{ height: "40px", width: "40px", marginRight: "2%", marginLeft: "2%" }} />
+                                    <p className="text-small">Lorem ipsum  Eligendi ab nulla excepturi quidem.</p>
+                                </div>
+                                <div className="align">
+                                    <img src={profileImg} alt="" style={{ height: "40px", width: "40px", marginRight: "2%", marginLeft: "2%" }} />
+                                    <p className="text-small">Lorem ipsum  Eligendi ab nulla excepturi quidem.</p>
+                                </div>
+                                <div className="align">
+                                    <img src={profileImg} alt="" style={{ height: "40px", width: "40px", marginRight: "2%", marginLeft: "2%" }} />
+                                    <p className="text-small">Lorem ipsum  Eligendi ab nulla excepturi quidem.</p>
+                                </div>
+                                <div className="align">
+                                    <img src={profileImg} alt="" style={{ height: "40px", width: "40px", marginRight: "2%", marginLeft: "2%" }} />
+                                    <p className="text-small">Lorem ipsum  Eligendi ab nulla excepturi quidem.</p>
+                                </div>
+                                <div className="align">
+                                    <img src={profileImg} alt="" style={{ height: "40px", width: "40px", marginRight: "2%", marginLeft: "2%" }} />
+                                    <p className="text-small">Lorem ipsum  Eligendi ab nulla excepturi quidem.</p>
+                                </div>
+                            </div>
+
+                            <div className="display-flex">
+                                <input type="text" placeholder="Type your comment.." className="comment-box" />
+                                <button className="comment-btn primary-bg">✎</button>
+                            </div>
                         </div>
                     </div>
-                </center>
+                );
+            }
 
-                <div className="comment-area" style={{ display: visible }}>
-                   
-                    <div className="comments">
-                        <div className="align">
-                            <img src={profileImg} alt="" style={{ height: "40px", width: "40px", marginRight:"2%", marginLeft:"2%" }} />
-                            <p className="text-small">Lorem ipsum  Eligendi ab nulla excepturi quidem.</p>
-                        </div>
-                        <div className="align">
-                            <img src={profileImg} alt="" style={{ height: "40px", width: "40px", marginRight:"2%", marginLeft:"2%" }} />
-                            <p className="text-small">Lorem ipsum  Eligendi ab nulla excepturi quidem.</p>
-                        </div>
-                        <div className="align">
-                            <img src={profileImg} alt="" style={{ height: "40px", width: "40px", marginRight:"2%", marginLeft:"2%" }} />
-                            <p className="text-small">Lorem ipsum  Eligendi ab nulla excepturi quidem.</p>
-                        </div>
-                        <div className="align">
-                            <img src={profileImg} alt="" style={{ height: "40px", width: "40px", marginRight:"2%", marginLeft:"2%" }} />
-                            <p className="text-small">Lorem ipsum  Eligendi ab nulla excepturi quidem.</p>
-                        </div>
-                        <div className="align">
-                            <img src={profileImg} alt="" style={{ height: "40px", width: "40px", marginRight:"2%", marginLeft:"2%" }} />
-                            <p className="text-small">Lorem ipsum  Eligendi ab nulla excepturi quidem.</p>
-                        </div>
-                        <div className="align">
-                            <img src={profileImg} alt="" style={{ height: "40px", width: "40px", marginRight:"2%", marginLeft:"2%" }} />
-                            <p className="text-small">Lorem ipsum  Eligendi ab nulla excepturi quidem.</p>
-                        </div>
-                        <div className="align">
-                            <img src={profileImg} alt="" style={{ height: "40px", width: "40px", marginRight:"2%", marginLeft:"2%" }} />
-                            <p className="text-small">Lorem ipsum  Eligendi ab nulla excepturi quidem.</p>
-                        </div>
-                        <div className="align">
-                            <img src={profileImg} alt="" style={{ height: "40px", width: "40px", marginRight:"2%", marginLeft:"2%" }} />
-                            <p className="text-small">Lorem ipsum  Eligendi ab nulla excepturi quidem.</p>
+            else if (postType == "video") {
+                return (
+
+                    <div className="mt-5">
+                        <center className="post-img-bg">
+                            {/* <img src={imgUrl} alt="" className="mt-8" /> */}
+                            <video controls autoplay src={imgUrl}></video>
+
+                        </center>
+                        <center>
+                            <div className="like-comment-bar">
+                                <p className="like-comment-bar-caption">{val.captions}</p>
+                                <p className="like-comment-bar-tag">{val.tags + ""}</p>
+                                <div className="justify-space">
+                                    <div className="display-flex userName">
+                                        <img src={val.created_by.pic} alt="" /> &nbsp;&nbsp;&nbsp;&nbsp;
+                                        <p>
+                                            <p className="like-comment-bar-name">{val.created_by.full_name}</p>
+                                            <p className="like-comment-bar-email">{val.created_by.email}</p>
+                                        </p>
+                                    </div>
+                                    <div className="display-flex">
+                                        <div className="display-flex">
+                                            <h5 className="heart" onClick={Islike} style={{ cursor: "pointer", color: val.is_like ? "red" : "white" }}>❤</h5>
+                                            <p>{val.likes_count}</p>
+                                        </div> &nbsp;&nbsp;&nbsp;&nbsp;
+                                        <div className="display-flex">
+                                            <h5 onClick={Visible} style={{ cursor: "pointer" }}>💬</h5>
+                                            <p>{val.comment_counts}</p>
+                                        </div>&nbsp;
+                                        <div style={{ cursor: "pointer" }}>{localStorage.getItem("user_id") == val.created_by._id ? <>&nbsp;&nbsp;&nbsp;⋮</> : <><img src={share} alt="" className="share-img" /></>}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </center>
+
+                        <div className="comment-area" style={{ display: visible }}>
+
+                            <div className="comments">
+                                <div className="align">
+                                    <img src={profileImg} alt="" style={{ height: "40px", width: "40px", marginRight: "2%", marginLeft: "2%" }} />
+                                    <p className="text-small">Lorem ipsum  Eligendi ab nulla excepturi quidem.</p>
+                                </div>
+                                <div className="align">
+                                    <img src={profileImg} alt="" style={{ height: "40px", width: "40px", marginRight: "2%", marginLeft: "2%" }} />
+                                    <p className="text-small">Lorem ipsum  Eligendi ab nulla excepturi quidem.</p>
+                                </div>
+                                <div className="align">
+                                    <img src={profileImg} alt="" style={{ height: "40px", width: "40px", marginRight: "2%", marginLeft: "2%" }} />
+                                    <p className="text-small">Lorem ipsum  Eligendi ab nulla excepturi quidem.</p>
+                                </div>
+                                <div className="align">
+                                    <img src={profileImg} alt="" style={{ height: "40px", width: "40px", marginRight: "2%", marginLeft: "2%" }} />
+                                    <p className="text-small">Lorem ipsum  Eligendi ab nulla excepturi quidem.</p>
+                                </div>
+                                <div className="align">
+                                    <img src={profileImg} alt="" style={{ height: "40px", width: "40px", marginRight: "2%", marginLeft: "2%" }} />
+                                    <p className="text-small">Lorem ipsum  Eligendi ab nulla excepturi quidem.</p>
+                                </div>
+                                <div className="align">
+                                    <img src={profileImg} alt="" style={{ height: "40px", width: "40px", marginRight: "2%", marginLeft: "2%" }} />
+                                    <p className="text-small">Lorem ipsum  Eligendi ab nulla excepturi quidem.</p>
+                                </div>
+                                <div className="align">
+                                    <img src={profileImg} alt="" style={{ height: "40px", width: "40px", marginRight: "2%", marginLeft: "2%" }} />
+                                    <p className="text-small">Lorem ipsum  Eligendi ab nulla excepturi quidem.</p>
+                                </div>
+                                <div className="align">
+                                    <img src={profileImg} alt="" style={{ height: "40px", width: "40px", marginRight: "2%", marginLeft: "2%" }} />
+                                    <p className="text-small">Lorem ipsum  Eligendi ab nulla excepturi quidem.</p>
+                                </div>
+                            </div>
+
+                            <div className="display-flex">
+                                <input type="text" placeholder="Type your comment.." className="comment-box" />
+                                <button className="comment-btn primary-bg">✎</button>
+                            </div>
                         </div>
                     </div>
+                );
+            }
+        }
+        else {
+            return (
 
-                    <div className="display-flex">
-                        <input type="text" placeholder="Type your comment.." className="comment-box" />
-                        <button className="comment-btn primary-bg">✎</button>
+                <div className="mt-5">
+                    <center className="post-img-bg2">
+                        {/* <img src={imgUrl} alt="" className="mt-8" /> */}
+                        {/* <video controls autoplay src={imgUrl}></video> */}
+                        <div>{val.captions}</div>
+                    </center>
+                    <center>
+                        <div className="like-comment-bar">
+                            <p className="like-comment-bar-tag">{val.tags + ""}</p>
+                            <div className="justify-space">
+                                <div className="display-flex userName">
+                                    <img src={val.created_by.pic} alt="" /> &nbsp;&nbsp;&nbsp;&nbsp;
+                                    <p>
+                                        <p className="like-comment-bar-name">{val.created_by.full_name}</p>
+                                        <p className="like-comment-bar-email">{val.created_by.email}</p>
+                                    </p>
+                                </div>
+                                <div className="display-flex">
+                                    <div className="display-flex">
+                                        <h5 className="heart" onClick={Islike} style={{ cursor: "pointer", color: val.is_like ? "red" : "white" }}>❤</h5>
+                                        <p>{val.likes_count}</p>
+                                    </div> &nbsp;&nbsp;&nbsp;&nbsp;
+                                    <div className="display-flex">
+                                        <h5 onClick={Visible} style={{ cursor: "pointer" }}>💬</h5>
+                                        <p>{val.comment_counts}</p>
+                                    </div>&nbsp;
+                                    <div style={{ cursor: "pointer" }}>{localStorage.getItem("user_id") == val.created_by._id ? <>&nbsp;&nbsp;&nbsp;⋮</> : <><img src={share} alt="" className="share-img" /></>}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </center>
+
+                    <div className="comment-area" style={{ display: visible }}>
+
+                        <div className="comments">
+                            <div className="align">
+                                <img src={profileImg} alt="" style={{ height: "40px", width: "40px", marginRight: "2%", marginLeft: "2%" }} />
+                                <p className="text-small">Lorem ipsum  Eligendi ab nulla excepturi quidem.</p>
+                            </div>
+                            <div className="align">
+                                <img src={profileImg} alt="" style={{ height: "40px", width: "40px", marginRight: "2%", marginLeft: "2%" }} />
+                                <p className="text-small">Lorem ipsum  Eligendi ab nulla excepturi quidem.</p>
+                            </div>
+                            <div className="align">
+                                <img src={profileImg} alt="" style={{ height: "40px", width: "40px", marginRight: "2%", marginLeft: "2%" }} />
+                                <p className="text-small">Lorem ipsum  Eligendi ab nulla excepturi quidem.</p>
+                            </div>
+                            <div className="align">
+                                <img src={profileImg} alt="" style={{ height: "40px", width: "40px", marginRight: "2%", marginLeft: "2%" }} />
+                                <p className="text-small">Lorem ipsum  Eligendi ab nulla excepturi quidem.</p>
+                            </div>
+                            <div className="align">
+                                <img src={profileImg} alt="" style={{ height: "40px", width: "40px", marginRight: "2%", marginLeft: "2%" }} />
+                                <p className="text-small">Lorem ipsum  Eligendi ab nulla excepturi quidem.</p>
+                            </div>
+                            <div className="align">
+                                <img src={profileImg} alt="" style={{ height: "40px", width: "40px", marginRight: "2%", marginLeft: "2%" }} />
+                                <p className="text-small">Lorem ipsum  Eligendi ab nulla excepturi quidem.</p>
+                            </div>
+                            <div className="align">
+                                <img src={profileImg} alt="" style={{ height: "40px", width: "40px", marginRight: "2%", marginLeft: "2%" }} />
+                                <p className="text-small">Lorem ipsum  Eligendi ab nulla excepturi quidem.</p>
+                            </div>
+                            <div className="align">
+                                <img src={profileImg} alt="" style={{ height: "40px", width: "40px", marginRight: "2%", marginLeft: "2%" }} />
+                                <p className="text-small">Lorem ipsum  Eligendi ab nulla excepturi quidem.</p>
+                            </div>
+                        </div>
+
+                        <div className="display-flex">
+                            <input type="text" placeholder="Type your comment.." className="comment-box" />
+                            <button className="comment-btn primary-bg">✎</button>
+                        </div>
                     </div>
                 </div>
-            </div>
-        );
+            );
+        }
     }
 
 
@@ -222,7 +404,8 @@ function Post() {
         //     </div>
         // </div>
         <>
-            {post.slice(0).reverse().map(Ncards)}
+            {/* {post.slice(0).reverse().map(Ncards)} */}
+            {post.map(Ncards)}
         </>
     );
 

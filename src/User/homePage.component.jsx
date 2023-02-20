@@ -102,7 +102,7 @@ function Forgetpassword() {
         let formData = new FormData();
         formData.append('media', file[0]);
         formData.append('caption', caption)
-        formData.append('tags', "post")
+        formData.append('tags', "post,video")
         formData.append('user_id', localStorage.getItem("user_id"))
         formData.append('type', "image")
   
@@ -114,7 +114,7 @@ function Forgetpassword() {
         let result = await response.json();
        swal(result.message);
        setForceUpdate()
-
+       window.open("/dashboard","_self")
     //    if(result.status == true)
     //    window.open("/login","_self")
 
@@ -131,7 +131,7 @@ function Forgetpassword() {
 
         <div>
           <Popup show={show} val={song} onClose={() => setShow(false)}/>
-          <Webcam />
+          {/* <Webcam /> */}
             <Header />
 
             <div className="BasicStyle home">
@@ -154,7 +154,7 @@ function Forgetpassword() {
                                 <input  className="Imageupload" type="file" name="" id="" onChange={onImageChange}/>
                                 </button>
                                 <div className="uploadText">Upload</div>
-                                <button className="btn btn-outline-primary">Upload</button>
+                                <button className="btn btn-outline-primary">Camera</button>
                                 <button className="btn btn-outline-primary">Live</button>
                                 <button className="btn btn-outline-primary upload-content" onClick={Upload}>Upload Content</button>
                             </div>
