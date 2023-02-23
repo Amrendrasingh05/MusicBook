@@ -93,7 +93,7 @@ function Login() {
                     <input type="email" name="" id="" placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
                     <input className="eye-pass" type={eyeV} name="" id="" placeholder="Password" onChange={(e) => setPass(e.target.value)} />
                     <img src={eye} className="eye" onClick={visible} style={{cursor:"pointer"}} alt="" />
-                    
+                    <br />
                     <div style={{display:"flex", justifyContent:"space-around"}}>
                         <div>
                             <input type="checkbox" name="" id="" style={{ height: "15px", marginTop: "10px", marginLeft: "15px" }} />

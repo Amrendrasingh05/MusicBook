@@ -505,7 +505,60 @@ border-top: 1px solid black; */
   border: 0;
   background: transparent;
 }
-
+.post{
+  position: relative;
+}
+.close-popup-three-dot {
+  position: absolute;
+  top: -5px;
+  right: 0;
+  width: 22px;
+  height: 22px;
+  color: red;
+  font-size: 15px;
+  font-weight:bold;
+  /* background: red; */
+  border:0 !important;
+  padding: 2%;
+  cursor: pointer;
+}
+.post-three-dot-popup{
+  background: black;
+  font-size: 12.5px;
+  color: gray;
+  border: 1px solid gray;
+  top: 50%;
+  right: 0px;
+  position: absolute;
+  width: 200px;
+  border-bottom: 0;
+  border-radius: 10px;
+}
+.post-three-dot-popup div{
+  cursor: pointer;
+  border-bottom: 0.5px solid gray;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding: 2%;
+}
+.edit-post-three-dot-popup{
+ text-align: left;
+ width: 900px;
+ background: black;
+ color: white;
+}
+.edit-post-three-dot-popup img{
+  height: 200px;
+  margin-bottom: 2%;
+}
+.edit-post-three-dot-popup input{
+  background: rgba(103, 103, 103, 0.372);
+  color: white !important;
+  width: 400px;
+  height: 100px;
+  border: 0 !important;
+  border-radius: 10px;
+}
 .home-left{
   background-image: url("./images/blackDesign.jpg");
   width: 900px;
@@ -736,6 +789,18 @@ border-top: 1px solid black; */
   position: absolute;
   top: 0;
   right: 0;
+}
+.close-popup-edit-post {
+  position: absolute;
+  top: 0;
+  right: 0px;
+  padding-left: 1.5%;
+  padding-top: 1%;
+  color: red !important;
+  background: rgb(36, 17, 17) !important;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
 }
 .close-popup-album {
   position: absolute;

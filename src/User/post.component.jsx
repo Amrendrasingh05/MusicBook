@@ -11,11 +11,13 @@ import albumImg3 from '../images/Rectangle 73.png'
 import albumImg4 from '../images/Rectangle 74.png'
 import swal from "sweetalert";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
+import Popup from './threeDotPopup.component'
 
 
 
 function Post() {
+
+    const [show, setShow] = useState(false)
 
     async function getdata(url = '', methods = '') {
         const response = await fetch(url, {
@@ -129,7 +131,9 @@ function Post() {
             if (postType == "image") {
                 return (
 
-                    <div className="mt-5">
+                    <div className="mt-5 post">
+                        
+
                         <center className="post-img-bg">
                             <img src={imgUrl} alt="" className="mt-8" />
                         </center>
@@ -154,43 +158,17 @@ function Post() {
                                             <h5 onClick={Visible} style={{ cursor: "pointer" }}>💬</h5>
                                             <p>{val.comment_counts}</p>
                                         </div>&nbsp;
-                                        <div style={{ cursor: "pointer" }}>{localStorage.getItem("user_id") == val.created_by._id ? <>&nbsp;&nbsp;&nbsp;⋮</> : <><img src={share} alt="" className="share-img" /></>}</div>
+                                        <div style={{ cursor: "pointer" }}>
+                                            {localStorage.getItem("user_id") == val.created_by._id ? <div onClick={()=> setShow(true)}>&nbsp;&nbsp;&nbsp;⋮</div> : <>
+                                                <img src={share} alt="" className="share-img" /></>}</div>
                                     </div>
                                 </div>
                             </div>
                         </center>
-
+                        <Popup show={show} onClose={() => setShow(false)}  val={val} />
                         <div className="comment-area" style={{ display: visible }}>
 
                             <div className="comments">
-                                <div className="align">
-                                    <img src={profileImg} alt="" style={{ height: "40px", width: "40px", marginRight: "2%", marginLeft: "2%" }} />
-                                    <p className="text-small">Lorem ipsum  Eligendi ab nulla excepturi quidem.</p>
-                                </div>
-                                <div className="align">
-                                    <img src={profileImg} alt="" style={{ height: "40px", width: "40px", marginRight: "2%", marginLeft: "2%" }} />
-                                    <p className="text-small">Lorem ipsum  Eligendi ab nulla excepturi quidem.</p>
-                                </div>
-                                <div className="align">
-                                    <img src={profileImg} alt="" style={{ height: "40px", width: "40px", marginRight: "2%", marginLeft: "2%" }} />
-                                    <p className="text-small">Lorem ipsum  Eligendi ab nulla excepturi quidem.</p>
-                                </div>
-                                <div className="align">
-                                    <img src={profileImg} alt="" style={{ height: "40px", width: "40px", marginRight: "2%", marginLeft: "2%" }} />
-                                    <p className="text-small">Lorem ipsum  Eligendi ab nulla excepturi quidem.</p>
-                                </div>
-                                <div className="align">
-                                    <img src={profileImg} alt="" style={{ height: "40px", width: "40px", marginRight: "2%", marginLeft: "2%" }} />
-                                    <p className="text-small">Lorem ipsum  Eligendi ab nulla excepturi quidem.</p>
-                                </div>
-                                <div className="align">
-                                    <img src={profileImg} alt="" style={{ height: "40px", width: "40px", marginRight: "2%", marginLeft: "2%" }} />
-                                    <p className="text-small">Lorem ipsum  Eligendi ab nulla excepturi quidem.</p>
-                                </div>
-                                <div className="align">
-                                    <img src={profileImg} alt="" style={{ height: "40px", width: "40px", marginRight: "2%", marginLeft: "2%" }} />
-                                    <p className="text-small">Lorem ipsum  Eligendi ab nulla excepturi quidem.</p>
-                                </div>
                                 <div className="align">
                                     <img src={profileImg} alt="" style={{ height: "40px", width: "40px", marginRight: "2%", marginLeft: "2%" }} />
                                     <p className="text-small">Lorem ipsum  Eligendi ab nulla excepturi quidem.</p>
@@ -208,6 +186,7 @@ function Post() {
 
             else if (postType == "video") {
                 return (
+
 
                     <div className="mt-5">
                         <center className="post-img-bg">
@@ -236,7 +215,9 @@ function Post() {
                                             <h5 onClick={Visible} style={{ cursor: "pointer" }}>💬</h5>
                                             <p>{val.comment_counts}</p>
                                         </div>&nbsp;
-                                        <div style={{ cursor: "pointer" }}>{localStorage.getItem("user_id") == val.created_by._id ? <>&nbsp;&nbsp;&nbsp;⋮</> : <><img src={share} alt="" className="share-img" /></>}</div>
+                                        <div style={{ cursor: "pointer" }}>
+                                            {localStorage.getItem("user_id") == val.created_by._id ? <>&nbsp;&nbsp;&nbsp;⋮</> : <>
+                                                <img src={share} alt="" className="share-img" /></>}</div>
                                     </div>
                                 </div>
                             </div>
