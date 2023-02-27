@@ -1,4 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
+import axios from "axios";
+import InfiniteScroll from 'react-infinite-scroll-component'
 import Webcam from "./webcam.component";
 import Header from './header.component'
 import leftImg1 from '../images/Rectangle 36.png'
@@ -31,7 +33,7 @@ function Forgetpassword() {
     const [email, setEmail] = useState("");
     const [image, setImage] = useState("");
 
-    const [forceUpdate, setForceUpdate] = useReducer(x => x+1,0)
+    const [forceUpdate, setForceUpdate] = useReducer(x => x + 1, 0)
 
     useEffect(() => {
         getdata('https://musicbook.co.in/api/v1/auth/get-user-details?user_id=' + localStorage.getItem("user_id"), 'GET')
@@ -66,61 +68,85 @@ function Forgetpassword() {
     }, [])
 
 
-    
 
 
-    const[show , setShow] = useState(false)
-    const[song, setSong] = useState("")
+
+    const [show, setShow] = useState(false)
+    const [song, setSong] = useState("")
     function Albums(val) {
-        function Click(){
+        function Click() {
             setShow(true)
             setSong(val)
         }
 
         // console.log("val2=",val)
-        
+
         return (
 
             <>
-                <img src={val.cover_photo} onClick={Click} style={{cursor:"pointer"}} alt="" />
+                <img src={val.cover_photo} onClick={Click} style={{ cursor: "pointer" }} alt="" />
             </>
         );
     }
 
 
 
-    const[caption, setCaption] = useState("")
+    const [caption, setCaption] = useState("")
     const [file, setFile] = useState([])
+    const [filetype, setFiletype] = useState("")
     const onImageChange = (e) => {
         setFile(e.target.files);
-        // setImage(URL.createObjectURL(file[0]));
-        // console.log(file[0])
-
+        setFiletype("image")
+        // swal(filetype)
     };
-    async function Upload() {
-       
+    const onImageChange2 = (e) => {
+        setFile(e.target.files);
+        setFiletype("video")
+        // swal(filetype)
+    };
+    const onImageChange3 = (e) => {
+        setFile(e.target.files);
+        setFiletype("audio")
+        // swal(filetype)
+    };
+
+    const [uploadingPercent, setUploadingPercent] = useState(0)
+    const [visibleProgress, setVisibleProgress] = useState("0%")
+    function Upload() {
+
         let formData = new FormData();
         formData.append('media', file[0]);
         formData.append('caption', caption)
         formData.append('tags', "post,video")
         formData.append('user_id', localStorage.getItem("user_id"))
-        formData.append('type', "image")
-  
-        let response = await fetch('https://musicbook.co.in/api/v1/post/create', {
-          method: 'POST',
-          headers:{"authorization": localStorage.getItem("auth_token")},
-          body: formData
-        });
-        let result = await response.json();
-       swal(result.message);
-       setForceUpdate()
-       window.open("/dashboard","_self")
-    //    if(result.status == true)
-    //    window.open("/login","_self")
+        formData.append('type', filetype)
 
+        setVisibleProgress("100%")
 
-
+        axios.post('https://musicbook.co.in/api/v1/post/create',formData,{
+            headers: { "authorization": localStorage.getItem("auth_token") },
+            onUploadProgress:(data) => {
+                setUploadingPercent(Math.round((data.loaded / data.total)*100))
+            }
+        }).then((sucess) => {
+            swal("sucess")
+            window.open("/dashboard", "_self")
+        }).catch((erorr) => {
+            swal("error")
+            setVisibleProgress("0")
+        })
+        
+        // let response = await fetch('https://musicbook.co.in/api/v1/post/create', {
+        //     method: 'POST',
+        //     headers: { "authorization": localStorage.getItem("auth_token") },
+        //     body: formData
+        // });
+        // let result = await response.json();
+        // swal(filetype + " of " + result.message);
+        // setForceUpdate()
+        // window.open("/dashboard", "_self")
     }
+
 
 
 
@@ -130,17 +156,19 @@ function Forgetpassword() {
     return (
 
         <div>
-          <Popup show={show} val={song} onClose={() => setShow(false)}/>
-          {/* <Webcam /> */}
+            <Popup show={show} val={song} onClose={() => setShow(false)} />
+            {/* <Webcam /> */}
             <Header />
 
             <div className="BasicStyle home">
                 <div className="display-flex">
 
                     <div className="home-left">
-                        <span>HELLO,</span>
+                        <span>Hello,</span>
                         <h1>{name}</h1>
+                        {/* <InfiniteScroll> */}
                         <Post />
+                        {/* </InfiniteScroll> */}
                     </div>
 
                     <div className="home-right2 scroller-100vh">
@@ -148,15 +176,26 @@ function Forgetpassword() {
                         <div className="home-right-top">
                             <h6>Create Post</h6>
                             <p>Description</p>
-                            <input type="text" onChange={(e) => setCaption(e.target.value)}/>
+                            <input type="text" onChange={(e) => setCaption(e.target.value)} />
                             <div className="display-flex">
-                                <button className="btn btn-outline-primary ImageuploadContainer">
-                                <input  className="Imageupload" type="file" name="" id="" onChange={onImageChange}/>
-                                </button>
-                                <div className="uploadText">Upload</div>
+                                <div class="upload-btn-wrapper">
+                                    <button class="btn">Image</button>
+                                    <input type="file" name="myfile" onChange={onImageChange} />
+                                </div>
+                                <div class="upload-btn-wrapper">
+                                    <button class="btn">Video</button>
+                                    <input type="file" name="myfile" onChange={onImageChange2} />
+                                </div>
+                                <div class="upload-btn-wrapper">
+                                    <button class="btn">Audio</button>
+                                    <input type="file" name="myfile" onChange={onImageChange3} />
+                                </div>
                                 <button className="btn btn-outline-primary">Camera</button>
                                 <button className="btn btn-outline-primary">Live</button>
-                                <button className="btn btn-outline-primary upload-content" onClick={Upload}>Upload Content</button>
+                                <button className="btn btn-outline-primary" onClick={Upload}>Upload</button>
+                            </div>
+                            <div className="progress" style={{opacity:visibleProgress}}>
+                                <div className="progress-bar"  role="progressbar" style={{ width: `${uploadingPercent}%` }} aria-valuenow={uploadingPercent} aria-valuemin="0" aria-valuemax="100">{uploadingPercent}%</div>
                             </div>
                         </div>
 

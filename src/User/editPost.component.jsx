@@ -29,7 +29,8 @@ function Popup({ show, onClose, val }) {
                             </div>
                             <div style={{border:"0"}}>
                                 <h5>Caption</h5>
-                                <input type="text" placeholder='hiiiii' />
+                                {/* <input type="text" placeholder='hiiiii' /> */}
+                                <h6><textarea name="" id="" cols="30" rows="3" >{val.captions}</textarea></h6>
                             </div>
                         </div>
                         <center style={{border:"0"}}><button className='btn btn-outline-info'>Save</button></center>
