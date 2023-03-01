@@ -42,17 +42,15 @@ function forgetpassword() {
                     <p>Music Book gathers information about you when you use our Services. This Privacy Policy ("Policy") describes the information collection, potential uses, potential sharing, as well as your legal rights. We are devoted to keeping our users' privacy secure. Other businesses you might deal with on or via the Music Book services, including those we do not own or control, are not covered by this Policy.
                     </p>
                     <br />
-                    <p>Music Book gathers information about you when you use our Services. This Privacy Policy ("Policy") describes the information collection, potential uses, potential sharing, as well as your legal rights. We are devoted to keeping our users' privacy secure. Other businesses you might deal with on or via the Music Book services, including those we do not own or control, are not covered by this Policy.
-                    </p>
+                    <p>
+                    The Music book™ website, all mobile software applications made available on the Music book™ website or for download (each an "App" and collectively, the "Apps"), and any associated websites or other online properties owned or controlled by Music book™ to which this Policy is linked (collectively, the Websites and the Apps, the Websites) are all covered by our Policy, unless otherwise stated.                    </p>
                     <br />
                     <p>
                         Please take the time to read the Terms of Service, which outlines the rules that apply to the Services.
                     </p>
                     <br />
                     <p>
-                        Music Book, Inc. and any of its subsidiaries are referred to as "Music Book" (or "we," "us," and "our") in this document. Please read the Privacy Notice for Indian Residents if you are a resident of India.
-                    </p>
-
+                    Music book™, Inc. and any of its subsidiaries are referred to as " Music book™ " (or "we," "us," and "our") in this document. Please read the Privacy Notice for Indian Residents if you are a resident of India.                    </p>
                     <ul>
                         <li>
                             Your email address, phone number, username, and password are among the basic account data that we gather. You will need this information in order for us to create your account and get you access to our Services. For our Service to be provided, this processing is required.
@@ -174,10 +172,8 @@ function forgetpassword() {
                         </h5>
 
                         <p>
-                            Music Book was created to make it easy for you to share your performances with the world. The majority of the data you give us through the usage of the services is data you want us to make public. As you use and communicate using our Services, you share information with us, and we share information with you to run, offer, understand, modify, support, and promote our Services.
-                        </p>
+                        Music book™ was created to make it easy for you to share your performances with the world. The majority of the data you give us through the usage of the services is data you want us to make public. As you use and communicate using our Services, you share information with us, and we share information with you to run, offer, understand, modify, support, and promote our Services.                        </p>
                         <br />
-
                         <ul>
                             <li>
                                 Account Specifics. You can configure your settings to control whether specific information is made available to other users and companies with whom you interact. However, your phone number, profile name and photo, bio, status, last seen status, and receipts may be accessible to anyone who uses our Services.
@@ -229,9 +225,7 @@ function forgetpassword() {
                         </h5>
 
                         <p>
-                            Music Book uses a number of legal bases to gather, use, disclose, and otherwise treat the information we have about you for the reasons outlined in this Policy in accordance with Indian law. These grounds for law include:
-                        </p>
-
+                        Music book™ uses a number of legal bases to gather, use, disclose, and otherwise treat the information we have about you for the reasons outlined in this Policy in accordance with Indian law. These grounds for law include:                        </p>
                         <ul>
                             <li>
                                 To provide the Services in compliance with the Terms of Service, some processing is required. For instance, in order to provide our Service, we must distribute your material. To create your Music Book account and distribute the material on Music Book, which is at the core of our Service, we need your basic contact information.
@@ -245,6 +239,18 @@ function forgetpassword() {
 
                         </ul>
                         <br />
+
+                        <h5>
+                            <li>
+                            Data Collection and Storage                            </li>
+                        </h5>
+
+                        <p>
+                        Our app permits the user’s consent to access the photos, but it doesn’t explain the use of photos in the string. Permission request alerts enable the permission to make informed decisions about the use of images and how the Music book™ app will make use of users’ data.
+                        </p>
+                        <p>
+                        Revise the string into your app’s info.plist file to explain how the user’s data will be used. You can modify this by using the property list in the code editor Xcode.
+                        </p>
 
                         <h5>
                             <li>
@@ -349,8 +355,7 @@ function forgetpassword() {
                         </h5>
 
                         <p>
-                            Please get in touch with us at support@musicbook.co.in if you have any inquiries or suggestions, or would like to exercise any of your statutory rights.
-                        </p>
+                        Please get in touch with us at support@musicbook.co.in if you have any inquiries or suggestions, or would like to exercise any of your statutory rights.                         </p>
 
 
                     </ol>

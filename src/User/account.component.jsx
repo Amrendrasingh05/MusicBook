@@ -87,13 +87,13 @@ function Account() {
                                  <button className="btn btn-outline-secondary">Digital Visiting Card</button> &nbsp;&nbsp;&nbsp;&nbsp;
                                  <button className="btn btn-outline-secondary">My Purchase</button> &nbsp;&nbsp;&nbsp;&nbsp;
                                  <button className="btn btn-outline-secondary" onClick={() => window.open("/support","_self")}>Support & Help</button> &nbsp;&nbsp;&nbsp;&nbsp;
-                                 <button className="btn btn-outline-secondary" onClick={() => window.open("/privacy","_self")}>Privacy Policy</button> &nbsp;&nbsp;&nbsp;&nbsp;
-                                
+                                 <button className="btn btn-outline-secondary" onClick={() => window.open("/privacy","_self")}>Privacy Policy</button> &nbsp;&nbsp;&nbsp;&nbsp;                                
                             </div>
                             <br />
                             <div className="display-flex">
+                            <button className="btn btn-outline-secondary" onClick={() => window.open("/terms-condition","_self")}>Terms And Conditons</button> &nbsp;&nbsp;&nbsp;&nbsp;
+                                 <button className="btn btn-outline-secondary" onClick={() => window.open("/aboutUs","_self")}>About</button>&nbsp;&nbsp;&nbsp;&nbsp;
                             <button className="btn btn-outline-secondary">Rating</button> &nbsp;&nbsp;&nbsp;&nbsp;
-                                 <button className="btn btn-outline-secondary" onClick={() => window.open("/aboutUs","_self")}>About</button>
                                 
                             </div>
                             <br />

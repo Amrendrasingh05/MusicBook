@@ -41,6 +41,7 @@ import coursePurchase from './User/coursePurchase.component';
 import account from './User/account.component';
 import aboutUs from './User/aboutUs.component';
 import privacy from './User/privacyPolicy.component';
+import termsCondition from './User/termsCondition.component';
 import support from './User/support.component';
 import album from './User/album.component';
 import landingPage from './User/LandingPage.component';
@@ -67,6 +68,7 @@ function App() {
       <Route exact path="/aboutUs" component={aboutUs} />
       <Route exact path="/privacy" component={privacy} />
       <Route exact path="/support" component={support} />
+      <Route exact path="/terms-condition" component={termsCondition} />
       <Route exact path="/album" component={album} />
       <Route exact path="/profile-update" component={ProfileUpdate} />
       <Route exact path="/" component={landingPage} />
