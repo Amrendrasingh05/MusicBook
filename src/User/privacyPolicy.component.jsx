@@ -254,6 +254,40 @@ function forgetpassword() {
 
                         <h5>
                             <li>
+                            Security & Password Protection
+                            </li>
+                        </h5>
+                        <ul>
+                            <li>
+                            	All the user-level passwords must be changed frequently.
+                            </li>
+                            <li>
+                            	Emails and other kinds of electronic communication should not contain passwords.
+                            </li>
+                            <li>
+                            	Weak passwords must be avoided.
+                            </li>
+                            <li>
+                            	Strong passwords must be used 
+                            </li>
+
+                            <ul>
+                                <li>❖	Have a minimum of eight alphanumeric characters.</li>
+                                <li>❖	Are not terms used in any dialect, slang, jargon, etc.</li>
+                                <li>❖	Includes both capital and lowercase letters (e.g., a-z, A-Z)</li>
+                                <li>❖	Have letters, numbers, and punctuation characters, such as 0–9,!@#$%&*() +|-='[]:";'>?,./)</li>
+                                <li>❖	Are not based on personal data, family names, etc.</li>
+                            </ul>
+
+                            <li>
+                            	Passwords should not be written or stored online.
+                            </li>
+                        </ul>
+                        <br />
+
+
+                        <h5>
+                            <li>
                                 OUR PROPER INTERESTS
                             </li>
                         </h5>
@@ -299,6 +333,8 @@ function forgetpassword() {
                             </li>
                         </ul>
                         <br />
+
+                        
 
                         <h5>
                             <li>

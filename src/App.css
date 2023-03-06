@@ -5,6 +5,9 @@
   padding: 0;
   font-family: "Poppins", sans-serif;
 }
+.Mobile-header{
+  display: none;
+}
 .music-wave-box{
   /* background: linear-gradient(45deg,#0006ff,#a801ff); */
   padding: 5%;
@@ -128,6 +131,9 @@ margin-top: 50%;
   border-radius: 10px;
 }
 .display-flex {
+  display: flex;
+}
+.home-df{
   display: flex;
 }
 button {
@@ -1507,7 +1513,15 @@ border-bottom: 1px solid #767676;
   height: 120px;
   opacity: 0;
 }
-
+.remember-me{
+  margin-left: -10%;
+}
+.check-box-remember{
+  margin-left: 5%;
+}
+.create-post-mobile{
+  display: none;
+}
 
 
 @media only screen and (max-width: 600px) {
@@ -1548,6 +1562,7 @@ border-bottom: 1px solid #767676;
       display: block;
  max-height: 100vh;
  overflow: scroll;
+ /* max-width: 100%; */
     }
     .login {
       display: block;
@@ -1612,6 +1627,101 @@ border-bottom: 1px solid #767676;
     .account {
       height: 15vh;
     }
-  
-  
+  .home-right2{
+    display: none;
+  }
+  .post-img-bg{
+    width: 100%;
+  }
+  .post-img-bg2{
+    width: 100%;
+  }
+  .home-left img {
+    max-width:100%;
+    height: auto;
+    border-radius: 10px;
+    padding-bottom: 2%;
+  }
+  .home-left video {
+    max-width:100%;
+    height: auto;
+    border-radius: 10px;
+    padding-bottom: 2%;
+  }
+  .like-comment-bar{
+    width: 100%;
+  }
+  .comment-area{
+    width: 100%;
+  }
+  .comment-area img{
+    border-radius: 50%;
+  }
+  .Mobile-header{
+    display: block;
+    padding: 2%;
+    background: black;
+  }
+  .create-post-mobile{
+    display: block;
+    position: absolute;
+    bottom: 2%;
+    z-index: 111;
+    width: 90%;
+    margin-left: 5%;
+    backdrop-filter: blur(30px);
+    padding: 2%;
+    border-radius: 10px;
+    font-size: 12px;
+    color: white;
+  }
+  .create-post-mobile-btn{
+    border:1px solid lightblue;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    border-radius: 10pc;
+  }
+  .create-post-mobile-input{
+    border: 0;
+    background: rgba(128, 128, 128, 0.264);
+    color: white;
+    padding: 2%;
+    width: 75%;
+  }
+  .upload-btn-wrapper{
+    height: 30px;
+    width: 70px;
+  }
+  .upload-btn-wrapper button {
+   color: white;
+   margin-left: -40%;
+   margin-top: -25%;
+   font-size: 12px;
+  }
+  .remember-me{
+    margin-left: -10%;
+  }
+  .check-box-remember{
+    margin-left: 5%;
+  }
+  .eye{
+    height: 15px;
+    position: absolute;
+    top: 40%;
+    right: 22%;
+  }
+  .eye-register{
+    height: 15px;
+    position: absolute;
+    top: 48%;
+    right: 22%;
+  }
+  .eye2-register{
+    height: 15px;
+    position: absolute;
+    top: 57%;
+    right: 22%;
+  }
 }

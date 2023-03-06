@@ -6,7 +6,7 @@ import Header from './header.component'
 import leftImg1 from '../images/Rectangle 36.png'
 import leftImg2 from '../images/Rectangle 37.png'
 import profileImg from '../images/Rectangle 83.png'
-import { useState, useEffect, useReducer } from "react";
+import { useState, useEffect, useReducer,useRef } from "react";
 import albumImg1 from '../images/Rectangle 70.png'
 import albumImg2 from '../images/Rectangle 71.png'
 import albumImg3 from '../images/Rectangle 73.png'
@@ -14,7 +14,9 @@ import albumImg4 from '../images/Rectangle 74.png'
 import swal from "sweetalert";
 import Post from "./post.component";
 import Popup from './songsPopup.component'
-
+import Mobileheader from "./mobileHeader";
+import Createpost from "./createPostMobile";
+import { faWindowRestore } from "@fortawesome/free-regular-svg-icons";
 
 function Forgetpassword() {
 
@@ -93,6 +95,8 @@ function Forgetpassword() {
 
     const [caption, setCaption] = useState("")
     const [file, setFile] = useState([])
+    // const [ThumbnailFile, setThumbnailFile] = useState([])
+    // const [enableDisable, setenableDisable] = useState(true)
     const [filetype, setFiletype] = useState("")
     const onImageChange = (e) => {
         setFile(e.target.files);
@@ -102,8 +106,10 @@ function Forgetpassword() {
     const onImageChange2 = (e) => {
         setFile(e.target.files);
         setFiletype("video")
+        // setenableDisable(false)
         // swal(filetype)
     };
+    
     const onImageChange3 = (e) => {
         setFile(e.target.files);
         setFiletype("audio")
@@ -114,28 +120,66 @@ function Forgetpassword() {
     const [visibleProgress, setVisibleProgress] = useState("0%")
     function Upload() {
 
-        let formData = new FormData();
-        formData.append('media', file[0]);
-        formData.append('caption', caption)
-        formData.append('tags', "post,video")
-        formData.append('user_id', localStorage.getItem("user_id"))
-        formData.append('type', filetype)
+        if (filetype == 'video') {
+           
 
-        setVisibleProgress("100%")
+                let formData = new FormData();
+                formData.append('media', file[0]);
+                formData.append('caption', caption)
+                formData.append('tags', "post,video")
+                formData.append('user_id', localStorage.getItem("user_id"))
+                formData.append('type', filetype)
+                formData.append('upload_from', 'web') //testing thumbnail in video
 
-        axios.post('https://musicbook.co.in/api/v1/post/create',formData,{
-            headers: { "authorization": localStorage.getItem("auth_token") },
-            onUploadProgress:(data) => {
-                setUploadingPercent(Math.round((data.loaded / data.total)*100))
-            }
-        }).then((sucess) => {
-            swal("sucess")
-            window.open("/dashboard", "_self")
-        }).catch((erorr) => {
-            swal("error")
-            setVisibleProgress("0")
-        })
-        
+
+                setVisibleProgress("100%")
+
+                axios.post('https://musicbook.co.in/api/v1/post/create', formData, {
+                    headers: { "authorization": localStorage.getItem("auth_token") },
+                    onUploadProgress: (data) => {
+                        setUploadingPercent(Math.round((data.loaded / data.total) * 100))
+                    }
+                }).then((sucess) => {
+                    swal("sucess")
+                    window.open("/dashboard", "_self")
+                }).catch((erorr) => {
+                    swal("error")
+                    setVisibleProgress("0")
+                })
+
+
+           
+        }
+        else {
+
+            let formData = new FormData();
+            formData.append('media', file[0]);
+            formData.append('caption', caption)
+            formData.append('tags', "post,video")
+            formData.append('user_id', localStorage.getItem("user_id"))
+            formData.append('type', filetype)
+            // formData.append('reel3', ThumbnailFile[0]) //testing thumbnail in video
+
+
+            setVisibleProgress("100%")
+
+            axios.post('https://musicbook.co.in/api/v1/post/create', formData, {
+                headers: { "authorization": localStorage.getItem("auth_token") },
+                onUploadProgress: (data) => {
+                    setUploadingPercent(Math.round((data.loaded / data.total) * 100))
+                }
+            }).then((sucess) => {
+                swal("sucess")
+                window.open("/dashboard", "_self")
+            }).catch((erorr) => {
+                swal("error")
+                setVisibleProgress("0")
+            })
+
+
+        }
+
+
         // let response = await fetch('https://musicbook.co.in/api/v1/post/create', {
         //     method: 'POST',
         //     headers: { "authorization": localStorage.getItem("auth_token") },
@@ -146,28 +190,37 @@ function Forgetpassword() {
         // setForceUpdate()
         // window.open("/dashboard", "_self")
     }
-
-
-
-
-
-
-
+    
+    const [e , setBottom]= useState("")
+    const [ScrollerBttom,setScrollerBttom]=useState(false)
+    const [page, setPage]= useState(0)
+    function ReachBottom(e){
+        
+        const bottom = e.target.scrollHeight - e.target.scrollTop === e.target.clientHeight;
+    if (bottom) {
+        setScrollerBttom(bottom)
+        setPage((prev) => prev + 10)
+        console.log( bottom,"reach Bottom",page)
+     }
+    }
     return (
 
         <div>
             <Popup show={show} val={song} onClose={() => setShow(false)} />
             {/* <Webcam /> */}
             <Header />
+            <Mobileheader />
+            <Createpost />
 
             <div className="BasicStyle home">
-                <div className="display-flex">
+                {/* <Slider/> */}
+                <div className="home-df display-flex">
 
-                    <div className="home-left">
+                    <div className="home-left" onScroll={(e) => {setBottom(e.target.value)}, ReachBottom}>
                         <span>Hello,</span>
                         <h1>{name}</h1>
                         {/* <InfiniteScroll> */}
-                        <Post />
+                        <Post val={page} />
                         {/* </InfiniteScroll> */}
                     </div>
 
@@ -186,6 +239,7 @@ function Forgetpassword() {
                                     <button class="btn">Video</button>
                                     <input type="file" name="myfile" onChange={onImageChange2} />
                                 </div>
+                               
                                 <div class="upload-btn-wrapper">
                                     <button class="btn">Audio</button>
                                     <input type="file" name="myfile" onChange={onImageChange3} />
@@ -194,8 +248,8 @@ function Forgetpassword() {
                                 <button className="btn btn-outline-primary">Live</button>
                                 <button className="btn btn-outline-primary" onClick={Upload}>Upload</button>
                             </div>
-                            <div className="progress" style={{opacity:visibleProgress}}>
-                                <div className="progress-bar"  role="progressbar" style={{ width: `${uploadingPercent}%` }} aria-valuenow={uploadingPercent} aria-valuemin="0" aria-valuemax="100">{uploadingPercent}%</div>
+                            <div className="progress" style={{ opacity: visibleProgress }}>
+                                <div className="progress-bar" role="progressbar" style={{ width: `${uploadingPercent}%` }} aria-valuenow={uploadingPercent} aria-valuemin="0" aria-valuemax="100">{uploadingPercent}%</div>
                             </div>
                         </div>
 

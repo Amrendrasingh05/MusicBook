@@ -58,12 +58,12 @@ function Login() {
 
     }
 
-    const[eyeV, setEyeV]=useState("password")
-    function visible(){
-        if(eyeV == "password")
-        setEyeV("text")
+    const [eyeV, setEyeV] = useState("password")
+    function visible() {
+        if (eyeV == "password")
+            setEyeV("text")
         else
-        setEyeV("password")
+            setEyeV("password")
     }
 
 
@@ -92,23 +92,23 @@ function Login() {
                     {/* <p className="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing </p> */}
                     <input type="email" name="" id="" placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
                     <input className="eye-pass" type={eyeV} name="" id="" placeholder="Password" onChange={(e) => setPass(e.target.value)} />
-                    <img src={eye} className="eye" onClick={visible} style={{cursor:"pointer"}} alt="" />
+                    <img src={eye} className="eye" onClick={visible} style={{ cursor: "pointer" }} alt="" />
                     <br />
-                    <div style={{display:"flex", justifyContent:"space-around"}}>
-                        <div>
+                    <div  style={{ display: "flex", justifyContent: "space-around" }}>
+                        <div className="check-box-remember">
                             <input type="checkbox" name="" id="" style={{ height: "15px", marginTop: "10px", marginLeft: "15px" }} />
                         </div>
-                        <div style={{ marginLeft: "-95px" }}>
+                        <div className="remember-me" >
                             <p className="card-text">Remember me &nbsp;&nbsp; <a href="/forgetPassword">forget Password </a></p>
                         </div>
                     </div>
-                        {/* <p className="card-text">Remember me &nbsp;&nbsp;&nbsp;&nbsp; <a href="/forgetPassword">Forget password?</a></p> */}
-                        <button className="loginWithEmail" onClick={LoginBtn}>Continue</button>
-                        <p className="card-text">I don't Have Account? <a href="/register1">Create New</a></p>
-                    </div>
+                    {/* <p className="card-text">Remember me &nbsp;&nbsp;&nbsp;&nbsp; <a href="/forgetPassword">Forget password?</a></p> */}
+                    <button className="loginWithEmail" onClick={LoginBtn}>Continue</button>
+                    <p className="card-text">I don't Have Account? <a href="/register1">Create New</a></p>
                 </div>
             </div>
-            );
+        </div>
+    );
 
 }
-            export default Login;
+export default Login;
