@@ -8,6 +8,7 @@ function Login() {
         window.open("/forgetpassword", "_self")
     }
 
+    const[loader, setLoader] = useState(false)
 
 
     const [email, setEmail] = useState("");
@@ -32,6 +33,7 @@ function Login() {
             swal("Please Enter Correct Credentials");
             return;
         }
+        setLoader(true);
 
         let data = {
             "email": email,
@@ -41,6 +43,7 @@ function Login() {
         postdata('https://musicbook.co.in/api/v1/auth/login', data, 'POST')
             .then(data => {
                 if (data.status == true) {
+                    setLoader(false);
                     console.log("successfully loged in")
                     localStorage.setItem("auth_token", data.token)
                     localStorage.setItem("user_id", data.data._id)
@@ -102,6 +105,10 @@ function Login() {
                             <p className="card-text">Remember me &nbsp;&nbsp; <a href="/forgetPassword">forget Password </a></p>
                         </div>
                     </div>
+                    {/* Loading... */}
+                   <center>
+                   {loader?<div className="ring2"></div>:<></>}
+                   </center>
                     {/* <p className="card-text">Remember me &nbsp;&nbsp;&nbsp;&nbsp; <a href="/forgetPassword">Forget password?</a></p> */}
                     <button className="loginWithEmail" onClick={LoginBtn}>Continue</button>
                     <p className="card-text">I don't Have Account? <a href="/register1">Create New</a></p>

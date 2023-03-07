@@ -119,6 +119,7 @@ function Post(val) {
             getdata('https://musicbook.co.in/api/v1/post/like-post/' + val._id, 'POST')
                 .then(data => {
                     if (data.status == true) {
+                        setLikeC(1)
                         post.forEach((e, i) => {
                             if (e._id == val._id) {
                                 e.is_like = true
