@@ -1,8 +1,17 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-function getStarted() {
-    function Register1(){
-        window.open("/register1","_self")
+import { useAuth0 } from "@auth0/auth0-react";
+// import { signInWithGoogle } from "../firebase"; 
+
+function GetStarted() {
+    function Register1() {
+        window.open("/register1", "_self")
     }
+    function Google() {
+
+    }
+
+    const { user, loginWithRedirect } = useAuth0();
+    console.log("current user", user)
     return (
 
         <div className="GetStarted">
@@ -22,9 +31,9 @@ function getStarted() {
                 <div className="card-body">
                     <h1 className="card-title">WELCOME</h1>
                     {/* <p className="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing  </p> */}
-                    <button onClick={() => window.open("/login","_self")} className="loginWithEmail">Login With Email</button> <br />
-                    <button onClick={() => window.open("/mobile-login","_self")} className="loginWithMobile">Login With Mobile</button> <br />
-                    <button onClick={() => window.open("/login","_self")} className="loginWithMobile">Login With Google</button>
+                    <button onClick={() => window.open("/login", "_self")} className="loginWithEmail">Login With Email</button> <br />
+                    <button onClick={() => window.open("/mobile-login", "_self")} className="loginWithMobile">Login With Mobile</button> <br />
+                    <button  className="loginWithMobile">Login With Google</button>
                     <p className="card-text">I don't Have Account? <a href="/register1">Create New</a></p>
                 </div>
             </div>
@@ -32,4 +41,4 @@ function getStarted() {
     );
 
 }
-export default getStarted;
+export default GetStarted;

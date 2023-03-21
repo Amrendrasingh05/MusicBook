@@ -37,7 +37,8 @@ function Login() {
 
         let data = {
             "email": email,
-            "password": Pass
+            "password": Pass,
+            "user_type":"user"
         }
 
         postdata('https://musicbook.co.in/api/v1/auth/login', data, 'POST')
@@ -76,7 +77,7 @@ function Login() {
 
             <div className="left">
                 {/* <div className="pgNo">01</div> */}
-                <div className="leftHeading">Teach your audiance what they want to learn</div>
+                <div className="leftHeading">Live every beat of your life</div>
                 {/* <div className="left-text">Lorem ipsum dolor sit amet consectetur adipisicing elit</div> */}
                 <br />
                 <br />

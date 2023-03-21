@@ -46,6 +46,8 @@ import support from './User/support.component';
 import album from './User/album.component';
 import landingPage from './User/LandingPage.component';
 import ProfileUpdate from './User/ProfileUpdate.component';
+import Slider from './User/Slider';
+import shareScreen from './User/shareScreen';
 
 function App() {
   return (
@@ -72,6 +74,8 @@ function App() {
       <Route exact path="/album" component={album} />
       <Route exact path="/profile-update" component={ProfileUpdate} />
       <Route exact path="/" component={landingPage} />
+      <Route exact path="/slider" component={Slider} />
+      <Route exact path="/share/:id" component={shareScreen} />
 
 
 

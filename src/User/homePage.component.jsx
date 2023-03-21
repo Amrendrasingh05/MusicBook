@@ -42,9 +42,10 @@ function Forgetpassword() {
             .then(data => {
                 if (data.status == true) {
                     // console.log(data)
-                    setName(data.data.full_name)
-                    setEmail(data.data.email)
-                    setImage(data.data.pic)
+                    setName(data.data.data.full_name)
+                    console.log("User detail",data.data.data.full_name)
+                    setEmail(data.data.data.full_name)
+                    setImage(data.data.data.full_name)
                 }
                 else {
                     console("incorrect")
@@ -214,6 +215,7 @@ function Forgetpassword() {
 
             <div className="BasicStyle home">
                 {/* <Slider/> */}
+                <div className="btn btn-outline-secondary m-2">Scribble</div>
                 <div className="home-df display-flex">
 
                     <div className="home-left" onScroll={(e) => {setBottom(e.target.value)}, ReachBottom}>
@@ -229,7 +231,8 @@ function Forgetpassword() {
                         <div className="home-right-top">
                             <h6>Create Post</h6>
                             <p>Description</p>
-                            <input type="text" onChange={(e) => setCaption(e.target.value)} />
+                            <textarea name="" id="" cols="30" rows="10" onChange={(e) => setCaption(e.target.value)}></textarea>
+                            {/* <input type="text" onChange={(e) => setCaption(e.target.value)} /> */}
                             <div className="display-flex">
                                 <div class="upload-btn-wrapper">
                                     <button class="btn">Image</button>

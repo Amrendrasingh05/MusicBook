@@ -35,9 +35,9 @@ function Account() {
             .then(data => {
                 if (data.status == true) {
                     console.log(data)
-                    setName(data.data.full_name)
-                    setEmail(data.data.email)
-                    setImage(data.data.pic)
+                    setName(data.data.data.full_name)
+                    setEmail(data.data.data.email)
+                    setImage(data.data.data.pic)
                 } 
                 else {
                    console("incorrect")
@@ -75,13 +75,14 @@ function Account() {
                             <p>{email}</p>
                             <div className="display-flex">
                                 <button className="TopPlayer">Top Player</button>
-                                <p className="display-flex">Profile Rattig &nbsp; <p className="text-warning"> 4.8</p></p>
+                                <p className="display-flex">Profile Rating &nbsp; <p className="text-warning"> 4.8</p></p>
                             </div>
                             <div className="below-topBtn">
 
                             </div>
-                            <h5 className="text-secondary">ABOUT THE ARTIST</h5>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis facere harum vel vitae molestias illum, pariatur necessitatibus minima omnis voluptate ab reiciendis dicta. Quas tempore odit soluta in, minima cupiditate.</p>
+                            <h5 className="text-secondary">ABOUT THE USER</h5>
+                            <p>Not available</p>
+                            {/* <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis facere harum vel vitae molestias illum, pariatur necessitatibus minima omnis voluptate ab reiciendis dicta. Quas tempore odit soluta in, minima cupiditate.</p> */}
                             <div className="display-flex">
                                 {/* {BtnArray.map(buttons)} */}
                                  <button className="btn btn-outline-secondary">Digital Visiting Card</button> &nbsp;&nbsp;&nbsp;&nbsp;

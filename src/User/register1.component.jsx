@@ -15,10 +15,11 @@ function Register() {
 
 
     const [file, setFile] = useState([])
-    const onImageChange = (e) => {
+    function onImageChange(e){
+        console.log("hiiiii")
         setFile(e.target.files);
         setImage(URL.createObjectURL(file[0]));
-        // console.log(file[0])
+        console.log(URL.createObjectURL(file[0]))
 
     };
 
@@ -29,13 +30,11 @@ function Register() {
     const[checkBox, setcheckBox]=useState(false)
 
     async function Register() {
-        if (Pass1 == Pass2) {
-            setPass(Pass1)
-        }
-        else {
+        if (Pass1 != Pass2) {
             swal("write correct Password")
             return;
         }
+
         if (checkBox == false){
             swal("Please Accept Terms and Conditions")
             return;
@@ -43,9 +42,9 @@ function Register() {
         let formData = new FormData();
         formData.append('image', file[0]);
         formData.append('email', email)
-        formData.append('password', Pass)
+        formData.append('password', Pass1)
         formData.append('full_name', name)
-
+        formData.append("user_type","user")
         let response = await fetch('https://musicbook.co.in/api/v1/auth/register', {
             method: 'POST',
             body: formData

@@ -12,11 +12,14 @@ import albumImg4 from '../images/Rectangle 74.png'
 import swal from "sweetalert";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Popup from './threeDotPopup.component'
+import singlePicPopup from './singlePic'
+import { RWebShare } from "react-web-share";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 
+function Post(val) {
 
-function Post() {
-
+    // const [loading,setLoading] = useState("Loading...")
     const [CommentText, setCommentText] = useState("")
     const [show, setShow] = useState(false)
     const [postId, setpostId] = useState("")
@@ -39,41 +42,27 @@ function Post() {
         const response = await fetch(url, {
             method: methods,
             headers: {
-            "Content-Type": "application/json",
+                "Content-Type": "application/json",
                 "authorization": localStorage.getItem("auth_token")
             },
             body: JSON.stringify(data)
         });
         // console.log(JSON.stringify(data))
         return await response.json();
-
-        // var myHeaders = new Headers();
-        // myHeaders.append("Authorization", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2U5NDE0NDA1NzkzYzA4MWZlZmMxMTAiLCJpYXQiOjE2Nzc0OTkzMTksImV4cCI6MTY4MjY4MzMxOX0.ccSGIF8fN2xfCEm0QXrz8JgQe40P-4kyjNQe3zXvXWU");
-        // myHeaders.append("Content-Type", "application/json");
-
-        // var raw = JSON.stringify(data);
-
-        // var requestOptions = {
-        //     method: 'POST',
-        //     headers: myHeaders,
-        //     body: raw,
-        //     redirect: 'follow'
-        // };
-
-        // fetch("http://musicbook.co.in/api/v1/post/comment-post/63fc92a3a9f0a0f2319286ef", requestOptions)
-        //     .then(response => response.text())
-        //     .then(result => console.log(result))
-        //     .catch(error => console.log('error', error));
     }
 
 
     const [forceUpdate, setForceUpdate] = useState("")
     const [post, setPost] = useState([])
+    // const [page, setPage]= useState(0)
+
     useEffect(() => {
-        getdata('https://musicbook.co.in/api/v1/post/get-post?offset=0&type=', 'GET')
+
+        getdata(`https://musicbook.co.in/api/v1/post/get-post?offset=0&type=`, 'GET')
             .then(data => {
                 if (data.status == true) {
-                    setPost(data.data)
+                    setPost((prev) => [...prev, ...data.data.data])
+                    // setLoading("")
                     console.log("post data =", data)
                 }
                 else {
@@ -81,25 +70,84 @@ function Post() {
 
                 }
             })
+    }, [val])
 
-        // console.log("like called")
-    }, [forceUpdate])
 
     const [visible, setVisible] = useState("none")
     const [like, setLike] = useState("white")
     const [likeC, setLikeC] = useState(0)
 
 
+    const [slide, setSlide] = useState(0)
+    const [slideNo, setSlideNo] = useState(1)
+    const [ShowSinglePic, setShowSinglePic]=useState(false)
+    const [Index, setIndex]=useState(0)
+    // const [postId, setpostId] = useState(1)
 
     function Ncards(val) {
 
         // console.log(val.media[0])
         let imgUrl = ""
+        const mediaArr = [];
+        for (let i = 0; i < val.media.length; i++) {
+            mediaArr.push(val.media[i].file);
+        }
+
+        // console.log(mediaArr);
+
+
+
+        function Left() {
+            setpostId(val._id)
+            if (slideNo > 1) {
+                setSlide((prev) => prev + 380)
+                setSlideNo((prev) => prev - 1)
+                // console.log("slide", slide)
+            }
+            else {
+                return
+            }
+
+        }
+        function Right() {
+            setpostId(val._id)
+            if (slideNo < mediaArr.length) {
+                setSlide((prev) => prev - 380)
+                setSlideNo((prev) => prev + 1)
+                // console.log("val id", val._id)
+            }
+            else {
+                return
+            }
+
+        }
+
+        function MoreThanOne() {
+            return (
+                <>
+
+                    <div className="LeftRightBtns">
+                        <button className='arrow-left' onClick={Left}><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M15.293 3.293 6.586 12l8.707 8.707 1.414-1.414L9.414 12l7.293-7.293-1.414-1.414z" /></svg></button>
+                        <button className='arrow-right' onClick={Right}><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M7.293 4.707 14.586 12l-7.293 7.293 1.414 1.414L17.414 12 8.707 3.293 7.293 4.707z" /></svg></button>
+                    </div>
+
+                    <center className="current-slide">{slideNo}/{mediaArr.length}</center>
+
+                </>
+            )
+        }
 
         if (val.media[0]) {
             imgUrl = val.media[0].file
-            // console.log(imgUrl)
+            //   console.log(val.media.length)
         }
+
+        // if (val.media[1]) {
+        //     // imgUrl = val.media[0].file
+        //     mediaArr =val.media
+        //     console.log("mediaArr = ",mediaArr.map())
+        // }
+
 
         let postType = ""
 
@@ -132,6 +180,7 @@ function Post() {
             getdata('https://musicbook.co.in/api/v1/post/like-post/' + val._id, 'POST')
                 .then(data => {
                     if (data.status == true) {
+                        setLikeC(1)
                         post.forEach((e, i) => {
                             if (e._id == val._id) {
                                 e.is_like = true
@@ -184,11 +233,18 @@ function Post() {
 
                 return (
 
-                    <div className="mt-5 post">
-
+                    <center className="mt-5 post">
+                        <singlePicPopup show={ShowSinglePic} url={Index} onClose={()=> setShowSinglePic(false)} />
 
                         <center className="post-img-bg">
-                            <img src={imgUrl} alt="" className="mt-8" />
+                            <div className='carouse-container'>
+                                <div className='carousel' style={{ transform: postId == val._id ? `translate(${slide}px)` : "translate(0px)" }}>
+                                    {mediaArr.map((e) => (<img src={e} onClick={ ()=> {setShowSinglePic(true); setIndex(e);console.log(Index,ShowSinglePic)}} />))}
+                                </div>
+                                {mediaArr.length > 1 ? <MoreThanOne /> : <></>}
+                            </div>
+                            
+                            {/* <img src={imgUrl} alt="" /> */}
                         </center>
                         <center>
                             <div className="like-comment-bar">
@@ -199,7 +255,7 @@ function Post() {
                                         <img src={val.created_by.pic} alt="" /> &nbsp;&nbsp;&nbsp;&nbsp;
                                         <p>
                                             <p className="like-comment-bar-name">{val.created_by.full_name}</p>
-                                            <p className="like-comment-bar-email">{val.created_by.email}</p>
+                                            {/* <p className="like-comment-bar-email">{val.created_by.email}</p> */}
                                         </p>
 
                                     </div>
@@ -214,7 +270,19 @@ function Post() {
                                         </div>&nbsp;
                                         <div style={{ cursor: "pointer" }}>
                                             {localStorage.getItem("user_id") == val.created_by._id ? <div onClick={() => { setShow(true); setpostId(val._id) }}>&nbsp;&nbsp;&nbsp;⋮</div> : <>
-                                                <img src={share} alt="" className="share-img" /></>}</div>
+                                                <RWebShare
+                                                    data={{
+                                                        text: "MusicBook",
+                                                        url: "`https://musicbook.co.in/dashboard/" + val._id,
+                                                        title: "MusicBook",
+                                                    }}
+                                                    onClick={() => console.log("shared successfully!")}
+                                                >
+                                                    {/* <button> */}
+                                                    <img src={share} alt="" className="share-img" />
+                                                    {/* </button> */}
+                                                </RWebShare>
+                                            </>}</div>
                                     </div>
                                 </div>
                             </div>
@@ -236,7 +304,7 @@ function Post() {
                             </div>
                             : <></>}
 
-                    </div>
+                    </center>
                 );
             }
 
@@ -244,7 +312,7 @@ function Post() {
                 return (
 
 
-                    <div className="mt-5">
+                    <center className="mt-5 post">
                         <center className="post-img-bg">
                             {/* <img src={imgUrl} alt="" className="mt-8" /> */}
                             <video controls autoplay src={imgUrl}></video>
@@ -259,7 +327,7 @@ function Post() {
                                         <img src={val.created_by.pic} alt="" /> &nbsp;&nbsp;&nbsp;&nbsp;
                                         <p>
                                             <p className="like-comment-bar-name">{val.created_by.full_name}</p>
-                                            <p className="like-comment-bar-email">{val.created_by.email}</p>
+                                            {/* <p className="like-comment-bar-email">{val.created_by.email}</p> */}
                                         </p>
                                     </div>
                                     <div className="display-flex">
@@ -284,26 +352,26 @@ function Post() {
                         {postId == val._id ?
                             <div className="comment-area" style={{ display: visible }}>
 
-                            <div className="comments">
-                                {comments.map(comment)}
-                            </div>
+                                <div className="comments">
+                                    {comments.map(comment)}
+                                </div>
 
-                            <div className="display-flex">
-                                <input type="text" placeholder="Type your comment.." className="comment-box"
-                                    onChange={(e) => setCommentText(e.target.value)} />
-                                <button className="comment-btn primary-bg" onClick={UploadComment}>✎</button>
+                                <div className="display-flex">
+                                    <input type="text" placeholder="Type your comment.." className="comment-box"
+                                        onChange={(e) => setCommentText(e.target.value)} />
+                                    <button className="comment-btn primary-bg" onClick={UploadComment}>✎</button>
+                                </div>
                             </div>
-                        </div>
                             : <></>}
 
-                    </div>
+                    </center>
                 );
             }
             else if (postType == "audio") {
                 return (
 
 
-                    <div className="mt-5">
+                    <center className="mt-5 post">
                         <center className="post-img-bg">
                             <center className="music-wave-box">
                                 <div className="display-flex waves">
@@ -331,7 +399,7 @@ function Post() {
                                         <img src={val.created_by.pic} alt="" /> &nbsp;&nbsp;&nbsp;&nbsp;
                                         <p>
                                             <p className="like-comment-bar-name">{val.created_by.full_name}</p>
-                                            <p className="like-comment-bar-email">{val.created_by.email}</p>
+                                            {/* <p className="like-comment-bar-email">{val.created_by.email}</p> */}
                                         </p>
                                     </div>
                                     <div className="display-flex">
@@ -356,26 +424,26 @@ function Post() {
                         {postId == val._id ?
                             <div className="comment-area" style={{ display: visible }}>
 
-                            <div className="comments">
-                                {comments.map(comment)}
-                            </div>
+                                <div className="comments">
+                                    {comments.map(comment)}
+                                </div>
 
-                            <div className="display-flex">
-                                <input type="text" placeholder="Type your comment.." className="comment-box"
-                                    onChange={(e) => setCommentText(e.target.value)} />
-                                <button className="comment-btn primary-bg" onClick={UploadComment}>✎</button>
+                                <div className="display-flex">
+                                    <input type="text" placeholder="Type your comment.." className="comment-box"
+                                        onChange={(e) => setCommentText(e.target.value)} />
+                                    <button className="comment-btn primary-bg" onClick={UploadComment}>✎</button>
+                                </div>
                             </div>
-                        </div>
                             : <></>}
 
-                    </div>
+                    </center>
                 );
             }
         }
         else {
             return (
 
-                <div className="mt-5">
+                <center className="mt-5 post">
                     <center className="post-img-bg2">
                         {/* <img src={imgUrl} alt="" className="mt-8" /> */}
                         {/* <video controls autoplay src={imgUrl}></video> */}
@@ -389,7 +457,7 @@ function Post() {
                                     <img src={val.created_by.pic} alt="" /> &nbsp;&nbsp;&nbsp;&nbsp;
                                     <p>
                                         <p className="like-comment-bar-name">{val.created_by.full_name}</p>
-                                        <p className="like-comment-bar-email">{val.created_by.email}</p>
+                                        {/* <p className="like-comment-bar-email">{val.created_by.email}</p> */}
                                     </p>
                                 </div>
                                 <div className="display-flex">
@@ -412,19 +480,19 @@ function Post() {
                     {postId == val._id ?
                         <div className="comment-area" style={{ display: visible }}>
 
-                        <div className="comments">
-                            {comments.map(comment)}
-                        </div>
+                            <div className="comments">
+                                {comments.map(comment)}
+                            </div>
 
-                        <div className="display-flex">
-                            <input type="text" placeholder="Type your comment.." className="comment-box"
-                                onChange={(e) => setCommentText(e.target.value)} />
-                            <button className="comment-btn primary-bg" onClick={UploadComment}>✎</button>
+                            <div className="display-flex">
+                                <input type="text" placeholder="Type your comment.." className="comment-box"
+                                    onChange={(e) => setCommentText(e.target.value)} />
+                                <button className="comment-btn primary-bg" onClick={UploadComment}>✎</button>
+                            </div>
                         </div>
-                    </div>
                         : <></>}
 
-                </div>
+                </center>
             );
         }
     }
@@ -433,38 +501,16 @@ function Post() {
 
 
     return (
-        // <div className="mt-5">
-        //     <img src={leftImg1} alt="" className="mt-8" />
-        //     <center>
-        //         <div className="like-comment-bar justify-arrond">
-        //             <img src={profileImg} alt="" />
-        //             <p>Amrendra Singh</p>
-        //             <FontAwesomeIcon icon="fa fa-heart" />
-        //             <h5 onClick={Islike} style={{ cursor: "pointer", color:like }}>❤</h5>
-        //             <h5 onClick={Visible} style={{ cursor: "pointer" }}>💬</h5>
-        //         </div>
-        //     </center>
-
-        //     <div className="comment-area" style={{ display: visible }}>
-        //         <div className="display-flex">
-        //             <input type="text" placeholder="Type your comment.." className="comment-box" />
-        //             <button className="comment-btn primary-bg">send</button>
-        //         </div>
-        //         <div className="comments">
-        //             <div className="align">
-        //                 <img src={profileImg} alt="" style={{ height: "40px", width: "40px" }} />
-        //                 <p className="text-small">Lorem ipsum  Eligendi ab nulla excepturi quidem.</p>
-        //             </div>
-        //             <div className="align">
-        //                 <img src={profileImg} alt="" style={{ height: "40px", width: "40px" }} />
-        //                 <p className="text-small">Lorem ipsum  Eligendi ab nulla excepturi quidem.</p>
-        //             </div>
-        //         </div>
-        //     </div>
-        // </div>
         <>
-            {/* {post.slice(0).reverse().map(Ncards)} */}
+
             {post.map(Ncards)}
+            <center>
+                <div className="display-flex">
+                    <div className="ring"></div>
+                    <div>Loading..</div>
+                </div>
+            </center>
+
         </>
     );
 

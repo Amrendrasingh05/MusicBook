@@ -14,13 +14,13 @@ function Forgetpassword() {
     return (
 
         <>
-            <div className="display-flex bg-black text-white professional-header" style={{ alignItems: "center", justifyContent: "space-between", paddingRight: "5%", padding: "2%" }}>
+            <div className="display-flex bg-black text-white professional-header" style={{ alignItems: "center", justifyContent: "space-between", paddingRight: "5%", padding: "2%", zIndex:"1111" }}>
                 <Popup show={show} onClose={() => setShow(false)}/>
                 <div className="display-flex" onClick={() => window.open("/professional-home","_self")} style={{cursor:"pointer"}}>
                     <img src={logo} alt="" />
                     <div>
-                        <h5>MusicBook</h5>
-                        <p>Live every Beatof your life</p>
+                        <h5>Music book</h5>
+                        <p>Live every beat of your life</p>
                     </div>
                 </div>
 

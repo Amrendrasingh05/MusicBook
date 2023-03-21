@@ -91,6 +91,7 @@ function Account() {
                         <input type="text" placeholder="ꗃ Old Password" /><br />
                         <input type="text" placeholder="ꗃ New Password" /><br />
                         <input type="text" placeholder="ꗃ Retype Password" /><br />
+                        <input type="text" placeholder=" About You" /><br />
                         <button className="btn btn-primary">Update</button>
                     </div>
                 </div>

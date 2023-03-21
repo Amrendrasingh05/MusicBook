@@ -6,7 +6,7 @@ function LandingPage() {
             <div className='landing-img-1'>
                <div className='landing-content'>
                 <div>Personal</div> <br />
-                <h3>Learn Music And Sign Together</h3> <br />
+                <h3>Learn Music And Sing Together</h3> <br />
                 <button className="primary-bg landing-btn" onClick={() => window.open("/getStarted","_self")}>Continue</button>
                </div>
             </div>

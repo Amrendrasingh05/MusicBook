@@ -13,8 +13,8 @@ function getStarted() {
 
                     <img src={logo} alt="" />
                     <div>
-                        <h5>MusicBook</h5>
-                        <p>Live every Beatof your life</p>
+                        <h5>Music book</h5>
+                        <p>Live every beat of your life</p>
                     </div>
                 </div>
 

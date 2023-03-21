@@ -9,17 +9,51 @@ import albumImg3 from '../images/Rectangle 73.png'
 import albumImg4 from '../images/Rectangle 74.png'
 
 // import {Modal} from reactstrap;
-import { useState } from "react";
+import { useState, useReducer, useEffect } from "react";
 import {Modal , ModalBody, ModalHeader} from "reactstrap";
-
+import Post from '../User/post.component'
 
 function Forgetpassword() {
+
+    async function getdata(url = '', methods = '') {
+        const response = await fetch(url, {
+            method: methods,
+            headers: {
+                'Content-Type': 'application/json',
+                "authorization": localStorage.getItem("auth_token")
+            },
+        });
+        return response.json();
+    }
     
     const [modal,setmodal] =useState(false)
     const [modal2,setmodal2] =useState(false)
     const [modal3,setmodal3] =useState(false)
 
-    
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [image, setImage] = useState("");
+
+    const [forceUpdate, setForceUpdate] = useReducer(x => x + 1, 0)
+
+    useEffect(() => {
+        getdata('https://musicbook.co.in/api/v1/auth/get-user-details?user_id=' + localStorage.getItem("user_id"), 'GET')
+            .then(data => {
+                if (data.status == true) {
+                    // console.log(data)
+                    setName(data.data.data.full_name)
+                    console.log("User detail",data.data.data.full_name)
+                    setEmail(data.data.data.full_name)
+                    setImage(data.data.data.full_name)
+                }
+                else {
+                    console("incorrect")
+
+                }
+            })
+    }, [forceUpdate])
+
+
 
     return (
 
@@ -90,10 +124,11 @@ function Forgetpassword() {
             
             <div className="home-left">
                 <span>HELLO,</span>
-                <h1>Nakul Kumar</h1>
-                <img src={leftImg1} alt="" />
+                <h1>{name}</h1>
+                <Post />
+                {/* <img src={leftImg1} alt="" />
                 <br />
-                <img src={leftImg2} alt="" />
+                <img src={leftImg2} alt="" /> */}
             </div>
            
             <div className="home-right">

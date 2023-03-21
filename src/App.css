@@ -5,6 +5,49 @@
   padding: 0;
   font-family: "Poppins", sans-serif;
 }
+.carouse-container{
+  overflow: hidden;
+  width: 380px;
+  /* background: white; */
+}
+.carousel{
+  display: flex;
+  width: 380px;
+  /* background: white; */
+  /* transform: translate(-600px); */
+}
+.carousel img{
+  width: 380px;
+}
+.current-slide{
+  position: absolute;
+  bottom: 135px;
+  left: 48%;
+}
+.LeftRightBtns{
+  position: absolute;
+  /* background: #005eff; */
+  width: 380px;
+  top: 40%;
+  display: flex;
+  justify-content: space-between;
+}
+.arrow-left{
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  border: 0;
+  background: rgba(255, 255, 255, 0.351);
+  backdrop-filter: blur(10px);
+}
+.arrow-right{
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  border: 0;
+  background: rgba(255, 255, 255, 0.351);
+  backdrop-filter: blur(10px);
+}
 .Mobile-header{
   display: none;
 }
@@ -16,7 +59,7 @@
 }
 .waves{
   margin-bottom: 10%;
-  margin-left:25%
+  margin-left:15%
 }
 .music-wave{
   display: block;
@@ -468,28 +511,31 @@ button {
   background: black;
 }
 .home-left img {
-  max-width:480px;
-  height: 260px;
+  max-width:380px;
+  /* height: 260px; */
   border-radius: 10px;
   padding-bottom: 2%;
 }
-.home-left video {
-  max-width:480px;
+.home-left .video {
+  max-width:380px;
   height: 260px;
   border-radius: 10px;
   padding-bottom: 2%;
 }
 .post-img-bg{
-  width: 480px;
-  background: rgba(42, 42, 42, 0.2);
+  width: 380px;
+  max-height: 450px;
+  overflow: hidden;
+  /* background: rgba(42, 42, 42, 0.2); */
+  
 border-radius: 16px;
 box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-backdrop-filter: blur(5px);
+/* backdrop-filter: blur(5px); */
 -webkit-backdrop-filter: blur(5px);
 /* border: 1px solid rgba(255, 255, 255, 0.3); */
 }
 .post-img-bg2{
-  width: 480px;
+  width: 380px;
   padding: 2%;
   padding-bottom: 7%;
   background: rgba(42, 42, 42, 0.2);
@@ -509,7 +555,7 @@ text-align: left;
   background: white;
 }
 .like-comment-bar{
-  width: 480px;
+  width: 380px;
 height: fit-content;
 margin-top: -2%;
 margin-left: 0%; 
@@ -564,8 +610,49 @@ border-bottom-left-radius: 10px;
   margin-top: -30%;
   border: 0 !important;
 }
+.comment-area2{
+  width: 500px;
+  margin-left: 10%;
+  /* background: #000000; */
+  backdrop-filter: blur(30px);
+}
+.comment-area2 img{
+  height: 40px !important;
+  width: 40px !important;
+  border-radius: 50%;
+  border: 1px dotted gray;
+  margin-bottom: 2%;
+}
+.comment-box2{
+  width: 500px;
+height: 40px;
+background:#33333329;
+color: white;
+/* border: 1px solid black; */
+padding: 2%;
+border: 0;
+}
+.comment-btn2{
+  width: 80px;
+height: 40px;
+/* border-bottom: 1px solid black;
+border-right: 1px solid black;
+border-top: 1px solid black; */
+/* margin-top: 4%; */
+}
+.comments2 div{
+  padding-top: 2%;
+}
+.comments2{
+  max-height: 400px;
+  overflow-y: scroll;
+}
+.comments2::-webkit-scrollbar{
+  border: 0;
+  background: transparent;
+}
 .comment-area{
-  width: 480px;
+  width: 380px;
   /* background: #000000; */
   backdrop-filter: blur(30px);
 }
@@ -678,6 +765,24 @@ border-top: 1px solid black; */
   margin-left: -2.2%;
   padding: 2%;
 }
+.share-screen-bg{
+  background-image: url("./images/blackDesign.jpg");
+  /* backdrop-filter: blur(10px); */
+  height: 100vh;
+  max-height: 100vh !important;
+  width: 65%;
+}
+.share-screen{
+  background-image: url("./images/blackDesign.jpg");
+  width: 40%;
+  height: 100vh;
+  background-repeat: no-repeat;
+  /* background-size: cover; */
+  max-height: 100vh !important;
+  /* overflow-y: scroll; */
+  margin-left: -2.2%;
+  padding: 2%;
+}
 /* .home-left2{
   background-image: url("./images/blackDesign.jpg");
   width: 900px;
@@ -722,10 +827,19 @@ border-top: 1px solid black; */
   color: white;
   padding-left: 2%;
 }
+.home-right-top textarea {
+  width: 510.92px;
+  height: 50.61px;
+  background: rgba(115, 115, 115, 0.25);
+  border-radius: 6.70096px;
+  border: 0;
+  color: white;
+  padding-left: 2%;
+}
 .home-right-top button {
   margin: 2%;
-  color: #525050;
-  border: 1px solid #525050;
+  color: #ffffffb5;
+  border: 1px solid #ffffff43;
   width: 100.51px;
   height: 35px;
   max-height: 35px;
@@ -1049,7 +1163,7 @@ border-top: 1px solid black; */
 }
 .account-right img{
   max-width:480px;
-  height: 260px;
+  /* height: 260px; */
   border-radius: 10px;
   padding-bottom: 2%;
 }
@@ -1690,7 +1804,7 @@ border-bottom: 1px solid #767676;
     border-radius: 10px;
     padding-bottom: 2%;
   }
-  .home-left video {
+  .home-left .video {
     max-width:100%;
     height: auto;
     border-radius: 10px;
